@@ -50,7 +50,7 @@
 //   }
 
   // -----------------------------------------------------------------------
-  // After all 4 messages shown (6 seconds), redirect to navbar.html
+  // After all 4 messages shown (6 seconds), redirect to signup.html
   // -----------------------------------------------------------------------
   const splashDuration = 6000;
 
