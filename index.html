@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="KhaLo, restaurant, food, Karachi, food ordering">
+  <title>KhaLo — Loading</title>
+
+  <!-- Google Fonts and Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+  <main class="splash-main">
+    <div class="splash-wrapper">
+      <div class="splash-container">
+
+        <!-- Floating Background Elements -->
+        <div class="auth-floating-bg">
+          <i class="fa-solid fa-burger float-icon icon-1" aria-hidden="true"></i>
+          <i class="fa-solid fa-pizza-slice float-icon icon-2" aria-hidden="true"></i>
+          <i class="fa-solid fa-bowl-food float-icon icon-3" aria-hidden="true"></i>
+          <i class="fa-solid fa-cookie-bite float-icon icon-4" aria-hidden="true"></i>
+          <i class="fa-solid fa-utensils float-icon icon-5" aria-hidden="true"></i>
+        </div>
+
+        <!-- Center Content -->
+        <div class="splash-center">
+
+          <!-- Logo -->
+          <div class="logo-wrapper">
+            <div class="logo-glow"></div>
+            <div class="logo-inner">
+              <img id="khalo-logo-img" alt="KhaLo Logo" src="./assets/khalo_logo_clean.png">
+
+            </div>
+          </div>
+
+          <!-- Tagline -->
+          <p class="splash-tagline">Aaj Kiya Khana Hai</p>
+
+          <!-- Spinner & Status -->
+          <div class="spinner-area">
+            <div class="spinner-container">
+              <svg class="spinner-svg" viewBox="0 0 36 36">
+                <circle cx="18" cy="18" r="14" fill="none" stroke="currentColor" stroke-width="3.5"></circle>
+                <circle cx="18" cy="18" r="14" fill="none" stroke="#FF6B35" stroke-width="3.5" stroke-dasharray="88"
+                  stroke-dashoffset="62" stroke-linecap="round"></circle>
+              </svg>
+              <span class="spinner-center-dot"></span>
+            </div>
+            <div class="status-text-area">
+              <span class="status-text" id="splash-status-text" style="opacity: 0; transform: translateY(4px);">
+                Deciding delicious choices...
+              </span>
+              <span class="status-subtext">
+                Loading...
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="splash-footer">
+          <div class="footer-locations">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            <span class="city">Karachi</span>
+          </div>
+        </footer>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Script -->
+  <script src="./index.js"></script>
+</body>
+
+</html>
