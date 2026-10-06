@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
+  <title>KhaLo — Create Account</title>
+
+  <!-- Google Fonts & Font Awesome Icons CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/signup.css">
+</head>
+
+<body>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast">
+    <div class="toast-icon">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+    <div>
+      <p class="toast-title" id="toastTitle">Welcome!</p>
+      <p class="toast-message" id="toastMessage">Preparing your KhaLo experience...</p>
+    </div>
+  </div>
+
+  <main class="signup-main">
+    <div class="signup-grid">
+
+      <!-- LEFT COLUMN: Brand Experience -->
+
+      <div class="auth-brand-panel">
+        <div class="auth-glow-top"></div>
+        <div class="auth-glow-bottom"></div>
+
+        <div class="auth-floating-bg">
+          <i class="fa-solid fa-burger float-icon icon-1" aria-hidden="true"></i>
+          <i class="fa-solid fa-pizza-slice float-icon icon-2" aria-hidden="true"></i>
+          <i class="fa-solid fa-bowl-food float-icon icon-3" aria-hidden="true"></i>
+          <i class="fa-solid fa-cookie-bite float-icon icon-4" aria-hidden="true"></i>
+          <i class="fa-solid fa-utensils float-icon icon-5" aria-hidden="true"></i>
+        </div>
+
+        <div class="auth-brand-header">
+          <img id="loginLogoImg" class="auth-logo-img" alt="KhaLo Logo" src="../assets/khalo_logo.png">
+          <div class="auth-logo-fallback" id="loginLogoFallback">K</div>
+          <div>
+            <span class="auth-brand-name">Kha<span style="color: var(--on-surface);">Lo</span></span>
+            <p class="auth-brand-sub">Food Platform</p>
+          </div>
+        </div>
+
+        <div class="auth-hero">
+          <h1>What <br><span class="highlight">to eat.</span></h1>
+          <p>Personalized mood budget &amp; sensory food intelligence across Karachi</p>
+        </div>
+
+        <div class="auth-trust">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <p>Trusted by hungry foodies across Karachi</p>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Registration Form -->
+      <div class="signup-form-panel">
+
+        <div class="signup-mobile-header">
+          <div class="signup-mobile-brand">
+            <div class="signup-mobile-logo">
+              <img alt="KhaLo" src="../assets/khalo_logo.png">
+            </div>
+            <span style="font-weight:700; color:var(--primary);">KhaLo</span>
+          </div>
+          <a class="link-accent" style="color:var(--primary-container); font-weight:600; font-size:14px;"
+            href="login.html">Sign In</a>
+        </div>
+
+        <div class="signup-form-wrap">
+
+          <div class="signup-form-heading">
+            <h2>Create your account</h2>
+            <p>Join KhaLo and make deciding what to eat easier.</p>
+          </div>
+
+
+          <!-- Registration Form -->
+          <form class="signup-form" id="registrationForm" novalidate>
+            <div class="form-group">
+              <label for="fullName">Full name</label>
+              <div class="input-wrap">
+                <input id="fullName" name="fullName" placeholder="Enter your full name" required type="text"
+                  autocomplete="name">
+                <i class="fa-regular fa-user input-icon-right" aria-hidden="true"></i>
+              </div>
+              <p class="field-error" id="nameError">Please enter your full name.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <div class="input-wrap">
+                <input id="email" name="email" placeholder="Enter your email" required type="email"
+                  autocomplete="email">
+                <i class="fa-regular fa-envelope input-icon-right" aria-hidden="true"></i>
+              </div>
+              <p class="field-error" id="emailError">Please provide a valid email address.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-wrap">
+                <input id="password" name="password" placeholder="Create a password" required type="password"
+                  autocomplete="new-password">
+                <button aria-label="Toggle password visibility" class="input-toggle-btn" id="togglePassword"
+                  type="button">
+                  <i class="fa-regular fa-eye" id="togglePasswordIcon" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="strength-meter">
+                <div class="strength-bars">
+                  <div class="strength-bar" id="strengthBar1"></div>
+                  <div class="strength-bar" id="strengthBar2"></div>
+                  <div class="strength-bar" id="strengthBar3"></div>
+                </div>
+                <div class="strength-labels">
+                  <span>Strength: <span id="strengthText">None</span></span>
+                  <span>Min. 8 characters</span>
+                </div>
+              </div>
+              <p class="field-error" id="passwordError">Password must be at least 8 characters.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm password</label>
+              <div class="input-wrap">
+                <input id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required
+                  type="password" autocomplete="new-password">
+                <button aria-label="Toggle confirm password visibility" class="input-toggle-btn"
+                  id="toggleConfirmPassword" type="button">
+                  <i class="fa-regular fa-eye" id="toggleConfirmIcon" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p class="field-error" id="confirmError">Passwords do not match.</p>
+            </div>
+
+            <div class="terms-row">
+              <label class="terms-label">
+                <input id="agreeTerms" name="agreeTerms" type="checkbox">
+                <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+              </label>
+              <p class="field-error" id="termsError">Please accept terms to proceed.</p>
+            </div>
+
+            <div>
+              <button class="btn-primary" id="submitBtn" type="submit">
+                <span id="submitBtnText">Create Account</span>
+                <i class="fa-solid fa-arrow-right" id="submitBtnIcon" style="font-size:16px;" aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+
+          <p class="signup-switch-prompt">
+            Already have an account?
+            <a href="login.html" id="loginLink">Log in</a>
+          </p>
+        </div>
+
+        <!-- <div class="signup-footer">
+          <p>© 2026 KhaLo Technologies Inc. • <a href="#privacy">Privacy Policy</a> • <a href="#terms">Terms of
+              Service</a></p>
+        </div> -->
+
+      </div>
+    </div>
+  </main>
+  <script src="../js/signup.js"></script>
+</body>
+
+</html>
