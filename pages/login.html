@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
+  <title>KhaLo — Log In</title>
+
+  <!-- Google Fonts & Font Awesome Icons CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast">
+    <div class="toast-icon">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+    <div>
+      <p class="toast-title" id="toastTitle">Welcome back!</p>
+      <p class="toast-message" id="toastMessage">Ready to decide what to eat in<br>Karachi</p>
+    </div>
+  </div>
+
+  <main class="auth-main">
+    <div class="auth-shell">
+
+      <!-- LEFT PANEL: Brand Experience -->
+      <div class="auth-brand-panel">
+        <div class="auth-glow-top"></div>
+        <div class="auth-glow-bottom"></div>
+
+        <div class="auth-floating-bg">
+          <i class="fa-solid fa-burger float-icon icon-1" aria-hidden="true"></i>
+          <i class="fa-solid fa-pizza-slice float-icon icon-2" aria-hidden="true"></i>
+          <i class="fa-solid fa-bowl-food float-icon icon-3" aria-hidden="true"></i>
+          <i class="fa-solid fa-cookie-bite float-icon icon-4" aria-hidden="true"></i>
+          <i class="fa-solid fa-utensils float-icon icon-5" aria-hidden="true"></i>
+        </div>
+
+        <div class="auth-brand-header">
+          <img id="loginLogoImg" class="auth-logo-img" alt="KhaLo Logo" src="../assets/khalo_logo.png">
+          <div class="auth-logo-fallback" id="loginLogoFallback">K</div>
+          <div>
+            <span class="auth-brand-name">Kha<span style="color: var(--on-surface)" ;>Lo</span></span>
+            <p class="auth-brand-sub">Food Platform</p>
+          </div>
+        </div>
+
+        <div class="auth-hero">
+          <h1>What <br><span class="highlight">to eat.</span></h1>
+          <p>Personalized mood budget &amp; sensory food intelligence across Karachi</p>
+        </div>
+
+        <div class="auth-trust">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <p>Trusted by hungry foodies across Karachi</p>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL: Login Form -->
+      <div class="auth-form-panel">
+        <div class="auth-form-wrap">
+
+          <div class="auth-mobile-header">
+            <div class="auth-mobile-brand">
+              <div class="auth-mobile-logo">K</div>
+              <span style="font-weight:700;">KhaLo</span>
+            </div>
+          </div>
+
+          <div class="auth-form-heading">
+            <h2>Welcome back</h2>
+            <p>Log in to continue your KhaLo decision journey.</p>
+          </div>
+
+          <form class="auth-form" id="loginForm" novalidate>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <div class="input-wrap">
+                <i class="fa-regular fa-envelope input-icon-left" aria-hidden="true"></i>
+                <input id="email" name="email" placeholder="name@khalo.pk" required type="email" autocomplete="email">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="passwordInput">Password</label>
+              <div class="input-wrap">
+                <i class="fa-solid fa-lock input-icon-left" aria-hidden="true"></i>
+                <input class="has-toggle" id="passwordInput" name="password" placeholder="••••••••••••" required
+                  type="password" autocomplete="current-password">
+                <button aria-label="Toggle password visibility" class="input-toggle-btn" id="togglePasswordBtn"
+                  type="button">
+                  <i class="fa-regular fa-eye" id="passwordEyeIcon" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-row-between">
+              <label class="checkbox-label">
+                <input checked id="rememberMe" name="rememberMe" type="checkbox">
+                <span>Remember me</span>
+              </label>
+              <a class="link-accent" href="#forgot-password" id="forgotPasswordLink">Forgot password?</a>
+            </div>
+
+            <div>
+              <button class="btn-primary" id="submitBtn" type="submit">
+                <span id="btnText">Log In</span>
+                <i class="fa-solid fa-spinner spin-icon" id="btnSpinner" aria-hidden="true"></i>
+              </button>
+            </div>
+          </form>
+
+          <div class="auth-divider"><span>or</span></div>
+
+          <button class="btn-social" id="googleLoginBtn" type="button">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z"
+                fill="#4285F4"></path>
+              <path
+                d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.24v3.15C3.26 21.36 7.34 24 12 24z"
+                fill="#34A853"></path>
+              <path
+                d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.14-1.55.38-2.27V6.58H1.24C.45 8.16 0 9.98 0 12s.45 3.84 1.24 5.42l4.04-3.15z"
+                fill="#FBBC05"></path>
+              <path
+                d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.24 6.58l4.04 3.15c.95-2.83 3.6-4.98 6.72-4.98z"
+                fill="#EA4335"></path>
+            </svg>
+            <span>Continue with Google</span>
+          </button>
+
+          <p class="auth-switch-prompt">
+            Don't have an account?
+            <a href="./signup.html">Create an account</a>
+          </p>
+          <!-- 
+          <div class="auth-legal">
+            <p>© 2026 KhaLo Technologies Inc. • <a href="#privacy">Privacy Policy</a> • <a href="#terms">Terms of
+                Service</a></p>
+          </div> -->
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <script src="../js/login.js"></script>
+</body>
+
+</html>
