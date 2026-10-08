@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
+  <title>KhaLo — Forgot Password</title>
+
+  <!-- Google Fonts & Font Awesome Icons CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/forgot.css">
+</head>
+
+<body>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast">
+    <div class="toast-icon" id="toastIcon">
+      <i class="fa-solid fa-circle-check" id="toastIconI"></i>
+    </div>
+    <div>
+      <p class="toast-title" id="toastTitle">Notice</p>
+      <p class="toast-message" id="toastMessage">Reset instructions</p>
+    </div>
+  </div>
+
+  <main class="auth-main">
+    <div class="auth-shell">
+
+      <!-- LEFT PANEL: Brand Experience -->
+      <div class="auth-brand-panel">
+        <div class="auth-glow-top"></div>
+        <div class="auth-glow-bottom"></div>
+
+        <div class="auth-floating-bg">
+          <i class="fa-solid fa-burger float-icon icon-1" aria-hidden="true"></i>
+          <i class="fa-solid fa-pizza-slice float-icon icon-2" aria-hidden="true"></i>
+          <i class="fa-solid fa-bowl-food float-icon icon-3" aria-hidden="true"></i>
+          <i class="fa-solid fa-cookie-bite float-icon icon-4" aria-hidden="true"></i>
+          <i class="fa-solid fa-utensils float-icon icon-5" aria-hidden="true"></i>
+        </div>
+
+        <div class="auth-brand-header">
+          <img id="loginLogoImg" class="auth-logo-img" alt="KhaLo Logo" src="../assets/khalo_logo.png">
+          <div class="auth-logo-fallback" id="loginLogoFallback">K</div>
+          <div>
+            <span class="auth-brand-name">Kha<span style="color: var(--on-surface)" ;>Lo</span></span>
+            <p class="auth-brand-sub">Food Platform</p>
+          </div>
+        </div>
+
+        <div class="auth-hero">
+          <h1>What <br><span class="highlight">to eat.</span></h1>
+          <p>Personalized mood budget &amp; sensory food intelligence across Karachi</p>
+        </div>
+
+        <div class="auth-trust">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <p>Trusted by hungry foodies across Karachi</p>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL: Forgot Password Form -->
+      <div class="auth-form-panel">
+        <div class="auth-form-wrap">
+
+          <div class="auth-mobile-header">
+            <div class="auth-mobile-brand">
+              <div class="auth-mobile-logo">K</div>
+              <span style="font-weight:700;">KhaLo</span>
+            </div>
+          </div>
+
+          <div class="auth-form-heading">
+            <h2 id="formHeading">Forgot your password?</h2>
+            <p id="formSubheading">Enter your registered email address and we'll help you reset your password.</p>
+          </div>
+
+          <!-- STEP 1: Verify Email -->
+          <form class="auth-form" id="emailStepForm" novalidate>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <div class="input-wrap">
+                <i class="fa-regular fa-envelope input-icon-left" aria-hidden="true"></i>
+                <input id="email" name="email" placeholder="name@khalo.pk" required type="email" autocomplete="email">
+              </div>
+              <p class="field-error" id="emailError">Please provide a valid registered email address.</p>
+            </div>
+
+            <div>
+              <button class="btn-primary" id="emailSubmitBtn" type="submit">
+                <span id="emailBtnText">Continue</span>
+                <i class="fa-solid fa-arrow-right" id="emailBtnIcon" aria-hidden="true"></i>
+                <i class="fa-solid fa-spinner spin-icon" id="emailBtnSpinner" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <p class="auth-switch-prompt">
+              <a class="link-accent" href="./login.html">Back to Login</a>
+            </p>
+          </form>
+
+          <!-- STEP 2: Set New Password (initially hidden) -->
+          <form class="auth-form step-hidden" id="passwordStepForm" novalidate>
+            <div class="form-group">
+              <label for="newPassword">New Password</label>
+              <div class="input-wrap">
+                <i class="fa-solid fa-lock input-icon-left" aria-hidden="true"></i>
+                <input class="has-toggle" id="newPassword" name="newPassword" placeholder="••••••••••••" required
+                  type="password" autocomplete="new-password">
+                <button aria-label="Toggle password visibility" class="input-toggle-btn" id="toggleNewPasswordBtn"
+                  type="button">
+                  <i class="fa-regular fa-eye" id="newPasswordEyeIcon" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p class="field-error" id="newPasswordError">Password must be at least 8 characters.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <div class="input-wrap">
+                <i class="fa-solid fa-lock input-icon-left" aria-hidden="true"></i>
+                <input class="has-toggle" id="confirmPassword" name="confirmPassword" placeholder="••••••••••••"
+                  required type="password" autocomplete="new-password">
+                <button aria-label="Toggle confirm password visibility" class="input-toggle-btn"
+                  id="toggleConfirmPasswordBtn" type="button">
+                  <i class="fa-regular fa-eye" id="confirmPasswordEyeIcon" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p class="field-error" id="confirmPasswordError">Passwords do not match.</p>
+            </div>
+
+            <div>
+              <button class="btn-primary" id="passwordSubmitBtn" type="submit">
+                <span id="passwordBtnText">Reset Password</span>
+                <i class="fa-solid fa-spinner spin-icon" id="passwordBtnSpinner" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <p class="auth-switch-prompt">
+              <a class="link-accent" href="login.html">Back to Login</a>
+            </p>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/forgot.js"></script>
+</body>
+
+</html>
