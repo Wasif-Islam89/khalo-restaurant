@@ -46,14 +46,7 @@
     }, 3800);
   }
 
-  // ----- Forgot password (non-blocking feedback instead of alert()) -----
-  const forgotPasswordLink = document.getElementById('forgotPasswordLink');
-  if (forgotPasswordLink) {
-    forgotPasswordLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      showToast('If that email is registered, a reset link is on its way.', 'Check your inbox');
-    });
-  }
+  // ----- Forgot password link navigates to forgot-password.html -----
 
   // ----- Google mock login -----
   const googleLoginBtn = document.getElementById('googleLoginBtn');
@@ -141,7 +134,7 @@
 })();
 
 // Smooth page transitions //
-document.querySelectorAll('a[href="signup.html"], a[href="login.html"]').forEach(link => {
+document.querySelectorAll('a[href="signup.html"], a[href="login.html"], a[href="./forgot-password.html"], a[href="forgot-password.html"]').forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault();
     const target = this.href;
