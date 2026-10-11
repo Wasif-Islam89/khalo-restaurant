@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="KhaLo helps you decide what to eat. Discover meals by mood, budget, and time across Karachi — explore popular dishes, midnight cravings, and exclusive deals." />
+  <title>KhaLo — Aaj Kya Khaana Hai? | Food Discovery &amp; Restaurant Ordering in Karachi</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/fav.icon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/home.css" />
+</head>
+
+<body>
+
+  <!-- ========= NAVBAR (from navbar component) ========= -->
+  <header class="navbar-header">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+        <div class="brand">
+          <a href="./home.html" class="brand-link" title="KhaLo Home">
+            <div class="brand-icon">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" />
+            </div>
+          </a>
+        </div>
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <a href="./home.html" class="nav-link active">Home</a>
+          <a href="./discover.html" class="nav-link">Discover</a>
+          <a href="meal-finder.html" class="nav-link">Find My Meal</a>
+          <a href="./menu.html" class="nav-link">Menu</a>
+          <a href="./deal.html" class="nav-link nav-link-badge">
+            Deals
+            <span class="badge-hot">Hot</span>
+          </a>
+        </nav>
+        <div class="utility-controls">
+          <div class="location-selector">
+            <button type="button" class="location-btn">
+              <svg class="icon-location" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Karachi</span>
+              <svg class="icon-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+          <div class="nav-search-wrap" id="nav-search-wrap">
+            <button type="button" class="icon-btn nav-search-btn" id="search-btn" title="Search" aria-label="Search"
+              aria-expanded="false">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+            <form class="nav-search-form" id="nav-search-form" role="search" aria-label="Search meals and deals">
+              <span class="material-symbols-outlined nav-search-icon" aria-hidden="true">search</span>
+              <input type="search" class="nav-search-input" id="nav-search-input"
+                placeholder="Search dishes, deals, cuisines..." autocomplete="off" aria-label="Search meals" />
+              <button type="button" class="nav-search-close" id="search-close-btn" aria-label="Close search"
+                title="Close search">
+                <span class="material-symbols-outlined" aria-hidden="true">close</span>
+              </button>
+            </form>
+          </div>
+          <a href="#" class="icon-btn" title="Favorites" aria-label="Favorites">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <span class="badge" id="fav-badge">3</span>
+          </a>
+          <a href="#" class="icon-btn" title="Cart" aria-label="Shopping Cart">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="badge" id="cart-badge">2</span>
+          </a>
+          <a href="#" class="icon-btn icon-btn-profile" title="My Profile" aria-label="Profile">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </a>
+          <button id="hamburger-btn" type="button" class="hamburger-btn" aria-label="Toggle navigation menu"
+            aria-expanded="false">
+            <svg class="icon-hamburger" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg class="icon-close" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu hidden-state">
+      <div class="mobile-location-bar">
+        <div class="mobile-location-info">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Delivering to: <span class="location-name">Karachi Hub</span>
+        </div>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="./home.html" class="mobile-nav-link active">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">home</span>
+          <span class="mobile-nav-text">Home</span>
+        </a>
+        <a href="#mood" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">explore</span>
+          <span class="mobile-nav-text">Discover</span>
+        </a>
+        <a href="#decision" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">auto_awesome</span>
+          <span class="mobile-nav-text">Find My Meal</span>
+        </a>
+        <a href="#popular" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">restaurant_menu</span>
+          <span class="mobile-nav-text">Menu</span>
+        </a>
+        <a href="#deals" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">local_offer</span>
+          <span class="mobile-nav-text">Deals</span>
+          <span class="badge-hot">Hot</span>
+        </a>
+        <a href="#popular" class="mobile-nav-link" id="mobile-fav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">favorite</span>
+          <span class="mobile-nav-text">Favorites</span>
+          <span class="badge" id="mobile-fav-badge">3</span>
+        </a>
+        <a href="#get-app" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">delivery_dining</span>
+          <span class="mobile-nav-text">Orders &amp; Live Status</span>
+        </a>
+        <a href="./login.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">person</span>
+          <span class="mobile-nav-text">Profile &amp; Account</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========= MAIN PAGE ========= -->
+  <main class="home-main">
+
+    <!-- SECTION: HERO -->
+    <section class="hero-section" id="hero">
+      <div class="hero-backdrop" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-grid">
+
+          <!-- Left: Content -->
+          <div class="hero-content">
+            <p class="hero-eyebrow">
+              <span class="hero-eyebrow-rule" aria-hidden="true"></span>
+              Welcome to KhaLo
+            </p>
+            <h1 class="hero-heading">Good Food. <span class="hero-heading-accent">Great Mood.</span></h1>
+            <p class="hero-subtext">Freshly prepared meals, made for every craving matched to your mood, budget and
+              time in seconds.</p>
+            <div class="hero-actions">
+              <a href="#popular" class="btn-primary hero-btn" id="hero-explore-btn">
+                <span>Explore Menu</span>
+                <span class="material-symbols-outlined btn-icon" aria-hidden="true">arrow_forward</span>
+              </a>
+              <a href="#decision" class="btn-secondary hero-btn" id="hero-findmeal-btn">
+                <span class="material-symbols-outlined btn-icon" aria-hidden="true">auto_awesome</span>
+                <span>Find My Meal</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Food Visual -->
+          <div class="hero-visual">
+            <div class="hero-visual-frame" aria-hidden="true"></div>
+            <figure class="hero-img-wrap">
+              <img src="../assets/Shahi Dum Biryani.jpg" alt="Shahi Dum Biryani served hot in a traditional handi"
+                class="hero-img" fetchpriority="high" />
+              <div class="hero-img-scrim" aria-hidden="true"></div>
+              <figcaption class="hero-caption">
+                <span class="hero-caption-title">Shahi Dum Biryani</span>
+                <span class="hero-caption-sub">Slow sealed served straight from the handi</span>
+              </figcaption>
+            </figure>
+
+            <!-- Floating chips -->
+            <div class="hero-chip hero-chip--rating" aria-hidden="true">
+              <span class="hero-chip-icon">
+                <span class="material-symbols-outlined hero-chip-star" aria-hidden="true">star</span>
+              </span>
+              <div>
+                <strong>4.9 Rating</strong>
+                <small>420+ happy eaters</small>
+              </div>
+            </div>
+            <div class="hero-chip hero-chip--time" aria-hidden="true">
+              <span class="material-symbols-outlined hero-chip-icon hero-chip-icon--green">delivery_dining</span>
+              <div>
+                <strong>25 min</strong>
+                <small>Avg. delivery</small>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: TRUST STRIP -->
+    <section class="stats-strip" aria-label="KhaLo in numbers">
+      <div class="container">
+        <ul class="stats-grid">
+          <li class="stat-item">
+            <span class="material-symbols-outlined stat-icon">storefront</span>
+            <div>
+              <strong class="stat-value" data-count="1200" data-suffix="+">1,200+</strong>
+              <span class="stat-label">Partner kitchens</span>
+            </div>
+          </li>
+          <li class="stat-item">
+            <span class="material-symbols-outlined stat-icon">sentiment_very_satisfied</span>
+            <div>
+              <strong class="stat-value" data-count="15" data-suffix="K+">15K+</strong>
+              <span class="stat-label">Happy foodies</span>
+            </div>
+          </li>
+          <li class="stat-item">
+            <span class="material-symbols-outlined stat-icon">timer</span>
+            <div>
+              <strong class="stat-value" data-count="32" data-suffix="s">32s</strong>
+              <span class="stat-label">Avg. decision time</span>
+            </div>
+          </li>
+          <li class="stat-item">
+            <span class="material-symbols-outlined stat-icon">location_city</span>
+            <div>
+              <strong class="stat-value" data-count="1" data-suffix="">1</strong>
+              <span class="stat-label">Cities &amp; growing</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION: MOOD SELECTOR -->
+    <section class="mood-section" id="mood">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-heading">
+            <h2 class="section-title">What's your mood?</h2>
+            <p class="section-sub">Pick how you're feeling and jump straight to dishes.</p>
+          </div>
+        </div>
+        <div class="mood-grid" id="mood-selector">
+          <button class="mood-pill" data-mood="comfort" type="button" id="mood-comfort">
+            <span class="mood-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined mood-icon">lunch_dining</span>
+            </span>
+            <span class="mood-name">Comfort Food</span>
+            <span class="mood-desc">Burgers &amp; Fries</span>
+          </button>
+          <button class="mood-pill" data-mood="fast" type="button" id="mood-fast">
+            <span class="mood-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined mood-icon">local_pizza</span>
+            </span>
+            <span class="mood-name">Fast &amp; Easy</span>
+            <span class="mood-desc">Quick 20-min bites</span>
+          </button>
+          <button class="mood-pill" data-mood="spicy" type="button" id="mood-spicy">
+            <span class="mood-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined mood-icon">whatshot</span>
+            </span>
+            <span class="mood-name">Spicy</span>
+            <span class="mood-desc">Masaledar hits</span>
+          </button>
+          <button class="mood-pill mood-pill--active" data-mood="desi" type="button" id="mood-desi">
+            <span class="mood-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined mood-icon">soup_kitchen</span>
+            </span>
+            <span class="mood-name">Desi</span>
+            <span class="mood-desc">Handi, Karahi &amp; Rice</span>
+          </button>
+          <button class="mood-pill" data-mood="light" type="button" id="mood-light">
+            <span class="mood-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined mood-icon">eco</span>
+            </span>
+            <span class="mood-name">Light &amp; Fresh</span>
+            <span class="mood-desc">Salads &amp; Bowls</span>
+          </button>
+          <button class="mood-pill" data-mood="sweet" type="button" id="mood-sweet">
+            <span class="mood-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined mood-icon">cake</span>
+            </span>
+            <span class="mood-name">Something Sweet</span>
+            <span class="mood-desc">Mithai &amp; Desserts</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: POPULAR NEAR YOU -->
+    <section class="popular-section" id="popular">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-heading">
+            <h2 class="section-title">Popular near you</h2>
+            <p class="section-sub">Good food people are ordering around Karachi.</p>
+          </div>
+          <a href="#" class="section-link" id="popular-view-all">
+            <span>View all</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+
+        <div class="dish-grid">
+
+          <!-- Dish Card 1: Biryani -->
+          <article class="dish-card">
+            <div class="dish-img-wrap">
+              <img src="../assets/Special Shahi Dum Biryani.jpg" alt="Special Shahi Dum Biryani" class="dish-img"
+                loading="lazy" />
+              <button class="fav-toggle" aria-label="Save to favorites" type="button">
+                <span class="material-symbols-outlined">favorite</span>
+              </button>
+              <span class="dish-badge dish-badge--bestseller">
+                <span class="material-symbols-outlined">bolt</span>
+                Bestseller
+              </span>
+            </div>
+            <div class="dish-body">
+              <div class="dish-info">
+                <h3 class="dish-name" title="Special Shahi Dum Biryani">Special Shahi Dum Biryani</h3>
+                <p class="dish-restaurant">KhaLo Kitchen • Clifton</p>
+                <div class="dish-rating">
+                  <span class="rating-score">
+                    <span class="material-symbols-outlined rating-star" aria-hidden="true">star</span>
+                    <span>4.9</span>
+                  </span>
+                  <span class="rating-count">(420+ reviews)</span>
+                </div>
+              </div>
+              <div class="dish-footer">
+                <div class="dish-meta">
+                  <span class="dish-time">
+                    <span class="material-symbols-outlined">schedule</span>25-35 mins
+                  </span>
+                  <span class="dish-price">Rs. 899</span>
+                </div>
+                <button class="btn-add" type="button" data-item="Shahi Dum Biryani">
+                  <span>Add to Cart</span>
+                  <span class="material-symbols-outlined">shopping_cart</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dish Card 2: Nihari -->
+          <article class="dish-card">
+            <div class="dish-img-wrap">
+              <img src="../assets/Chicken Karahi.jpg" alt="Slow-Cooked Nalli Nihari" class="dish-img" loading="lazy" />
+              <button class="fav-toggle" aria-label="Save to favorites" type="button">
+                <span class="material-symbols-outlined">favorite</span>
+              </button>
+              <span class="dish-badge dish-badge--default">
+                <span class="material-symbols-outlined">whatshot</span>
+                Slow-cooked
+              </span>
+            </div>
+            <div class="dish-body">
+              <div class="dish-info">
+                <h3 class="dish-name" title="Slow-Cooked Nalli Nihari"> Chicken Karahi</h3>
+                <p class="dish-restaurant">Hot N Spicy • Tariq Road</p>
+                <div class="dish-rating">
+                  <span class="rating-score">
+                    <span class="material-symbols-outlined rating-star" aria-hidden="true">star</span>
+                    <span>4.2</span>
+                  </span>
+                  <span class="rating-count">(310+ reviews)</span>
+                </div>
+              </div>
+              <div class="dish-footer">
+                <div class="dish-meta">
+                  <span class="dish-time">
+                    <span class="material-symbols-outlined">schedule</span>30-40 mins
+                  </span>
+                  <span class="dish-price">Rs. 1,150</span>
+                </div>
+                <button class="btn-add" type="button" data-item="Nalli Nihari">
+                  <span>Add to Cart</span>
+                  <span class="material-symbols-outlined">shopping_cart</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dish Card 3: BBQ Platter -->
+          <article class="dish-card">
+            <div class="dish-img-wrap">
+              <img src="../assets/Seekh & Malai Platter.jpg" alt="Seekh &amp; Malai Boti Platter" class="dish-img"
+                loading="lazy" />
+              <button class="fav-toggle" aria-label="Save to favorites" type="button">
+                <span class="material-symbols-outlined">favorite</span>
+              </button>
+              <span class="dish-badge dish-badge--yellow">Charcoal Smoke</span>
+            </div>
+            <div class="dish-body">
+              <div class="dish-info">
+                <h3 class="dish-name" title="Seekh &amp; Malai Platter">Seekh &amp; Malai Platter</h3>
+                <p class="dish-restaurant">Kolachi BBQ Grill • Do Darya</p>
+                <div class="dish-rating">
+                  <span class="rating-score">
+                    <span class="material-symbols-outlined rating-star" aria-hidden="true">star</span>
+                    <span>4.9</span>
+                  </span>
+                  <span class="rating-count">(580+ reviews)</span>
+                </div>
+              </div>
+              <div class="dish-footer">
+                <div class="dish-meta">
+                  <span class="dish-time">
+                    <span class="material-symbols-outlined">schedule</span>35-45 mins
+                  </span>
+                  <span class="dish-price">Rs. 1,450</span>
+                </div>
+                <button class="btn-add" type="button" data-item="Seekh &amp; Malai Platter">
+                  <span>Add to Cart</span>
+                  <span class="material-symbols-outlined">shopping_cart</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Dish Card 4: Smashed Burger -->
+          <article class="dish-card">
+            <div class="dish-img-wrap">
+              <img src="../assets/Smashed Double Burger.jpg" alt="Gourmet Smashed Beef Burger" class="dish-img"
+                loading="lazy" />
+              <button class="fav-toggle" aria-label="Save to favorites" type="button">
+                <span class="material-symbols-outlined">favorite</span>
+              </button>
+              <span class="dish-badge dish-badge--green">Free Delivery</span>
+            </div>
+            <div class="dish-body">
+              <div class="dish-info">
+                <h3 class="dish-name" title="Smashed Double Burger">Smashed Double Burger</h3>
+                <p class="dish-restaurant">Bun &amp; Patty • DHA Phase 6</p>
+                <div class="dish-rating">
+                  <span class="rating-score">
+                    <span class="material-symbols-outlined rating-star" aria-hidden="true">star</span>
+                    <span>4.7</span>
+                  </span>
+                  <span class="rating-count">(240+ reviews)</span>
+                </div>
+              </div>
+              <div class="dish-footer">
+                <div class="dish-meta">
+                  <span class="dish-time">
+                    <span class="material-symbols-outlined">schedule</span>20-30 mins
+                  </span>
+                  <span class="dish-price">Rs. 780</span>
+                </div>
+                <button class="btn-add" type="button" data-item="Smashed Double Burger">
+                  <span>Add to Cart</span>
+                  <span class="material-symbols-outlined">shopping_cart</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: HOW IT WORKS -->
+    <section class="how-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <div class="section-heading">
+            <h2 class="section-title">How KhaLo works</h2>
+            <p class="section-sub">From "kya khaun?" to "khana aa gaya!" in three easy steps.</p>
+          </div>
+        </div>
+        <ol class="how-grid">
+          <li class="how-card">
+            <span class="how-step">01</span>
+            <span class="how-icon how-icon--orange">
+              <span class="material-symbols-outlined">mood</span>
+            </span>
+            <h3 class="how-title">Share your mood</h3>
+            <p class="how-desc">Spicy, sweet ya light? Tell us how you feel, your budget and how hungry you are.</p>
+          </li>
+          <li class="how-card">
+            <span class="how-step">02</span>
+            <span class="how-icon how-icon--yellow">
+              <span class="material-symbols-outlined">auto_awesome</span>
+            </span>
+            <h3 class="how-title">Get smart picks</h3>
+            <p class="how-desc">KhaLo matches you with top-rated dishes from trusted kitchens nearby no endless
+              scrolling.</p>
+          </li>
+          <li class="how-card">
+            <span class="how-step">03</span>
+            <span class="how-icon how-icon--green">
+              <span class="material-symbols-outlined">delivery_dining</span>
+            </span>
+            <h3 class="how-title">Enjoy it hot</h3>
+            <p class="how-desc">Order in one tap and track your meal live until it's piping hot at your door.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION: DECISION CARD -->
+    <section class="decision-section" id="decision">
+      <div class="container">
+        <div class="decision-card">
+          <div class="decision-glow decision-glow--right" aria-hidden="true"></div>
+          <div class="decision-glow decision-glow--left" aria-hidden="true"></div>
+
+          <div class="decision-content">
+            <h2 class="decision-title">Not sure what to order?</h2>
+            <p class="decision-desc">
+              Tell KhaLo what you're in the mood for, your budget, and how much time you have. We match your mood to
+              freshly prepared meals ready to roll.
+            </p>
+            <div class="decision-pills">
+              <div class="decision-pill">
+                <span class="material-symbols-outlined decision-pill-icon" aria-hidden="true">tune</span>
+                <span>Your Taste Profile</span>
+              </div>
+              <div class="decision-pill">
+                <span class="material-symbols-outlined decision-pill-icon" aria-hidden="true">payments</span>
+                <span>Pocket-Friendly Budget</span>
+              </div>
+              <div class="decision-pill">
+                <span class="material-symbols-outlined decision-pill-icon" aria-hidden="true">timer</span>
+                <span>Decided in 30 Seconds</span>
+              </div>
+            </div>
+            <div class="decision-actions">
+              <a href="#" class="btn-primary" id="decision-findmeal-btn">
+                <span>Find My Meal</span>
+                <span class="material-symbols-outlined btn-icon">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Mock "match" preview -->
+          <div class="match-preview" aria-hidden="true">
+            <div class="match-card">
+              <div class="match-head">
+                <span class="match-dot"></span>
+                <span>KhaLo is matching…</span>
+              </div>
+              <div class="match-row">
+                <span class="match-key">Mood</span>
+                <span class="match-val">
+                  <span class="material-symbols-outlined match-val-icon" aria-hidden="true">whatshot</span>
+                  <span>Spicy</span>
+                </span>
+              </div>
+              <div class="match-row">
+                <span class="match-key">Budget</span>
+                <span class="match-val">Under Rs. 1,000</span>
+              </div>
+              <div class="match-row">
+                <span class="match-key">Time</span>
+                <span class="match-val">30 mins</span>
+              </div>
+              <div class="match-result">
+                <span class="match-result-emoji" aria-hidden="true">
+                  <span class="material-symbols-outlined match-result-icon">soup_kitchen</span>
+                </span>
+                <div>
+                  <strong>Chicken Karahi (Half)</strong>
+                  <small>98% match • Rs. 950</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: MIDNIGHT CRAVINGS -->
+    <section class="midnight-wrap" id="midnight">
+      <div class="container">
+        <div class="midnight-section">
+          <div class="midnight-glow midnight-glow-1" aria-hidden="true"></div>
+          <div class="midnight-glow midnight-glow-2" aria-hidden="true"></div>
+          <div class="midnight-container">
+            <div class="midnight-header">
+              <div class="midnight-header-left">
+                <h2 class="midnight-title">Midnight Cravings</h2>
+                <p class="midnight-desc">From 11 PM to 4 AM, get the best loaded fries, zinger burgers, and sweet treats
+                  delivered piping hot.</p>
+              </div>
+              <button class="midnight-btn" type="button" id="midnight-explore-btn">
+                Explore Midnight Menu
+                <span class="material-symbols-outlined btn-icon">arrow_forward</span>
+              </button>
+            </div>
+            <div class="midnight-grid">
+              <article class="midnight-card">
+                <div class="midnight-img-container">
+                  <img src="../assets/Loaded beef burger.jpg" alt="Loaded Burger" class="midnight-img" loading="lazy" />
+                  <div class="midnight-img-overlay"></div>
+                  <h3 class="midnight-card-title">Loaded Beef Burger</h3>
+                </div>
+                <div class="midnight-card-bottom">
+                  <div>
+                    <div class="midnight-card-meta">Burger Lab • 15 mins</div>
+                    <div class="midnight-card-price">Rs. 850</div>
+                  </div>
+                  <button class="midnight-add-btn btn-add-cart" type="button" data-item="Loaded Beef Burger"
+                    aria-label="Add Loaded Beef Burger to cart">
+                    <span>Add to Cart</span>
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                  </button>
+                </div>
+              </article>
+              <article class="midnight-card">
+                <div class="midnight-img-container">
+                  <img src="../assets/Animal Fries Mess.jpg" alt="Animal Fries" class="midnight-img" loading="lazy" />
+                  <div class="midnight-img-overlay"></div>
+                  <h3 class="midnight-card-title">Animal Fries Mess</h3>
+                </div>
+                <div class="midnight-card-bottom">
+                  <div>
+                    <div class="midnight-card-meta">Fries Point • 20 mins</div>
+                    <div class="midnight-card-price">Rs. 600</div>
+                  </div>
+                  <button class="midnight-add-btn btn-add-cart" type="button" data-item="Animal Fries Mess"
+                    aria-label="Add Animal Fries Mess to cart">
+                    <span>Add to Cart</span>
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                  </button>
+                </div>
+              </article>
+              <article class="midnight-card">
+                <div class="midnight-img-container">
+                  <img src="../assets/Molten Lava Cake.jpg" alt="Chocolate Lava Cake" class="midnight-img"
+                    loading="lazy" />
+                  <div class="midnight-img-overlay"></div>
+                  <h3 class="midnight-card-title">Molten Lava Cake</h3>
+                </div>
+                <div class="midnight-card-bottom">
+                  <div>
+                    <div class="midnight-card-meta">Dessert Dir. • 10 mins</div>
+                    <div class="midnight-card-price">Rs. 550</div>
+                  </div>
+                  <button class="midnight-add-btn btn-add-cart" type="button" data-item="Molten Lava Cake"
+                    aria-label="Add Molten Lava Cake to cart">
+                    <span>Add to Cart</span>
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: DEALS -->
+    <section class="deals-section" id="deals">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-heading">
+            <h2 class="section-title">Deals worth checking</h2>
+            <p class="section-sub">Save while discovering delicious meals around town.</p>
+          </div>
+          <a href="#" class="section-link" id="deals-view-all">
+            <span>All Deals</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+        <div class="deals-grid">
+
+          <!-- Deal Card 1 -->
+          <article class="deal-card deal-card--orange">
+            <div>
+              <div class="deal-card-top">
+                <span class="deal-tag deal-tag--orange">20% OFF</span>
+                <span class="material-symbols-outlined deal-icon deal-icon--orange">local_offer</span>
+              </div>
+              <span class="deal-restaurant">KhaLo Kitchen &amp; Grills</span>
+              <h3 class="deal-title">20% off selected meals</h3>
+              <p class="deal-desc">Applies to all handi, karahi and biryani orders above Rs. 1,500. Perfect for family
+                dinners.</p>
+            </div>
+            <div class="deal-footer">
+              <span class="deal-validity">
+                <span class="material-symbols-outlined">timer</span>
+                Valid today
+              </span>
+              <button class="btn-deal" type="button">Claim Deal</button>
+            </div>
+          </article>
+
+          <!-- Deal Card 2 -->
+          <article class="deal-card deal-card--green">
+            <div>
+              <div class="deal-card-top">
+                <span class="deal-tag deal-tag--green">FREE DELIVERY</span>
+                <span class="material-symbols-outlined deal-icon deal-icon--green">moped</span>
+              </div>
+              <span class="deal-restaurant">Karachi Biryani Hub</span>
+              <h3 class="deal-title">Free Weekend Delivery</h3>
+              <p class="deal-desc">On all family platters and feast combos this weekend. Delivered piping hot straight
+                to your door.</p>
+            </div>
+            <div class="deal-footer">
+              <span class="deal-validity deal-validity--muted">
+                <span class="material-symbols-outlined">check_circle</span>
+                No min. order
+              </span>
+              <button class="btn-deal btn-deal--ghost" type="button">View Menu</button>
+            </div>
+          </article>
+
+          <!-- Deal Card 3 -->
+          <article class="deal-card deal-card--yellow">
+            <div>
+              <div class="deal-card-top">
+                <span class="deal-tag deal-tag--yellow">SAVE RS. 600</span>
+                <span class="material-symbols-outlined deal-icon deal-icon--yellow">groups</span>
+              </div>
+              <span class="deal-restaurant">Spice Route Cafe</span>
+              <h3 class="deal-title">Family Feast Deal</h3>
+              <p class="deal-desc">2 Shahi Dum Biryanis + 4 Char-grilled Seekh Kababs + Chilled Cold Drinks 1.5L pack.
+              </p>
+            </div>
+            <div class="deal-footer">
+              <div class="deal-prices">
+                <span class="deal-price-old">Rs. 3,200</span>
+                <span class="deal-price-new">Rs. 2,600</span>
+              </div>
+              <button class="btn-deal" type="button">Order Combo</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: TESTIMONIALS -->
+    <section class="reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <div class="section-heading">
+            <h2 class="section-title">What people are saying</h2>
+            <p class="section-sub">Thousands of meal dilemmas solved every single day.</p>
+          </div>
+        </div>
+        <div class="reviews-grid">
+          <figure class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+            </div>
+            <blockquote class="review-text">"Office se thak ke aao aur decide hi na ho kya khana hai KhaLo ne 30
+              second mein perfect karahi suggest kar di."</blockquote>
+            <figcaption class="review-author">
+              <span class="review-avatar review-avatar--orange" aria-label="Ayesha Raza">
+                <svg class="avatar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </span>
+              <span>
+                <strong>Ayesha Raza</strong>
+                <small>Bahria Town, Karachi</small>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="review-card review-card--featured">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+            </div>
+            <blockquote class="review-text">"Budget filter is gold. Students ke liye best Rs. 500 mein bhi itne
+              achay options mil jaate hain."</blockquote>
+            <figcaption class="review-author">
+              <span class="review-avatar review-avatar--yellow" aria-label="Hamza Khan">
+                <svg class="avatar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </span>
+              <span>
+                <strong>Hamza Khan</strong>
+                <small>Gulberg, Karahi</small>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined review-star" aria-hidden="true">star</span>
+            </div>
+            <blockquote class="review-text">"Family dinner ke liye Feast Deal order kiya, khana garam aur time pe aaya.
+              Ab har weekend KhaLo hi hota hai."</blockquote>
+            <figcaption class="review-author">
+              <span class="review-avatar review-avatar--green" aria-label="Sana Malik">
+                <svg class="avatar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </span>
+              <span>
+                <strong>Sana Malik</strong>
+                <small>DHA P5, Karachi</small>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: APP / NEWSLETTER CTA -->
+    <section class="cta-section" id="get-app">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <div class="cta-content">
+            <h2 class="cta-title">Hungry for deals? Stay in the loop.</h2>
+            <p class="cta-desc">Get exclusive Mango Deals, new kitchen launches and midnight specials straight to your
+              inbox. No spam. sirf khaana.</p>
+            <form class="cta-form" id="newsletter-form" novalidate>
+              <label for="newsletter-email" class="sr-only">Email address</label>
+              <input type="email" id="newsletter-email" class="cta-input" placeholder="you@example.com"
+                autocomplete="email" required />
+              <button type="submit" class="cta-btn" id="newsletter-submit">
+                Subscribe
+                <span class="material-symbols-outlined btn-icon">send</span>
+              </button>
+            </form>
+            <p class="cta-form-msg" id="newsletter-msg" role="status" aria-live="polite"></p>
+          </div>
+          <div class="cta-badges">
+            <a href="#" class="store-btn" id="cta-appstore" aria-label="Download on the App Store">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.74-.78-2.87-.76-1.47.02-2.83.86-3.59 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.24 2.73 2.2 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.84-1.22 1.18-2.41 1.2-2.47-.03-.01-2.3-.88-2.32-3.5zM14.2 6.14c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.55 1.31-.56.65-1.05 1.68-.92 2.67.97.08 1.96-.49 2.57-1.22z" />
+              </svg>
+              <span><small>Download on the</small><strong>App Store</strong></span>
+            </a>
+            <a href="#" class="store-btn" id="cta-playstore" aria-label="Get it on Google Play">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M3.6 2.3c-.2.2-.3.6-.3 1v17.4c0 .4.1.8.3 1l9.7-9.7L3.6 2.3zm10.8 10.8 2.7 2.7-11.4 6.5 8.7-9.2zm0-2.2L5.7 1.7l11.4 6.5-2.7 2.7zm3.9 3.9-3-3 3-3 3.4 1.9c1 .6 1 1.6 0 2.2l-3.4 1.9z" />
+              </svg>
+              <span><small>Get it on</small><strong>Google Play</strong></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========= FOOTER ========= -->
+  <footer class="home-footer">
+    <div class="footer-wave" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="./home.html" class="footer-brand-row" aria-label="KhaLo Home">
+            <span class="footer-logo-wrap">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" class="footer-logo" />
+            </span>
+          </a>
+          <p class="footer-about">Helping you decide what to eat. Resolving everyday meal dilemmas with appetizing
+            clarity and smart budget picks across Pakistan.</p>
+
+          <div class="footer-socials" aria-label="Social media">
+            <a href="#" class="social-btn" aria-label="Facebook" id="social-facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram" id="social-instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok" id="social-tiktok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links: Explore -->
+        <nav class="footer-links" aria-label="Explore">
+          <span class="footer-links-title">Explore</span>
+          <a href="#decision" class="footer-link">Home</a>
+          <a href="#mood" class="footer-link">Discover</a>
+          <a href="#popular" class="footer-link">Find My Meal</a>
+          <a href="#midnight" class="footer-link">Menu</a>
+          <a href="#deals" class="footer-link">Deals <span class="footer-pill">New</span></a>
+        </nav>
+
+        <!-- Links: Account -->
+        <nav class="footer-links" aria-label="Account">
+          <span class="footer-links-title">Account</span>
+          <a href="#" class="footer-link">My Profile</a>
+          <a href="#" class="footer-link">Saved Dishes</a>
+          <a href="#" class="footer-link">Orders &amp; Tracking</a>
+          <a href="./login.html" class="footer-link">Sign In</a>
+        </nav>
+
+        <!-- Links: Support -->
+        <nav class="footer-links" aria-label="Support">
+          <span class="footer-links-title">Support</span>
+          <a href="#" class="footer-link">Partner with us</a>
+          <a href="#" class="footer-link">Become a Rider</a>
+          <a href="#" class="footer-link">Help Center</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+        </nav>
+
+        <!-- Contact -->
+        <div class="footer-links footer-contact">
+          <span class="footer-links-title">Contact Us</span>
+          <a href="tel:+922111542556" class="footer-contact-item">
+            <span class="material-symbols-outlined">call</span>
+            <span>+92-300-000-0000</span>
+          </a>
+          <a href="mailto:hello@khalo.pk" class="footer-contact-item">
+            <span class="material-symbols-outlined">mail</span>
+            <span>hello@khalo</span>
+          </a>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">pin_drop</span>
+            <span>Karachi</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">schedule</span>
+            <span>Open daily, 10 AM – 4 AM</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Payment strip -->
+      <div class="footer-pay">
+        <span class="footer-pay-label">We accept</span>
+        <ul class="footer-pay-list">
+          <li class="pay-chip">Cash on Delivery</li>
+          <li class="pay-chip">JazzCash</li>
+          <li class="pay-chip">Easypaisa</li>
+          <li class="pay-chip">Visa</li>
+          <li class="pay-chip">Mastercard</li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="footer-year">2025</span> KhaLo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="material-symbols-outlined toast-icon" id="toast-icon">check_circle</span>
+    <span class="toast-text" id="toast-text">Added to cart</span>
+  </div>
+
+  <script src="../js/home.js"></script>
+</body>
+
+</html>
