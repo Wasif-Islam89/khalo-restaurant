@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Location Dropdown — KhaLo</title>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+
+  <!-- Dedicated Stylesheet -->
+  <link rel="stylesheet" href="../css/location-dropdown.css" />
+
+
+</head>
+
+<body>
+
+  <div class="location-component-wrapper">
+    <h1 class="component-title">Location Dropdown Component</h1>
+    <p class="component-desc">
+      Karachi delivery zones selector. Linked across all KhaLo pages.
+    </p>
+
+    <!-- ========= LOCATION DROPDOWN COMPONENT ========= -->
+    <div class="preview-stage">
+      <div class="location-selector" id="location-selector-wrap" style="display: block;">
+
+        <!-- Navbar Trigger Button -->
+        <button type="button" class="location-btn" id="location-dropdown-btn"
+          aria-label="Select delivery area in Karachi" aria-haspopup="true" aria-expanded="false">
+          <svg class="icon-location" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span id="current-location-text">Select Area</span>
+          <svg class="icon-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <!-- Floating Dropdown Panel -->
+        <div class="location-dropdown-menu" id="location-dropdown-menu" role="menu" aria-label="Karachi delivery areas">
+          <!-- Header -->
+          <div class="location-dropdown-header">
+            <span class="location-dropdown-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-container, #ff6b35);">
+                <path d="M12 21s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Select Area
+            </span>
+            <span class="location-dropdown-city">Karachi</span>
+          </div>
+
+          <!-- Area List -->
+          <div class="location-dropdown-list">
+            <button type="button" class="location-dropdown-item" data-area="Clifton" role="menuitem">
+              <div class="item-meta">
+                <span class="item-name">Clifton</span>
+                <span class="item-time">Blocks 1 to 9 &bull; 20–30 mins</span>
+              </div>
+              <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+
+            <button type="button" class="location-dropdown-item" data-area="DHA" role="menuitem">
+              <div class="item-meta">
+                <span class="item-name">DHA</span>
+                <span class="item-time">Phases 1 to 8 &bull; 25–35 mins</span>
+              </div>
+              <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+
+            <button type="button" class="location-dropdown-item" data-area="Gulshan-e-Iqbal" role="menuitem">
+              <div class="item-meta">
+                <span class="item-name">Gulshan-e-Iqbal</span>
+                <span class="item-time">Blocks 1 to 19 &bull; 20–30 mins</span>
+              </div>
+              <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+
+            <button type="button" class="location-dropdown-item" data-area="PECHS" role="menuitem">
+              <div class="item-meta">
+                <span class="item-name">PECHS</span>
+                <span class="item-time">PECHS &amp; Tariq Road &bull; 20–30 mins</span>
+              </div>
+              <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+
+            <button type="button" class="location-dropdown-item" data-area="Bahadurabad" role="menuitem">
+              <div class="item-meta">
+                <span class="item-name">Bahadurabad</span>
+                <span class="item-time">Bahadurabad &amp; Sharfabad &bull; 15–25 mins</span>
+              </div>
+              <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+
+            <button type="button" class="location-dropdown-item" data-area="Gulistan-e-Johar" role="menuitem">
+              <div class="item-meta">
+                <span class="item-name">Gulistan-e-Johar</span>
+                <span class="item-time">Blocks 1 to 20 &bull; 30–40 mins</span>
+              </div>
+              <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+
+            <button type="button" class="location-dropdown-item" data-area="North Nazimabad" role="menuitem">
+              <div class="item-meta">
+                <span class="item-name">North Nazimabad</span>
+                <span class="item-time">Blocks A to W &bull; 30–40 mins</span>
+              </div>
+              <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+
+            <button type="button" class="location-dropdown-item" data-area="Saddar" role="menuitem">
+              <div class="item-meta">
+                <span class="item-name">Saddar</span>
+                <span class="item-time">Saddar &amp; Burns Road &bull; 25–35 mins</span>
+              </div>
+              <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+
+            <button type="button" class="location-dropdown-item" data-area="Malir Cantt" role="menuitem">
+              <div class="item-meta">
+                <span class="item-name">Malir Cantt</span>
+                <span class="item-time">Cantt &amp; Airport Road &bull; 35–45 mins</span>
+              </div>
+              <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+
+            <button type="button" class="location-dropdown-item" data-area="Federal B Area" role="menuitem">
+              <div class="item-meta">
+                <span class="item-name">Federal B Area</span>
+                <span class="item-time">Blocks 1 to 22 &bull; 25–35 mins</span>
+              </div>
+              <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+
+            <button type="button" class="location-dropdown-item" data-area="North Karachi" role="menuitem">
+              <div class="item-meta">
+                <span class="item-name">North Karachi</span>
+                <span class="item-time">Sectors 1 to 11 &bull; 35–45 mins</span>
+              </div>
+              <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+
+            <button type="button" class="location-dropdown-item" data-area="Korangi & Creek" role="menuitem">
+              <div class="item-meta">
+                <span class="item-name">Korangi &amp; Creek</span>
+                <span class="item-time">Creek &amp; Industrial Area &bull; 30–40 mins</span>
+              </div>
+              <svg class="item-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <a href="./home.html" class="back-home-link">
+        <span class="material-symbols-outlined" style="font-size: 1.1rem;">arrow_back</span>
+        Return to Home Page
+      </a>
+    </div>
+  </div>
+
+  <!-- Dedicated Location Script -->
+  <script src="../js/location-dropdown.js"></script>
+</body>
+
+</html>
