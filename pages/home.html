@@ -21,6 +21,8 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/location-dropdown.css" />
+  <link rel="stylesheet" href="../css/floating-chat.css" />
 </head>
 
 <body>
@@ -38,60 +40,43 @@
         </div>
         <nav class="desktop-nav" aria-label="Main Navigation">
           <a href="./home.html" class="nav-link active">Home</a>
-          <a href="./discover.html" class="nav-link">Discover</a>
-          <a href="meal-finder.html" class="nav-link">Find My Meal</a>
+          <a href="./find-my-meal.html" class="nav-link">Find My Meal</a>
           <a href="./menu.html" class="nav-link">Menu</a>
-          <a href="./deal.html" class="nav-link nav-link-badge">
+          <a href="./deals.html" class="nav-link nav-link-badge">
             Deals
             <span class="badge-hot">Hot</span>
           </a>
+          <a href="./khalo-specials.html" class="nav-link">KhaLo Specials</a>
         </nav>
         <div class="utility-controls">
-          <div class="location-selector">
-            <button type="button" class="location-btn">
+          <div class="location-selector" id="location-selector-wrap">
+            <button type="button" class="location-btn" id="location-dropdown-btn" aria-label="Select delivery area" aria-haspopup="true" aria-expanded="false">
               <svg class="icon-location" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
                   d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <span>Karachi</span>
+              <span id="current-location-text">Select Area</span>
               <svg class="icon-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
           </div>
-          <div class="nav-search-wrap" id="nav-search-wrap">
-            <button type="button" class="icon-btn nav-search-btn" id="search-btn" title="Search" aria-label="Search"
-              aria-expanded="false">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </button>
-            <form class="nav-search-form" id="nav-search-form" role="search" aria-label="Search meals and deals">
-              <span class="material-symbols-outlined nav-search-icon" aria-hidden="true">search</span>
-              <input type="search" class="nav-search-input" id="nav-search-input"
-                placeholder="Search dishes, deals, cuisines..." autocomplete="off" aria-label="Search meals" />
-              <button type="button" class="nav-search-close" id="search-close-btn" aria-label="Close search"
-                title="Close search">
-                <span class="material-symbols-outlined" aria-hidden="true">close</span>
-              </button>
-            </form>
-          </div>
-          <a href="#" class="icon-btn" title="Favorites" aria-label="Favorites">
+
+          <a href="./favorites.html" class="icon-btn" title="Favorites" aria-label="Favorites" id="fav-btn">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
-            <span class="badge" id="fav-badge">3</span>
+            <span class="badge" id="fav-badge">0</span>
           </a>
-          <a href="#" class="icon-btn" title="Cart" aria-label="Shopping Cart">
+          <a href="./cart.html" class="icon-btn" title="Cart" aria-label="Shopping Cart" id="cart-btn">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
-            <span class="badge" id="cart-badge">2</span>
+            <span class="badge" id="cart-badge">0</span>
           </a>
           <a href="#" class="icon-btn icon-btn-profile" title="My Profile" aria-label="Profile">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,32 +113,36 @@
           <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">home</span>
           <span class="mobile-nav-text">Home</span>
         </a>
-        <a href="#mood" class="mobile-nav-link">
-          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">explore</span>
-          <span class="mobile-nav-text">Discover</span>
-        </a>
-        <a href="#decision" class="mobile-nav-link">
+        <a href="./find-my-meal.html" class="mobile-nav-link">
           <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">auto_awesome</span>
           <span class="mobile-nav-text">Find My Meal</span>
         </a>
-        <a href="#popular" class="mobile-nav-link">
+        <a href="./menu.html" class="mobile-nav-link">
           <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">restaurant_menu</span>
           <span class="mobile-nav-text">Menu</span>
         </a>
-        <a href="#deals" class="mobile-nav-link">
+        <a href="./deals.html" class="mobile-nav-link">
           <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">local_offer</span>
           <span class="mobile-nav-text">Deals</span>
           <span class="badge-hot">Hot</span>
         </a>
-        <a href="#popular" class="mobile-nav-link" id="mobile-fav-link">
+        <a href="./khalo-specials.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">stars</span>
+          <span class="mobile-nav-text">KhaLo Specials</span>
+        </a>
+        <a href="./favorites.html" class="mobile-nav-link" id="mobile-fav-link">
           <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">favorite</span>
           <span class="mobile-nav-text">Favorites</span>
-          <span class="badge" id="mobile-fav-badge">3</span>
+          <span class="badge" id="mobile-fav-badge">0</span>
         </a>
-        <a href="#get-app" class="mobile-nav-link">
-          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">delivery_dining</span>
-          <span class="mobile-nav-text">Orders &amp; Live Status</span>
+        <a href="./cart.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">shopping_cart</span>
+          <span class="mobile-nav-text">My Cart</span>
         </a>
+        <button type="button" class="mobile-nav-link mobile-location-trigger" id="mobile-location-btn" style="background: none; border: none; width: 100%; text-align: left; cursor: pointer; font-family: inherit;">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">near_me</span>
+          <span class="mobile-nav-text">Delivery Area (<strong id="mobile-current-location-text">Select Area</strong>)</span>
+        </button>
         <a href="./login.html" class="mobile-nav-link">
           <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">person</span>
           <span class="mobile-nav-text">Profile &amp; Account</span>
@@ -164,6 +153,30 @@
 
   <!-- ========= MAIN PAGE ========= -->
   <main class="home-main">
+
+    <!-- ACTIVE LIVE ORDER BANNER (Synchronized across site) -->
+    <div id="home-active-order-banner" class="home-order-banner" style="display: none;">
+      <div class="container">
+        <div class="home-order-banner-inner">
+          <div class="home-order-banner-left">
+            <span class="order-pulse-dot" aria-hidden="true"></span>
+            <span class="material-symbols-outlined home-order-icon" aria-hidden="true">delivery_dining</span>
+            <div class="home-order-info">
+              <span class="home-order-tag">LIVE ORDER</span>
+              <strong id="home-order-id-label">#KL-00000</strong>
+              <span class="home-order-sep">•</span>
+              <span id="home-order-status-label" class="home-order-status">Kitchen Preparing</span>
+              <span class="home-order-sep">•</span>
+              <span id="home-order-eta-label" class="home-order-eta">ETA ~25 mins</span>
+            </div>
+          </div>
+          <a href="./cart.html#track" class="home-order-track-btn" id="home-order-track-btn">
+            <span>Track Live Order</span>
+            <span class="material-symbols-outlined" style="font-size: 1.1rem;">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <!-- SECTION: HERO -->
     <section class="hero-section" id="hero">
@@ -185,41 +198,55 @@
                 <span>Explore Menu</span>
                 <span class="material-symbols-outlined btn-icon" aria-hidden="true">arrow_forward</span>
               </a>
-              <a href="#decision" class="btn-secondary hero-btn" id="hero-findmeal-btn">
+              <a href="./find-my-meal.html" class="btn-secondary hero-btn" id="hero-findmeal-btn">
                 <span class="material-symbols-outlined btn-icon" aria-hidden="true">auto_awesome</span>
                 <span>Find My Meal</span>
               </a>
             </div>
           </div>
 
-          <!-- Right: Food Visual -->
+          <!-- Right: Hero Spotlight Dish Card (Identical to Deals Page hero card) -->
           <div class="hero-visual">
             <div class="hero-visual-frame" aria-hidden="true"></div>
-            <figure class="hero-img-wrap">
-              <img src="../assets/Shahi Dum Biryani.jpg" alt="Shahi Dum Biryani served hot in a traditional handi"
-                class="hero-img" fetchpriority="high" />
-              <div class="hero-img-scrim" aria-hidden="true"></div>
-              <figcaption class="hero-caption">
-                <span class="hero-caption-title">Shahi Dum Biryani</span>
-                <span class="hero-caption-sub">Slow sealed served straight from the handi</span>
-              </figcaption>
-            </figure>
 
-            <!-- Floating chips -->
-            <div class="hero-chip hero-chip--rating" aria-hidden="true">
-              <span class="hero-chip-icon">
-                <span class="material-symbols-outlined hero-chip-star" aria-hidden="true">star</span>
-              </span>
-              <div>
-                <strong>4.9 Rating</strong>
-                <small>420+ happy eaters</small>
+            <div class="hero-spotlight-card">
+              <div class="hero-spotlight-img-wrap">
+                <img src="../assets/Shahi Dum Biryani.jpg" alt="KhaLo Shahi Dum Biryani"
+                  class="hero-spotlight-img" fetchpriority="high" />
+                <div class="hero-spotlight-badge">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                  </svg>
+                  <span>CROWN JEWEL • 4.9 ★</span>
+                </div>
               </div>
-            </div>
-            <div class="hero-chip hero-chip--time" aria-hidden="true">
-              <span class="material-symbols-outlined hero-chip-icon hero-chip-icon--green">delivery_dining</span>
-              <div>
-                <strong>25 min</strong>
-                <small>Avg. delivery</small>
+
+              <div class="hero-spotlight-body">
+                <div class="hero-spotlight-tag">Chef's Signature Dum Handi</div>
+                <h2 class="hero-spotlight-title">KhaLo Shahi Dum Biryani</h2>
+                <p class="hero-spotlight-desc">
+                  Slow-sealed chicken handi layered with aged saffron basmati rice, natural kewra water, and pure country desi ghee.
+                </p>
+
+                <div class="hero-spotlight-footer">
+                  <div class="hero-spotlight-price">
+                    <div class="hero-spotlight-price-row">
+                      <span class="hero-spotlight-now">Rs. 890</span>
+                      <span class="hero-spotlight-was">Rs. 1,150</span>
+                    </div>
+                    <span class="hero-spotlight-save">Fresh Clay Handi Included</span>
+                  </div>
+
+                  <button type="button" class="btn-add hero-spotlight-btn" data-id="shahi-dum-biryani"
+                    data-item="KhaLo Shahi Dum Biryani" data-price="890"
+                    data-image="../assets/Shahi Dum Biryani.jpg" aria-label="Add KhaLo Shahi Dum Biryani to cart">
+                    <span>Add to Cart</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -337,16 +364,16 @@
         <div class="dish-grid">
 
           <!-- Dish Card 1: Biryani -->
-          <article class="dish-card">
+          <article class="dish-card" data-dish-id="shahi-dum-biryani-sp">
             <div class="dish-img-wrap">
               <img src="../assets/Special Shahi Dum Biryani.jpg" alt="Special Shahi Dum Biryani" class="dish-img"
                 loading="lazy" />
-              <button class="fav-toggle" aria-label="Save to favorites" type="button">
-                <span class="material-symbols-outlined">favorite</span>
+              <button class="fav-toggle" aria-label="Save to favorites" type="button" data-dish-id="shahi-dum-biryani-sp">
+                <svg class="icon-fav" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
               </button>
               <span class="dish-badge dish-badge--bestseller">
-                <span class="material-symbols-outlined">bolt</span>
-                Bestseller
+                <svg class="badge-svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-6 10.49z"/></svg>
+                <span>Bestseller</span>
               </span>
             </div>
             <div class="dish-body">
@@ -355,7 +382,7 @@
                 <p class="dish-restaurant">KhaLo Kitchen • Clifton</p>
                 <div class="dish-rating">
                   <span class="rating-score">
-                    <span class="material-symbols-outlined rating-star" aria-hidden="true">star</span>
+                    <svg class="rating-star-svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                     <span>4.9</span>
                   </span>
                   <span class="rating-count">(420+ reviews)</span>
@@ -364,37 +391,38 @@
               <div class="dish-footer">
                 <div class="dish-meta">
                   <span class="dish-time">
-                    <span class="material-symbols-outlined">schedule</span>25-35 mins
+                    <svg class="dish-time-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v5l3 3"/></svg>
+                    <span>25-35 mins</span>
                   </span>
                   <span class="dish-price">Rs. 899</span>
                 </div>
-                <button class="btn-add" type="button" data-item="Shahi Dum Biryani">
+                <button class="btn-add" type="button" data-id="shahi-dum-biryani-sp" data-item="Special Shahi Dum Biryani" data-price="899" data-image="../assets/Special Shahi Dum Biryani.jpg">
                   <span>Add to Cart</span>
-                  <span class="material-symbols-outlined">shopping_cart</span>
+                  <svg class="btn-cart-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                 </button>
               </div>
             </div>
           </article>
 
-          <!-- Dish Card 2: Nihari -->
-          <article class="dish-card">
+          <!-- Dish Card 2: Karahi -->
+          <article class="dish-card" data-dish-id="chicken-karahi">
             <div class="dish-img-wrap">
-              <img src="../assets/Chicken Karahi.jpg" alt="Slow-Cooked Nalli Nihari" class="dish-img" loading="lazy" />
-              <button class="fav-toggle" aria-label="Save to favorites" type="button">
-                <span class="material-symbols-outlined">favorite</span>
+              <img src="../assets/Chicken Karahi.jpg" alt="Chicken Karahi" class="dish-img" loading="lazy" />
+              <button class="fav-toggle" aria-label="Save to favorites" type="button" data-dish-id="chicken-karahi">
+                <svg class="icon-fav" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
               </button>
               <span class="dish-badge dish-badge--default">
-                <span class="material-symbols-outlined">whatshot</span>
-                Slow-cooked
+                <svg class="badge-svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.61 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
+                <span>Slow-cooked</span>
               </span>
             </div>
             <div class="dish-body">
               <div class="dish-info">
-                <h3 class="dish-name" title="Slow-Cooked Nalli Nihari"> Chicken Karahi</h3>
+                <h3 class="dish-name" title="Chicken Karahi">Chicken Karahi</h3>
                 <p class="dish-restaurant">Hot N Spicy • Tariq Road</p>
                 <div class="dish-rating">
                   <span class="rating-score">
-                    <span class="material-symbols-outlined rating-star" aria-hidden="true">star</span>
+                    <svg class="rating-star-svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                     <span>4.2</span>
                   </span>
                   <span class="rating-count">(310+ reviews)</span>
@@ -403,27 +431,31 @@
               <div class="dish-footer">
                 <div class="dish-meta">
                   <span class="dish-time">
-                    <span class="material-symbols-outlined">schedule</span>30-40 mins
+                    <svg class="dish-time-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v5l3 3"/></svg>
+                    <span>30-40 mins</span>
                   </span>
                   <span class="dish-price">Rs. 1,150</span>
                 </div>
-                <button class="btn-add" type="button" data-item="Nalli Nihari">
+                <button class="btn-add" type="button" data-id="chicken-karahi" data-item="Chicken Karahi" data-price="1150" data-image="../assets/Chicken Karahi.jpg">
                   <span>Add to Cart</span>
-                  <span class="material-symbols-outlined">shopping_cart</span>
+                  <svg class="btn-cart-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                 </button>
               </div>
             </div>
           </article>
 
           <!-- Dish Card 3: BBQ Platter -->
-          <article class="dish-card">
+          <article class="dish-card" data-dish-id="seekh-malai-platter">
             <div class="dish-img-wrap">
               <img src="../assets/Seekh & Malai Platter.jpg" alt="Seekh &amp; Malai Boti Platter" class="dish-img"
                 loading="lazy" />
-              <button class="fav-toggle" aria-label="Save to favorites" type="button">
-                <span class="material-symbols-outlined">favorite</span>
+              <button class="fav-toggle" aria-label="Save to favorites" type="button" data-dish-id="seekh-malai-platter">
+                <svg class="icon-fav" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
               </button>
-              <span class="dish-badge dish-badge--yellow">Charcoal Smoke</span>
+              <span class="dish-badge dish-badge--yellow">
+                <svg class="badge-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 11a8 8 0 0016 0H4zm4 4v5m8-5v5m-4-5v3M8 6a2 2 0 012-2m4 0a2 2 0 012 2"/></svg>
+                <span>Charcoal Smoke</span>
+              </span>
             </div>
             <div class="dish-body">
               <div class="dish-info">
@@ -431,7 +463,7 @@
                 <p class="dish-restaurant">Kolachi BBQ Grill • Do Darya</p>
                 <div class="dish-rating">
                   <span class="rating-score">
-                    <span class="material-symbols-outlined rating-star" aria-hidden="true">star</span>
+                    <svg class="rating-star-svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                     <span>4.9</span>
                   </span>
                   <span class="rating-count">(580+ reviews)</span>
@@ -440,27 +472,31 @@
               <div class="dish-footer">
                 <div class="dish-meta">
                   <span class="dish-time">
-                    <span class="material-symbols-outlined">schedule</span>35-45 mins
+                    <svg class="dish-time-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v5l3 3"/></svg>
+                    <span>35-45 mins</span>
                   </span>
                   <span class="dish-price">Rs. 1,450</span>
                 </div>
-                <button class="btn-add" type="button" data-item="Seekh &amp; Malai Platter">
+                <button class="btn-add" type="button" data-id="seekh-malai-platter" data-item="Seekh &amp; Malai Platter" data-price="1450" data-image="../assets/Seekh & Malai Platter.jpg">
                   <span>Add to Cart</span>
-                  <span class="material-symbols-outlined">shopping_cart</span>
+                  <svg class="btn-cart-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                 </button>
               </div>
             </div>
           </article>
 
           <!-- Dish Card 4: Smashed Burger -->
-          <article class="dish-card">
+          <article class="dish-card" data-dish-id="smashed-double-burger">
             <div class="dish-img-wrap">
               <img src="../assets/Smashed Double Burger.jpg" alt="Gourmet Smashed Beef Burger" class="dish-img"
                 loading="lazy" />
-              <button class="fav-toggle" aria-label="Save to favorites" type="button">
-                <span class="material-symbols-outlined">favorite</span>
+              <button class="fav-toggle" aria-label="Save to favorites" type="button" data-dish-id="smashed-double-burger">
+                <svg class="icon-fav" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
               </button>
-              <span class="dish-badge dish-badge--green">Free Delivery</span>
+              <span class="dish-badge dish-badge--green">
+                <svg class="badge-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="3" width="15" height="13" stroke-width="2" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16" stroke-width="2"/><circle cx="5.5" cy="18.5" r="2.5" stroke-width="2"/><circle cx="18.5" cy="18.5" r="2.5" stroke-width="2"/></svg>
+                <span>Free Delivery</span>
+              </span>
             </div>
             <div class="dish-body">
               <div class="dish-info">
@@ -468,7 +504,7 @@
                 <p class="dish-restaurant">Bun &amp; Patty • DHA Phase 6</p>
                 <div class="dish-rating">
                   <span class="rating-score">
-                    <span class="material-symbols-outlined rating-star" aria-hidden="true">star</span>
+                    <svg class="rating-star-svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                     <span>4.7</span>
                   </span>
                   <span class="rating-count">(240+ reviews)</span>
@@ -477,13 +513,14 @@
               <div class="dish-footer">
                 <div class="dish-meta">
                   <span class="dish-time">
-                    <span class="material-symbols-outlined">schedule</span>20-30 mins
+                    <svg class="dish-time-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v5l3 3"/></svg>
+                    <span>20-30 mins</span>
                   </span>
                   <span class="dish-price">Rs. 780</span>
                 </div>
-                <button class="btn-add" type="button" data-item="Smashed Double Burger">
+                <button class="btn-add" type="button" data-id="smashed-double-burger" data-item="Smashed Double Burger" data-price="780" data-image="../assets/Smashed Double Burger.jpg">
                   <span>Add to Cart</span>
-                  <span class="material-symbols-outlined">shopping_cart</span>
+                  <svg class="btn-cart-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                 </button>
               </div>
             </div>
@@ -560,7 +597,7 @@
               </div>
             </div>
             <div class="decision-actions">
-              <a href="#" class="btn-primary" id="decision-findmeal-btn">
+              <a href="./find-my-meal.html" class="btn-primary" id="decision-findmeal-btn">
                 <span>Find My Meal</span>
                 <span class="material-symbols-outlined btn-icon">arrow_forward</span>
               </a>
@@ -623,10 +660,13 @@
               </button>
             </div>
             <div class="midnight-grid">
-              <article class="midnight-card">
+              <article class="midnight-card" data-dish-id="loaded-beef-burger">
                 <div class="midnight-img-container">
                   <img src="../assets/Loaded beef burger.jpg" alt="Loaded Burger" class="midnight-img" loading="lazy" />
                   <div class="midnight-img-overlay"></div>
+                  <button class="fav-toggle fav-toggle--midnight" aria-label="Save to favorites" type="button" data-dish-id="loaded-beef-burger">
+                    <span class="material-symbols-outlined">favorite</span>
+                  </button>
                   <h3 class="midnight-card-title">Loaded Beef Burger</h3>
                 </div>
                 <div class="midnight-card-bottom">
@@ -634,17 +674,20 @@
                     <div class="midnight-card-meta">Burger Lab • 15 mins</div>
                     <div class="midnight-card-price">Rs. 850</div>
                   </div>
-                  <button class="midnight-add-btn btn-add-cart" type="button" data-item="Loaded Beef Burger"
+                  <button class="midnight-add-btn btn-add-cart" type="button" data-id="loaded-beef-burger" data-item="Loaded Beef Burger" data-price="850" data-image="../assets/Loaded beef burger.jpg"
                     aria-label="Add Loaded Beef Burger to cart">
                     <span>Add to Cart</span>
-                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <svg class="btn-cart-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                   </button>
                 </div>
               </article>
-              <article class="midnight-card">
+              <article class="midnight-card" data-dish-id="animal-fries-mess">
                 <div class="midnight-img-container">
                   <img src="../assets/Animal Fries Mess.jpg" alt="Animal Fries" class="midnight-img" loading="lazy" />
                   <div class="midnight-img-overlay"></div>
+                  <button class="fav-toggle fav-toggle--midnight" aria-label="Save to favorites" type="button" data-dish-id="animal-fries-mess">
+                    <span class="material-symbols-outlined">favorite</span>
+                  </button>
                   <h3 class="midnight-card-title">Animal Fries Mess</h3>
                 </div>
                 <div class="midnight-card-bottom">
@@ -652,18 +695,21 @@
                     <div class="midnight-card-meta">Fries Point • 20 mins</div>
                     <div class="midnight-card-price">Rs. 600</div>
                   </div>
-                  <button class="midnight-add-btn btn-add-cart" type="button" data-item="Animal Fries Mess"
+                  <button class="midnight-add-btn btn-add-cart" type="button" data-id="animal-fries-mess" data-item="Animal Fries Mess" data-price="600" data-image="../assets/Animal Fries Mess.jpg"
                     aria-label="Add Animal Fries Mess to cart">
                     <span>Add to Cart</span>
-                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <svg class="btn-cart-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                   </button>
                 </div>
               </article>
-              <article class="midnight-card">
+              <article class="midnight-card" data-dish-id="molten-lava-cake">
                 <div class="midnight-img-container">
                   <img src="../assets/Molten Lava Cake.jpg" alt="Chocolate Lava Cake" class="midnight-img"
                     loading="lazy" />
                   <div class="midnight-img-overlay"></div>
+                  <button class="fav-toggle fav-toggle--midnight" aria-label="Save to favorites" type="button" data-dish-id="molten-lava-cake">
+                    <span class="material-symbols-outlined">favorite</span>
+                  </button>
                   <h3 class="midnight-card-title">Molten Lava Cake</h3>
                 </div>
                 <div class="midnight-card-bottom">
@@ -671,10 +717,10 @@
                     <div class="midnight-card-meta">Dessert Dir. • 10 mins</div>
                     <div class="midnight-card-price">Rs. 550</div>
                   </div>
-                  <button class="midnight-add-btn btn-add-cart" type="button" data-item="Molten Lava Cake"
+                  <button class="midnight-add-btn btn-add-cart" type="button" data-id="molten-lava-cake" data-item="Molten Lava Cake" data-price="550" data-image="../assets/Molten Lava Cake.jpg"
                     aria-label="Add Molten Lava Cake to cart">
                     <span>Add to Cart</span>
-                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <svg class="btn-cart-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                   </button>
                 </div>
               </article>
@@ -936,30 +982,30 @@
         <!-- Links: Explore -->
         <nav class="footer-links" aria-label="Explore">
           <span class="footer-links-title">Explore</span>
-          <a href="#decision" class="footer-link">Home</a>
-          <a href="#mood" class="footer-link">Discover</a>
-          <a href="#popular" class="footer-link">Find My Meal</a>
-          <a href="#midnight" class="footer-link">Menu</a>
-          <a href="#deals" class="footer-link">Deals <span class="footer-pill">New</span></a>
+          <a href="./home.html" class="footer-link">Home</a>
+          <a href="./find-my-meal.html" class="footer-link">Find My Meal</a>
+          <a href="./menu.html" class="footer-link">Our Menu</a>
+          <a href="./deals.html" class="footer-link">Deals <span class="footer-pill">Hot</span></a>
+          <a href="./khalo-specials.html" class="footer-link">KhaLo Specials</a>
+          <a href="./cart.html" class="footer-link">My Cart</a>
         </nav>
 
         <!-- Links: Account -->
         <nav class="footer-links" aria-label="Account">
           <span class="footer-links-title">Account</span>
-          <a href="#" class="footer-link">My Profile</a>
-          <a href="#" class="footer-link">Saved Dishes</a>
-          <a href="#" class="footer-link">Orders &amp; Tracking</a>
+          <a href="./login.html" class="footer-link">My Profile</a>
+          <a href="./favorites.html" class="footer-link">Saved Dishes</a>
+          <a href="javascript:void(0)" class="footer-link footer-location-trigger">Delivery Areas</a>
           <a href="./login.html" class="footer-link">Sign In</a>
         </nav>
 
         <!-- Links: Support -->
         <nav class="footer-links" aria-label="Support">
           <span class="footer-links-title">Support</span>
-          <a href="#" class="footer-link">Partner with us</a>
-          <a href="#" class="footer-link">Become a Rider</a>
-          <a href="#" class="footer-link">Help Center</a>
-          <a href="#" class="footer-link">Privacy Policy</a>
-          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="./help-center.html" class="footer-link">Help Center</a>
+          <a href="./privacy-policy.html" class="footer-link">Privacy Policy</a>
+          <a href="./terms-of-service.html" class="footer-link">Terms of Service</a>
+          <a href="javascript:void(0)" class="footer-link footer-location-trigger">Delivery Areas</a>
         </nav>
 
         <!-- Contact -->
@@ -989,11 +1035,49 @@
       <div class="footer-pay">
         <span class="footer-pay-label">We accept</span>
         <ul class="footer-pay-list">
-          <li class="pay-chip">Cash on Delivery</li>
-          <li class="pay-chip">JazzCash</li>
-          <li class="pay-chip">Easypaisa</li>
-          <li class="pay-chip">Visa</li>
-          <li class="pay-chip">Mastercard</li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#15803D"/>
+              <rect x="2" y="2" width="28" height="16" rx="2" stroke="#86EFAC" stroke-width="0.8" stroke-dasharray="2 1.5" fill="none"/>
+              <circle cx="16" cy="10" r="4.2" fill="#FFFFFF"/>
+              <text x="16" y="12.5" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="7" fill="#15803D" text-anchor="middle">₨</text>
+            </svg>
+            <span>COD</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#141414"/>
+              <path d="M13.6 4.5a5.5 5.5 0 1 0 0 11 3.7 3.7 0 1 1 0-11z" fill="#EB2429"/>
+              <path d="M18.4 15.5a5.5 5.5 0 1 0 0-11 3.7 3.7 0 1 1 0 11z" fill="#FEC60B"/>
+              <path d="M16 6.8a5.5 5.5 0 0 1 1.2 3.2 5.5 5.5 0 0 1-1.2 3.2 5.5 5.5 0 0 1-1.2-3.2A5.5 5.5 0 0 1 16 6.8z" fill="#F97316"/>
+            </svg>
+            <span>JazzCash</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#00A651"/>
+              <path d="M16 4.5c-3.1 0-5.5 2.4-5.5 5.5 0 3.1 2.4 5.5 5.5 5.5 2.5 0 4.6-1.6 5.2-3.8h-2.5c-.5 1-1.5 1.7-2.7 1.7-1.7 0-3.1-1.3-3.2-3h8.5c.1-.3.1-.6.1-.9 0-3.1-2.4-5-5.4-5zm-3.2 4.4c.3-1.5 1.6-2.5 3.2-2.5 1.6 0 2.9 1 3.2 2.5h-6.4z" fill="#FFFFFF"/>
+              <path d="M12.8 16.2c2 .8 4.4.8 6.4 0" stroke="#69F0AE" stroke-width="1.1" stroke-linecap="round"/>
+            </svg>
+            <span>Easypaisa</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+              <path d="M13.2 14.5l1.6-9.5h2.5l-1.6 9.5h-2.5zm7.3-9.3c-.5-.2-1.3-.4-2.3-.4-2.5 0-4.3 1.3-4.3 3.2 0 1.4 1.3 2.2 2.2 2.7.9.5 1.3.8 1.3 1.2 0 .6-.8.9-1.5.9-1 0-1.5-.1-2.3-.5l-.3-.2-.3 1.9c.5.2 1.5.4 2.5.4 2.7 0 4.4-1.3 4.4-3.3 0-1.1-.7-2-2.2-2.7-.9-.5-1.5-.8-1.5-1.3 0-.4.5-.9 1.5-.9.8 0 1.4.2 1.9.4l.2.1.4-1.6zm5.8 4.6l1.2-3.3.7 3.3h-1.9zm2.8 4.7l-1.8-8.5c-.1-.4-.4-.6-.8-.6h-3.1c-.3 0-.5.1-.6.4l-3.5 8.7h2.6l.5-1.4h3.2l.3 1.4h2.3zm-16.7-9.5l-2.4 6.5-.3-1.3c-.4-1.5-1.8-3.1-3.3-3.9l2.2 8.2h2.7l4-9.5h-2.9z" fill="#1434CB"/>
+              <path d="M7.7 5h-4.2l-.1.4c3.3.8 5.4 2.8 6.3 5.2l-.9-4.7c-.2-.7-.6-.9-1.1-.9z" fill="#F7B600"/>
+            </svg>
+            <span>Visa</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+              <circle cx="12" cy="10" r="6" fill="#EB001B"/>
+              <circle cx="20" cy="10" r="6" fill="#F79E1B"/>
+              <path d="M16 5.86a6 6 0 0 0 0 8.28 6 6 0 0 0 0-8.28z" fill="#FF5F00"/>
+            </svg>
+            <span>Mastercard</span>
+          </li>
         </ul>
       </div>
 
@@ -1014,7 +1098,23 @@
     <span class="toast-text" id="toast-text">Added to cart</span>
   </div>
 
+  <!-- Floating Quick Cart Bar (Appears when items are in cart) -->
+  <aside class="floating-cart-bar" id="floating-cart-bar" aria-label="Cart Overview">
+    <div class="floating-cart-info">
+      <span class="floating-cart-badge" id="floating-cart-badge">1 item</span>
+      <span class="floating-cart-text">Total:</span>
+      <span class="floating-cart-price" id="floating-cart-price">Rs. 0</span>
+    </div>
+    <a href="./cart.html" class="floating-cart-btn">
+      <span>View Items</span>
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+    </a>
+  </aside>
+
+  <script src="../js/location-dropdown.js"></script>
   <script src="../js/home.js"></script>
+  <script src="../js/quick-view-modal.js"></script>
+  <script src="../js/floating-chat.js"></script>
 </body>
 
 </html>

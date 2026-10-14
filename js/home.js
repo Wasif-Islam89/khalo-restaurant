@@ -9,79 +9,7 @@
   // =========================================================================
   // 1. MOBILE NAVIGATION DRAWER
   // =========================================================================
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  if (hamburgerBtn && mobileMenu) {
-    // Opens the mobile navigation drawer
-    function openMobileMenu() {
-      mobileMenu.classList.remove('hidden-state');
-      mobileMenu.classList.add('open-state');
-      hamburgerBtn.classList.add('is-open');
-      hamburgerBtn.setAttribute('aria-expanded', 'true');
-    }
-
-    // Closes the mobile navigation drawer
-    function closeMobileMenu() {
-      mobileMenu.classList.remove('open-state');
-      mobileMenu.classList.add('hidden-state');
-      hamburgerBtn.classList.remove('is-open');
-      hamburgerBtn.setAttribute('aria-expanded', 'false');
-    }
-
-    // Toggles between open and closed states
-    function toggleMobileMenu() {
-      const isCurrentlyOpen = mobileMenu.classList.contains('open-state');
-      if (isCurrentlyOpen) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
-    }
-
-    // Toggle drawer when the hamburger button is clicked
-    hamburgerBtn.addEventListener('click', (event) => {
-      event.stopPropagation();
-      toggleMobileMenu();
-    });
-
-    // Close drawer when any mobile navigation link is clicked
-    const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
-    mobileNavLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        // Update the active link styling
-        mobileNavLinks.forEach((item) => item.classList.remove('active'));
-        link.classList.add('active');
-        closeMobileMenu();
-      });
-    });
-
-    // Dismiss drawer when clicking anywhere outside of it
-    document.addEventListener('click', (event) => {
-      const isMenuOpen = mobileMenu.classList.contains('open-state');
-      if (isMenuOpen) {
-        const clickedInsideMenu = mobileMenu.contains(event.target);
-        const clickedHamburger = hamburgerBtn.contains(event.target);
-        if (!clickedInsideMenu && !clickedHamburger) {
-          closeMobileMenu();
-        }
-      }
-    });
-
-    // Dismiss drawer when the user presses the Escape key
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && mobileMenu.classList.contains('open-state')) {
-        closeMobileMenu();
-      }
-    });
-
-    // Automatically close the mobile menu if the screen expands to desktop width
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768 && mobileMenu.classList.contains('open-state')) {
-        closeMobileMenu();
-      }
-    }, { passive: true });
-  }
+  // Managed universally and reliably by location-dropdown.js across all pages.
 
   // =========================================================================
   // 2. TOAST NOTIFICATIONS & BADGE COUNTERS
@@ -91,26 +19,24 @@
   const toastText = document.getElementById('toast-text');
   let toastTimer = null;
 
-  // Shows a temporary toast message with a real Material Symbols icon (no emojis)
+  // Shows a temporary toast message with luxury KhaLo toast system
   function showToast(message, iconName = 'check_circle') {
+    if (typeof window.showKhaloToast === 'function') {
+      window.showKhaloToast(message, iconName);
+      return;
+    }
     if (!toast || !toastText) return;
 
-    // Set the icon glyph name (e.g. 'search', 'favorite', 'shopping_cart', 'local_offer')
     if (toastIcon) {
       toastIcon.textContent = iconName;
     }
-
-    // Set the message text
-    toastText.textContent = message;
-
-    // Reveal the toast notification
+    toastText.textContent = typeof message === 'object' ? (message.title || '') : message;
     toast.classList.add('is-visible');
 
-    // Automatically hide after 2.2 seconds
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => {
       toast.classList.remove('is-visible');
-    }, 2200);
+    }, 2800);
   }
 
   // Updates a counter badge (e.g. cart or favorites) and plays a pop animation
@@ -143,83 +69,247 @@
     }
   }
 
+
+
   // =========================================================================
-  // 3. EXPANDING NAVBAR SEARCH BAR
+  // DISH CATALOG & DATA PERSISTENCE
   // =========================================================================
-  const searchWrap = document.getElementById('nav-search-wrap');
-  const searchBtn = document.getElementById('search-btn');
-  const searchForm = document.getElementById('nav-search-form');
-  const searchInput = document.getElementById('nav-search-input');
-  const searchCloseBtn = document.getElementById('search-close-btn');
+  const DISH_CATALOG = {
+    'shahi-dum-biryani-sp': {
+      id: 'shahi-dum-biryani-sp',
+      title: 'Special Shahi Dum Biryani',
+      price: 899,
+      image: '../assets/Special Shahi Dum Biryani.jpg'
+    },
+    'chicken-karahi': {
+      id: 'chicken-karahi',
+      title: 'Chicken Karahi',
+      price: 1150,
+      image: '../assets/Chicken Karahi.jpg'
+    },
+    'seekh-malai-platter': {
+      id: 'seekh-malai-platter',
+      title: 'Seekh & Malai Platter',
+      price: 1450,
+      image: '../assets/Seekh & Malai Platter.jpg'
+    },
+    'smashed-double-burger': {
+      id: 'smashed-double-burger',
+      title: 'Smashed Double Burger',
+      price: 780,
+      image: '../assets/Smashed Double Burger.jpg'
+    },
+    'loaded-beef-burger': {
+      id: 'loaded-beef-burger',
+      title: 'Loaded Beef Burger',
+      price: 850,
+      image: '../assets/Loaded beef burger.jpg'
+    },
+    'animal-fries-mess': {
+      id: 'animal-fries-mess',
+      title: 'Animal Fries Mess',
+      price: 600,
+      image: '../assets/Animal Fries Mess.jpg'
+    },
+    'molten-lava-cake': {
+      id: 'molten-lava-cake',
+      title: 'Molten Lava Cake',
+      price: 550,
+      image: '../assets/Molten Lava Cake.jpg'
+    }
+  };
 
-  if (searchWrap && searchBtn && searchInput) {
-    // Expands the search bar and focuses the input field
-    function openSearch() {
-      searchWrap.classList.add('is-open');
-      searchBtn.setAttribute('aria-expanded', 'true');
-      setTimeout(() => {
-        searchInput.focus();
-      }, 60);
+  // Sync Cart badge and Floating Quick Cart Bar with localStorage
+  function syncCartUI() {
+    const cart = JSON.parse(localStorage.getItem('khalo_cart') || '[]');
+    const totalQty = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    const totalPrice = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+
+    const cartBadge = document.getElementById('cart-badge');
+    if (cartBadge) {
+      cartBadge.textContent = totalQty;
     }
 
-    // Collapses the search bar and clears the query
-    function closeSearch() {
-      searchWrap.classList.remove('is-open');
-      searchBtn.setAttribute('aria-expanded', 'false');
-      searchInput.value = '';
-      searchBtn.focus();
-    }
+    // Update Floating Mini Cart Bar
+    const floatingCartBar = document.getElementById('floating-cart-bar');
+    const floatingCartBadge = document.getElementById('floating-cart-badge');
+    const floatingCartPrice = document.getElementById('floating-cart-price');
 
-    // Open on search icon click
-    searchBtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      openSearch();
-    });
-
-    // Close when clicking the 'X' button inside the search field
-    if (searchCloseBtn) {
-      searchCloseBtn.addEventListener('click', (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        closeSearch();
-      });
-    }
-
-    // Close search bar when clicking anywhere outside of it
-    document.addEventListener('click', (event) => {
-      const isSearchOpen = searchWrap.classList.contains('is-open');
-      if (isSearchOpen && !searchWrap.contains(event.target)) {
-        closeSearch();
-      }
-    });
-
-    // Close search bar on Escape key
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && searchWrap.classList.contains('is-open')) {
-        closeSearch();
-      }
-    });
-
-    // Handle search form submission
-    if (searchForm) {
-      searchForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const query = searchInput.value.trim();
-
-        if (query.length > 0) {
-          // Show search toast with 'search' icon (no emojis)
-          showToast(`Searching for "${query}"...`, 'search');
-
-          // Scroll smoothly down to popular dishes or menu
-          const targetSection = document.getElementById('popular') || document.getElementById('menu');
-          if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
+    if (floatingCartBar) {
+      if (totalQty > 0) {
+        floatingCartBar.classList.add('is-visible');
+        if (floatingCartBadge) {
+          floatingCartBadge.textContent = `${totalQty} item${totalQty > 1 ? 's' : ''}`;
+          if (floatingCartBadge.animate) {
+            floatingCartBadge.animate(
+              [{ transform: 'scale(1)' }, { transform: 'scale(1.35)' }, { transform: 'scale(1)' }],
+              { duration: 300, easing: 'ease-out' }
+            );
           }
-        } else {
-          searchInput.focus();
         }
+        if (floatingCartPrice) {
+          floatingCartPrice.textContent = `Rs. ${totalPrice.toLocaleString()}`;
+        }
+      } else {
+        floatingCartBar.classList.remove('is-visible');
+      }
+    }
+  }
+
+  // Add Dish to Cart
+  function addDishToCart(dish) {
+    let cart = JSON.parse(localStorage.getItem('khalo_cart') || '[]');
+    const existing = cart.find((item) => item.id === dish.id);
+    if (existing) {
+      existing.quantity = (existing.quantity || 1) + 1;
+    } else {
+      cart.push({
+        id: dish.id,
+        title: dish.title,
+        price: dish.price,
+        image: dish.image,
+        quantity: 1
       });
+    }
+    localStorage.setItem('khalo_cart', JSON.stringify(cart));
+    syncCartUI();
+
+    // Trigger pop on cart badge
+    const cartBadge = document.getElementById('cart-badge');
+    if (cartBadge && cartBadge.animate) {
+      cartBadge.animate(
+        [{ transform: 'scale(1)' }, { transform: 'scale(1.4)' }, { transform: 'scale(1)' }],
+        { duration: 350, easing: 'ease-out' }
+      );
+    }
+  }
+
+  // Sync Favorites badges & heart buttons
+  function syncFavoritesUI() {
+    let favorites = JSON.parse(localStorage.getItem('khalo_favorites') || '[]');
+    if (favorites.length === 0 && !localStorage.getItem('khalo_favorites_init')) {
+      // Default to 3 curated favorites if first time
+      favorites = ['shahi-dum-biryani-sp', 'smashed-double-burger', 'animal-fries-mess'];
+      localStorage.setItem('khalo_favorites', JSON.stringify(favorites));
+      localStorage.setItem('khalo_favorites_init', 'true');
+    }
+
+    const favBadge = document.getElementById('fav-badge');
+    const mobileFavBadge = document.getElementById('mobile-fav-badge');
+    if (favBadge) favBadge.textContent = favorites.length;
+    if (mobileFavBadge) mobileFavBadge.textContent = favorites.length;
+
+    const allFavBtns = document.querySelectorAll('.fav-toggle');
+    allFavBtns.forEach((btn) => {
+      const card = btn.closest('.dish-card, .midnight-card');
+      const dishId = btn.dataset.dishId || card?.dataset.dishId;
+      const isFav = dishId && favorites.includes(dishId);
+      btn.classList.toggle('is-active', !!isFav);
+      btn.setAttribute('aria-pressed', isFav ? 'true' : 'false');
+    });
+  }
+
+  // Toggle Favorite
+  function toggleFavoriteDish(dishId, dishName) {
+    let favorites = JSON.parse(localStorage.getItem('khalo_favorites') || '[]');
+    const index = favorites.indexOf(dishId);
+    let isNowActive = false;
+
+    if (index > -1) {
+      favorites.splice(index, 1);
+      isNowActive = false;
+      showToast({
+        type: 'unfavorite',
+        tag: 'Removed from Favorites',
+        title: dishName,
+        desc: 'Dish removed from your saved favorites',
+        icon: 'favorite_border'
+      });
+    } else {
+      favorites.push(dishId);
+      isNowActive = true;
+
+      const btn = document.querySelector(`.fav-toggle[data-dish-id="${dishId}"]`);
+      const card = btn ? btn.closest('.dish-card, .midnight-card') : null;
+      if (card && typeof window.khaloSaveFavoriteMeta === 'function') {
+        const title = dishName || card.querySelector('.dish-name, .midnight-card-title')?.textContent.trim() || 'Dish';
+        const priceText = card.querySelector('.dish-price, .midnight-card-price')?.textContent.replace(/[^0-9]/g, '') || '850';
+        const img = card.querySelector('.dish-img, .midnight-img')?.getAttribute('src') || '../assets/Shahi Dum Biryani.jpg';
+        const restaurant = card.querySelector('.dish-restaurant, .midnight-card-meta')?.textContent.trim() || 'KhaLo Kitchen • Karachi';
+        window.khaloSaveFavoriteMeta(dishId, {
+          title: title,
+          price: parseInt(priceText, 10) || 850,
+          image: img,
+          restaurant: restaurant,
+          deliveryTime: '25-35',
+          rating: 4.9,
+          reviewsCount: 420,
+          badgeText: 'Bestseller',
+          badgeIcon: 'bolt',
+          badgeClass: 'dish-badge--bestseller'
+        });
+      }
+
+      showToast({
+        type: 'favorite',
+        tag: 'Saved to Favorites',
+        title: dishName,
+        desc: 'Added to your favorites wishlist',
+        icon: 'favorite',
+        actionText: 'View Saved',
+        actionUrl: './favorites.html'
+      });
+    }
+
+    localStorage.setItem('khalo_favorites', JSON.stringify(favorites));
+    syncFavoritesUI();
+    return isNowActive;
+  }
+
+  // Sync Location text with localStorage
+  function syncLocationUI() {
+    const savedLocation = localStorage.getItem('khalo_location') || '';
+    const cleanLocation = savedLocation ? savedLocation.replace(/^Karachi\s*—\s*/i, '').trim() : 'Select Area';
+    const desktopLoc = document.getElementById('current-location-text');
+    if (desktopLoc) {
+      desktopLoc.textContent = cleanLocation;
+    }
+    const mobileLoc = document.querySelector('.mobile-location-info .location-name');
+    if (mobileLoc) {
+      mobileLoc.textContent = cleanLocation;
+    }
+    const mobileAreaLabel = document.getElementById('mobile-current-location-text');
+    if (mobileAreaLabel) {
+      mobileAreaLabel.textContent = cleanLocation;
+    }
+  }
+
+  // Sync Active Order notification banner
+  function syncActiveOrderUI() {
+    const banner = document.getElementById('home-active-order-banner');
+    if (!banner) return;
+
+    const rawOrder = localStorage.getItem('khalo_active_order');
+    if (!rawOrder) {
+      banner.style.display = 'none';
+      return;
+    }
+
+    try {
+      const order = JSON.parse(rawOrder);
+      if (order && order.id && order.step < 4) {
+        banner.style.display = 'block';
+        const idLabel = document.getElementById('home-order-id-label');
+        const statusLabel = document.getElementById('home-order-status-label');
+        const etaLabel = document.getElementById('home-order-eta-label');
+        if (idLabel) idLabel.textContent = `Order ${order.id}`;
+        if (statusLabel) statusLabel.textContent = order.statusText || 'Kitchen Preparing';
+        if (etaLabel && order.eta) etaLabel.textContent = `ETA ~${order.eta}`;
+      } else {
+        banner.style.display = 'none';
+      }
+    } catch (e) {
+      banner.style.display = 'none';
     }
   }
 
@@ -233,33 +323,27 @@
       event.preventDefault();
       event.stopPropagation();
 
-      const isNowActive = button.classList.toggle('is-active');
-
-      // Restart heart animation
-      button.classList.remove('pop');
-      void button.offsetWidth; // Force reflow to restart css animation
-      button.classList.add('pop');
-      button.setAttribute('aria-pressed', isNowActive ? 'true' : 'false');
-
-      // Update badge counter
-      bumpBadge('fav-badge', isNowActive ? 1 : -1);
-
-      // Find the dish name from the card
-      const dishCard = button.closest('.dish-card');
+      const card = button.closest('.dish-card, .midnight-card');
+      const dishId = button.dataset.dishId || card?.dataset.dishId || 'dish';
       let dishName = 'Dish';
-      if (dishCard) {
-        const nameElement = dishCard.querySelector('.dish-name');
+
+      if (card) {
+        const nameElement = card.querySelector('.dish-name, .midnight-card-title');
         if (nameElement) {
           dishName = nameElement.textContent.trim();
         }
       }
 
-      // Show toast with 'favorite' icon (no emojis)
-      if (isNowActive) {
-        showToast(`${dishName} saved to favorites`, 'favorite');
-      } else {
-        showToast(`${dishName} removed from favorites`, 'favorite');
+      if (dishName === 'Dish' && DISH_CATALOG[dishId]) {
+        dishName = DISH_CATALOG[dishId].title;
       }
+
+      // Restart heart animation
+      button.classList.remove('pop');
+      void button.offsetWidth;
+      button.classList.add('pop');
+
+      toggleFavoriteDish(dishId, dishName);
     });
   });
 
@@ -312,36 +396,24 @@
   const addToCartButtons = document.querySelectorAll('.btn-add, .btn-add-cart');
 
   addToCartButtons.forEach((button) => {
-    let resetTimer = null;
-
     button.addEventListener('click', (event) => {
+      event.preventDefault();
       event.stopPropagation();
 
-      const itemName = button.dataset.item || 'Item';
-
-      // Increment cart badge and show confirmation toast with 'shopping_cart' icon
-      bumpBadge('cart-badge', 1);
-      showToast(`${itemName} added to cart`, 'shopping_cart');
-
-      // Visual feedback: temporarily switch button icon to checkmark
-      button.classList.add('is-added');
-      const iconElement = button.querySelector('.material-symbols-outlined');
-
-      if (iconElement) {
-        if (!button.dataset.defaultIcon) {
-          button.dataset.defaultIcon = iconElement.textContent.trim() || 'shopping_cart';
+      // Open quick-view modal instead of directly adding to cart
+      if (typeof window.openKhaloProductModal === 'function') {
+        const product = (typeof window.resolveKhaloProduct === 'function' ? window.resolveKhaloProduct(button) : null);
+        if (product) {
+          window.openKhaloProductModal(product);
+          return;
         }
-        iconElement.textContent = 'check';
       }
 
-      // Reset button back to its default icon after 1.4 seconds
-      clearTimeout(resetTimer);
-      resetTimer = setTimeout(() => {
-        button.classList.remove('is-added');
-        if (iconElement) {
-          iconElement.textContent = button.dataset.defaultIcon || 'shopping_cart';
-        }
-      }, 1400);
+      const card = button.closest('.dish-card, .midnight-card, .hero-spotlight-card');
+      const dishId = button.dataset.id || card?.dataset.dishId || 'dish';
+      if (DISH_CATALOG[dishId] && typeof window.openKhaloProductModal === 'function') {
+        window.openKhaloProductModal(DISH_CATALOG[dishId]);
+      }
     });
   });
 
@@ -534,5 +606,21 @@
     }
 
     scrollObserver.observe(element);
+  });
+
+  // =========================================================================
+  // 13. INITIALIZE SHARED APP STATES (CART, FAVORITES, LOCATION, ORDER)
+  // =========================================================================
+  syncLocationUI();
+  syncCartUI();
+  syncFavoritesUI();
+  syncActiveOrderUI();
+
+  // Listen for storage changes across tabs or pages
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'khalo_cart') syncCartUI();
+    if (event.key === 'khalo_favorites') syncFavoritesUI();
+    if (event.key === 'khalo_location') syncLocationUI();
+    if (event.key === 'khalo_active_order') syncActiveOrderUI();
   });
 })();
