@@ -304,7 +304,20 @@
         const etaLabel = document.getElementById('home-order-eta-label');
         if (idLabel) idLabel.textContent = `Order ${order.id}`;
         if (statusLabel) statusLabel.textContent = order.statusText || 'Kitchen Preparing';
-        if (etaLabel && order.eta) etaLabel.textContent = `ETA ~${order.eta}`;
+
+        let etaDisplay = order.eta || '25–35 mins';
+        if (order.placedAt) {
+          const elapsedSec = Math.floor((Date.now() - order.placedAt) / 1000);
+          const totalDuration = order.durationSec || 1800;
+          const remainingSec = Math.max(0, totalDuration - elapsedSec);
+          const remainingMins = Math.floor(remainingSec / 60);
+          if (remainingSec > 0) {
+            etaDisplay = `~${remainingMins + 1} mins`;
+          } else {
+            etaDisplay = 'Delivered';
+          }
+        }
+        if (etaLabel) etaLabel.textContent = `ETA ${etaDisplay}`;
       } else {
         banner.style.display = 'none';
       }
@@ -621,6 +634,20 @@
     if (event.key === 'khalo_cart') syncCartUI();
     if (event.key === 'khalo_favorites') syncFavoritesUI();
     if (event.key === 'khalo_location') syncLocationUI();
-    if (event.key === 'khalo_active_order') syncActiveOrderUI();
+    if (event.key === 'khalo_active_order' || event.key === 'khalo_active_orders') syncActiveOrderUI();
+  });
+
+  // App store badges click feedback
+  document.querySelectorAll('.store-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast({
+        type: 'info',
+        tag: 'Coming Soon',
+        title: 'KhaLo Mobile App',
+        desc: 'Our official iOS & Android apps will launch very soon across Karachi!',
+        icon: 'smartphone'
+      });
+    });
   });
 })();
