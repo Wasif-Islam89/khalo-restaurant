@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Secure 256-bit encrypted Card Payment Gateway for KhaLo Food Delivery in Karachi. Pay via Visa, Mastercard or PayPak." />
+  <meta name="keywords" content="KhaLo payment, credit card payment, debit card checkout, 256-bit SSL, secure food checkout Karachi" />
+  <title>KhaLo — Payment Gateway</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/fav.icon.png" />
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/payment.css" />
+</head>
+
+<body class="payment-body">
+
+  <!-- ========= HEADER ========= -->
+  <header class="payment-header">
+    <div class="payment-header-inner">
+      <div class="payment-brand">
+        <a href="./cart.html" title="Back to Cart">
+          <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" />
+        </a>
+      </div>
+
+      <div class="payment-ssl-badge">
+        <span class="material-symbols-outlined" style="font-size: 1rem;">verified_user</span>
+        <span>256-Bit SSL Encrypted Gateway</span>
+      </div>
+
+      <a href="./cart.html" class="btn-back-to-cart">
+        <span class="material-symbols-outlined" style="font-size: 1.1rem;">arrow_back</span>
+        <span>Back to Cart</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ========= MAIN CONTENT ========= -->
+  <main class="payment-main">
+
+    <!-- Main Grid: Card Form + Order Summary Sidebar -->
+    <div class="payment-grid">
+
+      <!-- LEFT COLUMN: Card Payment System -->
+      <section class="payment-gateway-card" aria-label="Card Payment Form">
+        <div class="gateway-title-row">
+          <h1 class="gateway-title">
+            <span class="material-symbols-outlined" style="color: var(--pay-primary); font-size: 1.6rem;">credit_card</span>
+            <span>Online Card Payment</span>
+          </h1>
+          <p class="gateway-subtitle">
+            Enter your Debit or Credit card details below. All transactions are authorized through 3D-Secure Bank protocol.
+          </p>
+        </div>
+
+        <!-- Mode switcher tab (Allows instant switch to COD if user changes mind) -->
+        <div class="payment-mode-tabs" role="tablist">
+          <button type="button" class="mode-tab is-active" id="tab-card-mode">
+            <span class="material-symbols-outlined" style="font-size: 1.15rem;">credit_card</span>
+            <span>Debit / Credit Card</span>
+          </button>
+          <button type="button" class="mode-tab" id="tab-cod-mode">
+            <span class="material-symbols-outlined" style="font-size: 1.15rem;">local_atm</span>
+            <span>Switch to COD</span>
+          </button>
+        </div>
+
+        <!-- Virtual Interactive Credit Card Preview -->
+        <div class="card-preview-wrapper">
+          <div class="virtual-card" id="virtual-card-element">
+            <div class="card-top-row">
+              <div class="card-emv-chip" aria-hidden="true"></div>
+              <div class="card-brand-display">
+                <span class="material-symbols-outlined" style="font-size: 1.3rem; opacity: 0.8;">contactless</span>
+                <span class="card-brand-badge-ui" id="card-preview-brand" style="background: transparent; padding: 0;">
+                  <svg viewBox="0 0 36 22" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 34px; height: 21px; display: block; border-radius: 3px;">
+                    <rect width="36" height="22" rx="3" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+                    <path d="M14.5 15.8l1.8-10.7h2.8l-1.8 10.7h-2.8zm8.2-10.5c-.6-.2-1.5-.4-2.6-.4-2.8 0-4.8 1.5-4.8 3.6 0 1.6 1.4 2.5 2.5 3 .1.6 1.5.9 1.5 1.4 0 .7-.9 1-1.7 1-1.1 0-1.7-.2-2.6-.6l-.4-.2-.4 2.1c.6.2 1.7.5 2.8.5 3 0 5-1.5 5-3.7 0-1.2-.8-2.3-2.5-3-1-.5-1.7-.9-1.7-1.5 0-.5.6-1 1.7-1 .9 0 1.6.2 2.1.5l.2.1.4-1.8zm6.5 5.2l1.4-3.7.8 3.7h-2.2zm3.2 5.3l-2-9.6c-.1-.5-.5-.7-.9-.7h-3.5c-.3 0-.6.1-.7.5l-3.9 9.8h3l.6-1.6h3.6l.3 1.6h2.6zm-18.8-10.7l-2.7 7.3-.3-1.5c-.5-1.7-2-3.5-3.7-4.4l2.5 9.2h3l4.5-10.6h-3.3z" fill="#1434CB"/>
+                    <path d="M8.7 5.1h-4.7l-.1.5c3.7.9 6.1 3.2 7.1 5.9l-1-5.3c-.2-.8-.7-1.1-1.3-1.1z" fill="#F7B600"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            <div class="card-number-display" id="card-preview-number">
+              •••• •••• •••• ••••
+            </div>
+
+            <div class="card-bottom-row">
+              <div class="card-holder-box">
+                <span class="card-meta-label">Card Holder</span>
+                <div class="card-holder-display" id="card-preview-holder">YOUR NAME</div>
+              </div>
+              <div class="card-expires-box">
+                <span class="card-meta-label">Expires</span>
+                <div class="card-expires-display" id="card-preview-expiry">MM/YY</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick 1-Click Test Card Autofill -->
+        <div class="quick-fill-bar">
+          <span class="quick-fill-label">Instant Test Cards:</span>
+          <button type="button" class="btn-demo-card" id="btn-fill-visa">
+            ⚡ Autofill Visa
+          </button>
+          <button type="button" class="btn-demo-card" id="btn-fill-mastercard">
+            ⚡ Autofill Mastercard
+          </button>
+        </div>
+
+        <!-- Card Input Form -->
+        <form id="card-payment-form" novalidate>
+          <div class="card-form-grid">
+
+            <!-- Cardholder Name -->
+            <div class="form-field-group">
+              <label for="card-holder-input" class="form-label">
+                <span>Cardholder Name</span>
+                <small style="color: var(--pay-muted); font-weight: normal;">As printed on card</small>
+              </label>
+              <div class="input-with-icon">
+                <span class="material-symbols-outlined input-field-icon">person</span>
+                <input 
+                  type="text" 
+                  id="card-holder-input" 
+                  class="payment-input" 
+                  placeholder="e.g. Muhammad Wasif" 
+                  required 
+                  autocomplete="cc-name"
+                />
+              </div>
+            </div>
+
+            <!-- Card Number -->
+            <div class="form-field-group">
+              <label for="card-number-input" class="form-label">
+                <span>Card Number</span>
+                <small style="color: var(--pay-muted); font-weight: normal;">16 Digits</small>
+              </label>
+              <div class="input-with-icon">
+                <span class="material-symbols-outlined input-field-icon">credit_card</span>
+                <input 
+                  type="text" 
+                  id="card-number-input" 
+                  class="payment-input" 
+                  placeholder="0000 0000 0000 0000" 
+                  maxlength="19" 
+                  required 
+                  inputmode="numeric"
+                  autocomplete="cc-number"
+                />
+                <span class="input-brand-indicator" id="input-brand-indicator">VISA</span>
+              </div>
+            </div>
+
+            <!-- Expiry & CVV Row -->
+            <div class="form-two-col">
+              <!-- Expiry Date -->
+              <div class="form-field-group">
+                <label for="card-expiry-input" class="form-label">
+                  <span>Expiry Date</span>
+                  <small style="color: var(--pay-muted); font-weight: normal;">MM / YY</small>
+                </label>
+                <div class="input-with-icon">
+                  <span class="material-symbols-outlined input-field-icon">calendar_month</span>
+                  <input 
+                    type="text" 
+                    id="card-expiry-input" 
+                    class="payment-input" 
+                    placeholder="MM/YY" 
+                    maxlength="5" 
+                    required 
+                    inputmode="numeric"
+                    autocomplete="cc-exp"
+                  />
+                </div>
+              </div>
+
+              <!-- CVV / CVC -->
+              <div class="form-field-group">
+                <label for="card-cvv-input" class="form-label">
+                  <span>CVV / CVC</span>
+                  <small style="color: var(--pay-muted); font-weight: normal;">3 Digits on back</small>
+                </label>
+                <div class="input-with-icon">
+                  <span class="material-symbols-outlined input-field-icon">lock</span>
+                  <input 
+                    type="password" 
+                    id="card-cvv-input" 
+                    class="payment-input" 
+                    placeholder="•••" 
+                    maxlength="4" 
+                    required 
+                    inputmode="numeric"
+                    autocomplete="cc-csc"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Save Card for future -->
+            <label class="save-card-toggle">
+              <input type="checkbox" id="save-card-checkbox" checked />
+              <span>Save this card securely for faster checkout next time</span>
+            </label>
+
+            <!-- Pay Now Button -->
+            <button type="submit" class="btn-submit-pay" id="btn-submit-pay">
+              <span class="material-symbols-outlined">lock</span>
+              <span id="btn-pay-text">Pay Rs. 0 Securely</span>
+            </button>
+
+            <!-- Switch to Cash on Delivery fallback -->
+            <div class="switch-cod-box">
+              <span>Prefer to pay with physical cash?</span>
+              <button type="button" class="btn-switch-cod" id="btn-fallback-cod">
+                <span>Switch to Cash on Delivery (COD)</span>
+                <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_forward</span>
+              </button>
+            </div>
+
+          </div>
+        </form>
+      </section>
+
+      <!-- RIGHT COLUMN: Order Summary Sidebar -->
+      <aside class="order-sidebar-card" aria-label="Order Summary">
+        <h2 class="sidebar-title">
+          <span>Order Summary</span>
+          <span class="badge-hot" id="sidebar-items-count" style="font-size: 0.72rem; padding: 2px 8px; border-radius: 9999px; background: #fff2eb; color: var(--pay-primary); font-weight: 700;">1 item</span>
+        </h2>
+
+        <!-- Delivery destination info -->
+        <div class="dest-summary-box">
+          <span class="material-symbols-outlined">location_on</span>
+          <div class="dest-summary-info">
+            <strong id="sidebar-dest-location">Clifton, Karachi</strong>
+            <p id="sidebar-dest-notes">Exact address specified</p>
+          </div>
+        </div>
+
+        <!-- Ordered Items list -->
+        <div class="sidebar-items-list" id="sidebar-items-list">
+          <!-- Loaded dynamically via js/payment.js -->
+        </div>
+
+        <!-- Bill breakdown -->
+        <div class="bill-breakdown-list">
+          <div class="bill-row">
+            <span>Dishes Subtotal</span>
+            <strong id="bill-subtotal">Rs. 0</strong>
+          </div>
+          <div class="bill-row">
+            <span>Delivery Fee</span>
+            <strong id="bill-delivery">Rs. 99</strong>
+          </div>
+          <div class="bill-row discount-row" id="bill-discount-row" style="display: none;">
+            <span>Voucher Discount</span>
+            <strong id="bill-discount">-Rs. 0</strong>
+          </div>
+          <div class="bill-total-row">
+            <span class="bill-total-label">Total to Pay</span>
+            <span class="bill-total-val" id="bill-grand-total">Rs. 0</span>
+          </div>
+        </div>
+
+        <!-- Delivery ETA guarantee -->
+        <div class="delivery-guarantee-pill">
+          <span class="material-symbols-outlined">moped</span>
+          <span>Hot &amp; Fresh Delivery in ~30 Mins</span>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ========= BANK PAYMENT PROCESSING OVERLAY ========= -->
+  <div class="payment-processing-overlay" id="payment-processing-overlay" role="dialog" aria-modal="true" aria-label="Processing Payment">
+    <div class="processing-card">
+      <div class="processing-spinner" id="processing-spinner-element"></div>
+      
+      <h3 class="processing-title" id="processing-title-text">Securing Bank Gateway...</h3>
+      <p class="processing-desc" id="processing-desc-text">
+        Please do not refresh or close this window. We are authorizing your card with 3D-Secure bank protocol.
+      </p>
+
+      <div class="processing-steps-list">
+        <div class="proc-step is-active" id="proc-step-1">
+          <span class="material-symbols-outlined" style="font-size: 1rem;">check_circle</span>
+          <span>1. Connecting to Secure Gateway</span>
+        </div>
+        <div class="proc-step" id="proc-step-2">
+          <span class="material-symbols-outlined" style="font-size: 1rem;">radio_button_unchecked</span>
+          <span>2. 3D-Secure Authorization</span>
+        </div>
+        <div class="proc-step" id="proc-step-3">
+          <span class="material-symbols-outlined" style="font-size: 1rem;">radio_button_unchecked</span>
+          <span>3. Order Placement &amp; Kitchen Dispatch</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="khalo-toast" id="payment-toast" role="status" aria-live="polite">
+    <span class="material-symbols-outlined" id="toast-icon">check_circle</span>
+    <span id="toast-message">Notification</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/payment.js"></script>
+</body>
+
+</html>
