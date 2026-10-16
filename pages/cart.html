@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Review your delicious KhaLo order, enter promo vouchers, and get piping hot meals delivered to your doorstep in Karachi." />
+  <meta name="keywords" content="KhaLo cart, checkout, food delivery tracking, rider tracker Karachi, cash on delivery" />
+  <title>KhaLo — Cart &amp; Tracking</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/fav.icon.png" />
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/location-dropdown.css" />
+  <link rel="stylesheet" href="../css/cart.css" />
+</head>
+
+<body>
+
+  <!-- ========= NAVBAR ========= -->
+  <header class="navbar-header" id="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+
+        <!-- Brand Logo -->
+        <div class="brand">
+          <a href="./home.html" class="brand-link" title="KhaLo Home">
+            <div class="brand-icon">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" />
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <a href="./home.html" class="nav-link">Home</a>
+          <a href="./find-my-meal.html" class="nav-link">Find My Meal</a>
+          <a href="./menu.html" class="nav-link">Menu</a>
+          <a href="./deals.html" class="nav-link nav-link-badge">
+            Deals
+            <span class="badge-hot">Hot</span>
+          </a>
+          <a href="./khalo-specials.html" class="nav-link">KhaLo Specials</a>
+        </nav>
+
+        <!-- Utility Controls -->
+        <div class="utility-controls">
+
+          <div class="location-selector" id="location-selector-wrap">
+            <button type="button" class="location-btn" id="location-dropdown-btn" aria-label="Change delivery location" aria-haspopup="true" aria-expanded="false">
+              <svg class="icon-location" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span id="current-location-text">Select Area</span>
+              <svg class="icon-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+
+
+          <!-- Favorites Trigger -->
+          <a href="./favorites.html" class="icon-btn" title="Favorites" aria-label="Favorites" id="fav-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <span class="badge" id="fav-badge">0</span>
+          </a>
+
+          <!-- Cart Trigger -->
+          <a href="./cart.html" class="icon-btn active" title="Cart" aria-label="Shopping Cart" id="cart-btn" style="border-color: var(--primary-container);">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="badge" id="cart-badge">0</span>
+          </a>
+
+          <!-- Profile -->
+          <a href="./profile.html" class="icon-btn icon-btn-profile" title="My Profile" aria-label="Profile">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </a>
+
+          <!-- Hamburger Button -->
+          <button id="hamburger-btn" type="button" class="hamburger-btn" aria-label="Toggle navigation menu"
+            aria-expanded="false">
+            <svg class="icon-hamburger" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg class="icon-close" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="mobile-menu hidden-state">
+      <div class="mobile-location-bar">
+        <div class="mobile-location-info">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Delivering to: <span class="location-name">Karachi Hub</span>
+        </div>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="./home.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">home</span>
+          <span class="mobile-nav-text">Home</span>
+        </a>
+        <a href="./find-my-meal.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">auto_awesome</span>
+          <span class="mobile-nav-text">Find My Meal</span>
+        </a>
+        <a href="./menu.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">restaurant_menu</span>
+          <span class="mobile-nav-text">Menu</span>
+        </a>
+        <a href="./deals.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">local_offer</span>
+          <span class="mobile-nav-text">Deals</span>
+          <span class="badge-hot">Hot</span>
+        </a>
+        <a href="./khalo-specials.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">stars</span>
+          <span class="mobile-nav-text">KhaLo Specials</span>
+        </a>
+        <a href="./cart.html" class="mobile-nav-link active">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">shopping_cart</span>
+          <span class="mobile-nav-text">My Cart</span>
+        </a>
+        <a href="./favorites.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">favorite</span>
+          <span class="mobile-nav-text">Favorites</span>
+          <span class="badge" id="mobile-fav-badge">0</span>
+        </a>
+        <button type="button" class="mobile-nav-link mobile-location-trigger" id="mobile-location-btn" style="background: none; border: none; width: 100%; text-align: left; cursor: pointer; font-family: inherit;">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">near_me</span>
+          <span class="mobile-nav-text">Delivery Area (<strong id="mobile-current-location-text">Select Area</strong>)</span>
+        </button>
+        <a href="./profile.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">person</span>
+          <span class="mobile-nav-text">Profile &amp; Account</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ACTIVE LIVE ORDER BANNER (Directly below navbar, matching home page) -->
+  <div id="home-active-order-banner" class="home-order-banner" style="display: none;">
+    <div class="container">
+      <div class="home-order-banner-inner">
+        <div class="home-order-banner-left">
+          <span class="order-pulse-dot" aria-hidden="true"></span>
+          <span class="material-symbols-outlined home-order-icon" aria-hidden="true">delivery_dining</span>
+          <div class="home-order-info">
+            <span class="home-order-tag">LIVE ORDER</span>
+            <strong id="home-order-id-label">#KL-00000</strong>
+            <span class="home-order-sep">•</span>
+            <span id="home-order-status-label" class="home-order-status">Kitchen Preparing</span>
+            <span class="home-order-sep">•</span>
+            <span id="home-order-eta-label" class="home-order-eta">ETA ~25 mins</span>
+          </div>
+        </div>
+        <button type="button" class="home-order-track-btn" id="home-order-track-btn" aria-label="Open tracking details">
+          <span>Track Live Order</span>
+          <span class="material-symbols-outlined" style="font-size: 1.1rem;">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========= MAIN CART CONTENT ========= -->
+  <main class="cart-page-main">
+    <div class="container">
+
+      <!-- Page Header -->
+      <div class="cart-page-header">
+        <h1 class="cart-page-title">
+          <span>Your Order Cart</span>
+          <span class="cart-items-count-badge" id="cart-count-badge">0 items</span>
+        </h1>
+        <p class="cart-page-sub">Review your selected dishes, customize notes, and proceed to checkout.</p>
+      </div>
+
+      <!-- Main Layout Grid -->
+      <div class="cart-layout-grid" id="cart-layout-grid">
+
+        <!-- Left: Items List -->
+        <div class="cart-items-container">
+          <div class="cart-table-header">
+            <span>Dish &amp; Description</span>
+            <span>Quantity &amp; Total</span>
+          </div>
+
+          <div class="cart-items-list" id="cart-items-list">
+            <!-- Dynamically populated by cart.js -->
+          </div>
+
+          <!-- Special instructions -->
+          <div class="cart-note-box">
+            <label for="cart-note" class="cart-note-label">
+              <span class="material-symbols-outlined" style="font-size: 1.15rem; color: var(--primary-container);">edit_note</span>
+              <span>Kitchen &amp; Delivery Instructions</span>
+            </label>
+            <textarea id="cart-note" class="cart-note-input"
+              placeholder="e.g. Please bring extra raita, call upon arrival at gate, less spicy..."></textarea>
+          </div>
+        </div>
+
+        <!-- Right: Order Summary Sidebar -->
+        <aside class="cart-summary-card">
+          <h2 class="cart-summary-title">Order Summary</h2>
+
+          <div class="cart-summary-line">
+            <span>Subtotal</span>
+            <strong id="cart-subtotal">Rs. 0</strong>
+          </div>
+
+          <div class="cart-summary-line">
+            <span>Delivery Fee</span>
+            <strong id="cart-delivery-fee">Rs. 99</strong>
+          </div>
+
+          <div class="cart-summary-line" id="cart-discount-row" style="display: none; color: var(--tertiary);">
+            <span>Voucher Discount</span>
+            <strong id="cart-discount-amount">- Rs. 0</strong>
+          </div>
+
+          <!-- Promo Voucher Box -->
+          <div class="promo-box" id="promo-box">
+            <!-- Active Promo Pill (Shows when a code is active) -->
+            <div class="promo-active-badge" id="promo-active-badge" style="display: none;">
+              <div class="promo-active-info">
+                <span class="material-symbols-outlined promo-active-icon" aria-hidden="true">check_circle</span>
+                <div class="promo-active-text">
+                  <span class="promo-active-tag">COUPON APPLIED</span>
+                  <strong class="promo-active-code" id="promo-active-code">KHALO20</strong>
+                  <span class="promo-active-desc" id="promo-active-desc">20% discount applied</span>
+                </div>
+              </div>
+              <button type="button" class="promo-remove-btn" id="promo-remove-btn" title="Remove promo code" aria-label="Remove coupon">
+                <span class="material-symbols-outlined" aria-hidden="true">close</span>
+              </button>
+            </div>
+
+            <!-- Promo Input Form -->
+            <div class="promo-form" id="promo-form">
+              <input type="text" class="promo-input" id="promo-input" placeholder="ENTER COUPON CODE" autocomplete="off" spellcheck="false" />
+              <button class="promo-btn" id="promo-btn" type="button">Apply</button>
+            </div>
+            <p class="promo-applied-text" id="promo-applied-text"></p>
+            <p class="promo-warning-text" id="promo-warning-text"></p>
+
+            <!-- Quick Suggestions from Deals Page -->
+            <div class="promo-suggestions-section">
+              <div class="promo-suggestions-header">
+                <span class="promo-suggestions-title">
+                  <span class="material-symbols-outlined" style="font-size: 14px; vertical-align: middle;">local_offer</span>
+                  Hot Deals Coupons:
+                </span>
+                <a href="./deals.html" class="promo-deals-link" title="Explore Deals Page">All Deals →</a>
+              </div>
+              <div class="promo-chips-list" id="promo-chips-list">
+                <button type="button" class="promo-chip" data-code="KHALO20" title="20% OFF (Min Rs. 1,500)">
+                  <span class="chip-code">KHALO20</span>
+                  <span class="chip-val">20% OFF</span>
+                </button>
+                <button type="button" class="promo-chip" data-code="FREEDEL" title="Zero Delivery Fee (Min Rs. 800)">
+                  <span class="chip-code">FREEDEL</span>
+                  <span class="chip-val">Free Del</span>
+                </button>
+                <button type="button" class="promo-chip" data-code="FEAST500" title="Flat Rs. 500 OFF (Min Rs. 2,500)">
+                  <span class="chip-code">FEAST500</span>
+                  <span class="chip-val">Rs. 500 OFF</span>
+                </button>
+                <button type="button" class="promo-chip" data-code="MIDNIGHT40" title="40% Midnight Munchies (Min Rs. 500)">
+                  <span class="chip-code">MIDNIGHT40</span>
+                  <span class="chip-val">40% OFF</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Destination Chip -->
+          <div class="cart-dest-chip">
+            <div>
+              <small style="color: var(--text-caption); display: block; font-weight: 600;">DELIVERING TO AREA</small>
+              <strong id="cart-dest-location-text">Clifton, Karachi</strong>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <button type="button" class="cart-dest-link" id="cart-change-location-btn" style="background: none; border: none; cursor: pointer; font-family: inherit; display: inline-flex; align-items: center; gap: 4px;" title="Change Area">
+                <span>Change Area</span>
+                <span class="material-symbols-outlined" style="font-size: 1rem;">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Manual Street / Gali / House / Delivery Instructions Message Box -->
+          <div class="cart-manual-address-card" id="cart-manual-address-card">
+            <div class="manual-address-header">
+              <div class="manual-address-label-wrap">
+                <span class="material-symbols-outlined manual-address-icon" aria-hidden="true">home_pin</span>
+                <label for="cart-manual-address-input" class="manual-address-title">House / Flat No., Gali &amp; Street</label>
+              </div>
+            </div>
+            <p class="manual-address-desc">
+              Gali number, makan ya flat number aur delivery notes yahan add karein:
+            </p>
+            <div class="manual-address-input-wrap">
+              <textarea 
+                id="cart-manual-address-input" 
+                class="manual-address-textarea" 
+                rows="2" 
+                placeholder="e.g. Gali #4, House #B-12, Near Madina Masjid, Flat 3B. Bell do dafa bajayein..."
+                aria-label="Manual street address and rider instructions"
+              ></textarea>
+            </div>
+            <div class="manual-address-footer">
+              <span class="manual-address-hint">
+                <span class="material-symbols-outlined hint-icon">electric_moped</span>
+                <span>Rider will deliver directly to this exact address</span>
+              </span>
+              <button type="button" class="btn-clear-manual-addr" id="btnClearManualAddr" title="Clear street input" style="display: none;">
+                Clear
+              </button>
+            </div>
+          </div>
+
+          <!-- Payment Method Options (COD vs Online Card) -->
+          <div class="cart-payment-methods-card" id="cart-payment-methods-card">
+            <div class="payment-methods-header">
+              <div class="payment-methods-title-wrap">
+                <span class="material-symbols-outlined payment-methods-icon" aria-hidden="true">payments</span>
+                <span class="payment-methods-title">Payment Method</span>
+              </div>
+            </div>
+            
+            <div class="payment-methods-list" role="radiogroup" aria-label="Select Payment Method">
+              <!-- Cash on Delivery -->
+              <label class="payment-method-row is-selected" id="pay-method-cod-label">
+                <input type="radio" name="cart_payment_method" id="pay-method-cod" value="cod" checked>
+                <div class="method-radio-indicator"></div>
+                <div class="method-details">
+                  <div class="method-title-line">
+                    <span class="method-name">Cash on Delivery</span>
+                    <span class="method-tag method-tag-cod">COD</span>
+                  </div>
+                  <span class="method-caption">Pay cash upon delivery at your door</span>
+                </div>
+                <span class="material-symbols-outlined method-icon">local_atm</span>
+              </label>
+
+              <!-- Online Card Payment -->
+              <label class="payment-method-row" id="pay-method-card-label">
+                <input type="radio" name="cart_payment_method" id="pay-method-card" value="card">
+                <div class="method-radio-indicator"></div>
+                <div class="method-details">
+                  <div class="method-title-line">
+                    <span class="method-name">Debit / Credit Card</span>
+                    <div class="card-brand-badges">
+                      <svg class="official-brand-svg visa-svg" viewBox="0 0 36 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Visa">
+                        <rect width="36" height="22" rx="4" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+                        <path d="M14.5 15.8l1.8-10.7h2.8l-1.8 10.7h-2.8zm8.2-10.5c-.6-.2-1.5-.4-2.6-.4-2.8 0-4.8 1.5-4.8 3.6 0 1.6 1.4 2.5 2.5 3 .1.6 1.5.9 1.5 1.4 0 .7-.9 1-1.7 1-1.1 0-1.7-.2-2.6-.6l-.4-.2-.4 2.1c.6.2 1.7.5 2.8.5 3 0 5-1.5 5-3.7 0-1.2-.8-2.3-2.5-3-1-.5-1.7-.9-1.7-1.5 0-.5.6-1 1.7-1 .9 0 1.6.2 2.1.5l.2.1.4-1.8zm6.5 5.2l1.4-3.7.8 3.7h-2.2zm3.2 5.3l-2-9.6c-.1-.5-.5-.7-.9-.7h-3.5c-.3 0-.6.1-.7.5l-3.9 9.8h3l.6-1.6h3.6l.3 1.6h2.6zm-18.8-10.7l-2.7 7.3-.3-1.5c-.5-1.7-2-3.5-3.7-4.4l2.5 9.2h3l4.5-10.6h-3.3z" fill="#1434CB"/>
+                        <path d="M8.7 5.1h-4.7l-.1.5c3.7.9 6.1 3.2 7.1 5.9l-1-5.3c-.2-.8-.7-1.1-1.3-1.1z" fill="#F7B600"/>
+                      </svg>
+                      <svg class="official-brand-svg mc-svg" viewBox="0 0 36 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard">
+                        <rect width="36" height="22" rx="4" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+                        <circle cx="14" cy="11" r="6.5" fill="#EB001B"/>
+                        <circle cx="22" cy="11" r="6.5" fill="#F79E1B"/>
+                        <path d="M18 6.45a6.5 6.5 0 0 0 0 9.1 6.5 6.5 0 0 0 0-9.1z" fill="#FF5F00"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <span class="method-caption">Pay online with Debit or Credit Card</span>
+                </div>
+                <span class="material-symbols-outlined method-icon">credit_card</span>
+              </label>
+            </div>
+
+            <!-- COD Note (Visible when COD is active) -->
+            <div class="payment-cod-info" id="payment-cod-info">
+              <span class="material-symbols-outlined" style="color: var(--primary-container, #ff6b35); font-size: 1.15rem;">local_shipping</span>
+              <span>Keep exact cash ready for the rider when your food arrives.</span>
+            </div>
+
+            <!-- Inline Card Payment Form (Visible when Card is active) -->
+            <div class="payment-card-form-wrap" id="payment-card-form-wrap" style="display: none;">
+              <!-- Quick Test Autofill Buttons -->
+              <div class="card-quick-fill-row">
+                <span class="quick-fill-label">Instant Test:</span>
+                <button type="button" class="btn-demo-autofill" id="cart-autofill-visa">⚡ Test Visa</button>
+                <button type="button" class="btn-demo-autofill" id="cart-autofill-mc">⚡ Test Mastercard</button>
+              </div>
+
+              <div class="card-inputs-grid">
+                <!-- Cardholder Name -->
+                <div class="card-input-group">
+                  <label for="cart-card-name" class="card-input-label">Cardholder Name</label>
+                  <input type="text" id="cart-card-name" class="card-input-field" placeholder="Name on Card" autocomplete="cc-name">
+                </div>
+
+                <!-- Card Number -->
+                <div class="card-input-group">
+                  <label for="cart-card-number" class="card-input-label">Card Number</label>
+                  <div class="card-input-with-icon">
+                    <input type="text" id="cart-card-number" class="card-input-field" placeholder="0000 0000 0000 0000" maxlength="19" inputmode="numeric" autocomplete="cc-number">
+                    <span class="card-brand-badge-inline" id="cart-card-brand-badge">VISA</span>
+                  </div>
+                </div>
+
+                <!-- Expiry & CVV Row -->
+                <div class="card-input-row-half">
+                  <div class="card-input-group">
+                    <label for="cart-card-expiry" class="card-input-label">Expiry (MM/YY)</label>
+                    <input type="text" id="cart-card-expiry" class="card-input-field" placeholder="MM/YY" maxlength="5" inputmode="numeric" autocomplete="cc-exp">
+                  </div>
+                  <div class="card-input-group">
+                    <label for="cart-card-cvv" class="card-input-label">CVV</label>
+                    <input type="password" id="cart-card-cvv" class="card-input-field" placeholder="•••" maxlength="4" inputmode="numeric" autocomplete="cc-csc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grand Total -->
+          <div class="cart-summary-total">
+            <span class="cart-total-label">Grand Total</span>
+            <span class="cart-total-amount" id="cart-grand-total">Rs. 0</span>
+          </div>
+
+          <!-- Checkout Button -->
+          <button class="cart-checkout-btn" id="cart-checkout-btn" type="button">
+            <span id="cart-checkout-btn-text">Confirm Order (Cash on Delivery)</span>
+            <span class="material-symbols-outlined" id="cart-checkout-btn-icon">arrow_forward</span>
+          </button>
+        </aside>
+
+      </div>
+
+      <!-- Active Live Orders Container (Supports multiple active orders simultaneously) -->
+      <div class="active-orders-container" id="active-orders-container"></div>
+
+      <!-- Empty State Fallback -->
+      <div class="cart-empty-state" id="cart-empty-state" style="display: none;">
+        <span class="material-symbols-outlined cart-empty-icon">remove_shopping_cart</span>
+        <h2 class="cart-empty-title">Your Cart is Currently Empty</h2>
+        <p class="cart-empty-desc">
+          Looks like you haven’t added any dishes yet. Use KhaLo’s Meal Matcher or explore Karachi’s most popular kitchens!
+        </p>
+        <div class="cart-empty-actions">
+          <a href="./find-my-meal.html" class="btn-primary">
+            <span class="material-symbols-outlined">auto_awesome</span>
+            <span>Find My Meal</span>
+          </a>
+          <a href="./home.html#popular" class="btn-secondary">
+            <span>Explore Menu</span>
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ========= LIVE ORDER TRACKING MODAL ========= -->
+  <div class="order-modal-overlay" id="order-modal-overlay" role="dialog" aria-modal="true" aria-label="Order Tracking">
+    <div class="order-modal-card">
+
+      <!-- Close button -->
+      <button type="button" class="order-modal-close-icon-btn" id="order-modal-x-btn" aria-label="Close modal">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <!-- Success Header -->
+      <div class="order-success-icon">
+        <span class="material-symbols-outlined">check_circle</span>
+      </div>
+      <h2 class="order-modal-title">Order Placed Successfully!</h2>
+      <p class="order-modal-sub">
+        Your order is confirmed and currently being freshly prepared in Karachi.
+      </p>
+
+      <!-- Order ID Banner & Copy Tool -->
+      <div class="order-id-box">
+        <div class="order-id-info">
+          <span class="order-id-label">YOUR TRACKING ID</span>
+          <strong class="order-id-text" id="order-modal-id">#KL-00000</strong>
+        </div>
+        <button type="button" class="order-copy-btn" id="order-copy-btn" title="Copy Order ID">
+          <span class="material-symbols-outlined">content_copy</span>
+          <span id="order-copy-text">Copy</span>
+        </button>
+      </div>
+
+      <!-- Live Stepper Tracker -->
+      <div class="order-tracker-timeline">
+        <!-- Step 1 -->
+        <div class="tracker-step step-done" id="track-step-1">
+          <div class="tracker-node">
+            <span class="material-symbols-outlined">check</span>
+          </div>
+          <div class="tracker-info">
+            <strong>Order Placed &amp; Confirmed</strong>
+            <small>Received by KhaLo Kitchen</small>
+          </div>
+        </div>
+        <div class="tracker-line-connector"></div>
+
+        <!-- Step 2 -->
+        <div class="tracker-step step-active" id="track-step-2">
+          <div class="tracker-node">
+            <span class="material-symbols-outlined">soup_kitchen</span>
+          </div>
+          <div class="tracker-info">
+            <strong>Kitchen Preparing</strong>
+            <small>Chef Imran is frying &amp; packing hot meal</small>
+          </div>
+        </div>
+        <div class="tracker-line-connector"></div>
+
+        <!-- Step 3 -->
+        <div class="tracker-step" id="track-step-3">
+          <div class="tracker-node">
+            <span class="material-symbols-outlined">moped</span>
+          </div>
+          <div class="tracker-info">
+            <strong>Rider Dispatched</strong>
+            <small>Tariq Khan • Honda CG 125</small>
+          </div>
+        </div>
+        <div class="tracker-line-connector"></div>
+
+        <!-- Step 4 -->
+        <div class="tracker-step" id="track-step-4">
+          <div class="tracker-node">
+            <span class="material-symbols-outlined">home_pin</span>
+          </div>
+          <div class="tracker-info">
+            <strong>Delivered</strong>
+            <small>Arrived piping hot at your door</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-Time Live Delivery Countdown Timer Badge -->
+      <div class="order-delivery-timer-box" id="order-delivery-timer-box">
+        <div class="timer-box-left">
+          <div class="timer-icon-circle">
+            <span class="material-symbols-outlined timer-icon-pulse">schedule</span>
+          </div>
+          <div class="timer-box-content">
+            <span class="timer-badge-label">LIVE DELIVERY COUNTDOWN</span>
+            <span class="timer-clock-digits" id="modal-timer-countdown">28:40 Mins</span>
+          </div>
+        </div>
+        <div class="timer-phase-pill" id="modal-timer-phase-pill">
+          <span class="pulse-point"></span>
+          <span id="modal-timer-phase-text">Kitchen Preparing</span>
+        </div>
+      </div>
+      <!-- Modal Dishes In This Order Card -->
+      <div class="modal-order-dishes-card" id="modal-order-dishes-strip">
+        <div class="modal-dishes-header">
+          <div class="modal-dishes-title">
+            <span class="material-symbols-outlined">restaurant_menu</span>
+            <span>Items in this Order</span>
+          </div>
+        </div>
+        <div class="modal-dishes-tags" id="modal-order-dishes-tags"></div>
+      </div>
+
+      <!-- Rider & Delivery Info Strip -->
+      <div class="order-delivery-meta-strip">
+        <div class="order-meta-row-top">
+          <div class="order-meta-box">
+            <span class="material-symbols-outlined meta-icon">timer</span>
+            <div class="meta-box-text">
+              <small>EST. TIME</small>
+              <strong id="order-modal-eta">25–35 mins</strong>
+            </div>
+          </div>
+          <div class="order-meta-box">
+            <span class="material-symbols-outlined meta-icon">payments</span>
+            <div class="meta-box-text">
+              <small>PAYMENT</small>
+              <strong id="order-modal-total">Rs. 0 (COD)</strong>
+            </div>
+          </div>
+        </div>
+        <div class="order-meta-box order-meta-box-dest">
+          <span class="material-symbols-outlined meta-icon">location_on</span>
+          <div class="meta-box-text">
+            <small>DELIVER TO</small>
+            <strong id="order-modal-dest">Clifton</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rider Contact Card -->
+      <div class="order-rider-card">
+        <div class="rider-avatar">
+          <span class="material-symbols-outlined">sports_motorsports</span>
+        </div>
+        <div class="rider-details">
+          <strong class="rider-name">Tariq Khan</strong>
+          <span class="rider-sub">Delivery Captain • 4.9 ★ Rating</span>
+        </div>
+        <button type="button" class="rider-call-btn" id="rider-call-btn">
+          <span class="material-symbols-outlined">call</span>
+          <span>Call Rider</span>
+        </button>
+      </div>
+
+      <!-- Modal Action Buttons (Only Back to Home) -->
+      <div class="order-modal-actions" style="margin-top: 1.25rem;">
+        <button class="btn-primary" id="order-modal-close-btn" type="button" style="width: 100%; justify-content: center; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.95rem 1.5rem; border-radius: var(--radius-full); font-weight: 700; font-size: 1rem; cursor: pointer; border: none;">
+          <span class="material-symbols-outlined">home</span>
+          <span>Back to Home</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="material-symbols-outlined toast-icon" id="toast-icon">check_circle</span>
+    <span class="toast-text" id="toast-text">Cart updated</span>
+  </div>
+
+  <!-- ========= FOOTER ========= -->
+  <footer class="home-footer">
+    <div class="footer-wave" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="./home.html" class="footer-brand-row" aria-label="KhaLo Home">
+            <span class="footer-logo-wrap">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" class="footer-logo" />
+            </span>
+          </a>
+          <p class="footer-about">Helping you decide what to eat. Resolving everyday meal dilemmas with appetizing
+            clarity and smart budget picks across Pakistan.</p>
+
+          <div class="footer-socials" aria-label="Social media">
+            <a href="#" class="social-btn" aria-label="Facebook" id="social-facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram" id="social-instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok" id="social-tiktok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links: Explore -->
+        <nav class="footer-links" aria-label="Explore">
+          <span class="footer-links-title">Explore</span>
+          <a href="./home.html" class="footer-link">Home</a>
+          <a href="./find-my-meal.html" class="footer-link">Find My Meal</a>
+          <a href="./menu.html" class="footer-link">Our Menu</a>
+          <a href="./deals.html" class="footer-link">Deals <span class="footer-pill">Hot</span></a>
+          <a href="./khalo-specials.html" class="footer-link">KhaLo Specials</a>
+          <a href="./cart.html" class="footer-link">My Cart</a>
+        </nav>
+
+        <!-- Links: Account -->
+        <nav class="footer-links" aria-label="Account">
+          <span class="footer-links-title">Account</span>
+          <a href="./profile.html#tab-profile" class="footer-link">My Profile</a>
+          <a href="./profile.html#tab-orders" class="footer-link">Live Order Tracking</a>
+          <a href="./profile.html#tab-favorites" class="footer-link">Saved Dishes</a>
+          <a href="./profile.html#tab-addresses" class="footer-link">Delivery Addresses</a>
+        </nav>
+
+        <!-- Links: Support -->
+        <nav class="footer-links" aria-label="Support">
+          <span class="footer-links-title">Support</span>
+          <a href="./privacy-policy.html" class="footer-link">Privacy Policy</a>
+          <a href="./terms-of-service.html" class="footer-link">Terms of Service</a>
+        </nav>
+
+        <!-- Contact -->
+        <div class="footer-links footer-contact">
+          <span class="footer-links-title">Contact Us</span>
+          <a href="tel:+922111542556" class="footer-contact-item">
+            <span class="material-symbols-outlined">call</span>
+            <span>+92-300-000-0000</span>
+          </a>
+          <a href="mailto:hello@khalo.pk" class="footer-contact-item">
+            <span class="material-symbols-outlined">mail</span>
+            <span>hello@khalo</span>
+          </a>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">pin_drop</span>
+            <span>Karachi</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">schedule</span>
+            <span>Open daily, 10 AM – 4 AM</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Payment strip -->
+      <div class="footer-pay">
+        <span class="footer-pay-label">We accept</span>
+        <ul class="footer-pay-list">
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#15803D"/>
+              <rect x="2" y="2" width="28" height="16" rx="2" stroke="#86EFAC" stroke-width="0.8" stroke-dasharray="2 1.5" fill="none"/>
+              <circle cx="16" cy="10" r="4.2" fill="#FFFFFF"/>
+              <text x="16" y="12.5" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="7" fill="#15803D" text-anchor="middle">₨</text>
+            </svg>
+            <span>COD</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+              <path d="M13.2 14.5l1.6-9.5h2.5l-1.6 9.5h-2.5zm7.3-9.3c-.5-.2-1.3-.4-2.3-.4-2.5 0-4.3 1.3-4.3 3.2 0 1.4 1.3 2.2 2.2 2.7.9.5 1.3.8 1.3 1.2 0 .6-.8.9-1.5.9-1 0-1.5-.1-2.3-.5l-.3-.2-.3 1.9c.5.2 1.5.4 2.5.4 2.7 0 4.4-1.3 4.4-3.3 0-1.1-.7-2-2.2-2.7-.9-.5-1.5-.8-1.5-1.3 0-.4.5-.9 1.5-.9.8 0 1.4.2 1.9.4l.2.1.4-1.6zm5.8 4.6l1.2-3.3.7 3.3h-1.9zm2.8 4.7l-1.8-8.5c-.1-.4-.4-.6-.8-.6h-3.1c-.3 0-.5.1-.6.4l-3.5 8.7h2.6l.5-1.4h3.2l.3 1.4h2.3zm-16.7-9.5l-2.4 6.5-.3-1.3c-.4-1.5-1.8-3.1-3.3-3.9l2.2 8.2h2.7l4-9.5h-2.9z" fill="#1434CB"/>
+              <path d="M7.7 5h-4.2l-.1.4c3.3.8 5.4 2.8 6.3 5.2l-.9-4.7c-.2-.7-.6-.9-1.1-.9z" fill="#F7B600"/>
+            </svg>
+            <span>Visa</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+              <circle cx="12" cy="10" r="6" fill="#EB001B"/>
+              <circle cx="20" cy="10" r="6" fill="#F79E1B"/>
+              <path d="M16 5.86a6 6 0 0 0 0 8.28 6 6 0 0 0 0-8.28z" fill="#FF5F00"/>
+            </svg>
+            <span>Mastercard</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="footer-year">2026</span> KhaLo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/location-dropdown.js"></script>
+  <script src="../js/cart.js"></script>
+</body>
+
+</html>
