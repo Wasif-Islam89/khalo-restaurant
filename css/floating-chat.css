@@ -1,0 +1,335 @@
+/* =========================================================================
+   KhaLo — floating-chat.css
+   Dedicated Stylesheet for Right-Aligned Floating Chatbot Widget & Popup
+   ========================================================================= */
+
+/* The Floating Launcher Button on the RIGHT (Positioned above Back-to-Top button) */
+.khalo-floating-chat-btn {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 5.25rem;
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1.25rem 0.7rem 0.95rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #231f20;
+  border: 1.5px solid #f3eae3;
+  box-shadow: 0 12px 32px -6px rgba(171, 53, 0, 0.22), 0 4px 12px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 800;
+  outline: none;
+}
+
+.khalo-floating-chat-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: #ff6b35;
+  color: #ff6b35;
+  box-shadow: 0 16px 36px -6px rgba(255, 107, 53, 0.35);
+}
+
+.khalo-chat-icon-wrap {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8f63 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 10px rgba(255, 107, 53, 0.35);
+}
+
+
+/* =========================================================================
+   THE POPUP CHAT WINDOW (Compact, Right-Pinned Modal)
+   ========================================================================= */
+.khalo-chat-popup {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 8.75rem;
+  width: 380px;
+  max-width: calc(100vw - 2rem);
+  height: 520px;
+  max-height: calc(100vh - 10.5rem);
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1.5px solid #f3eae3;
+  box-shadow: 0 24px 60px -12px rgba(171, 53, 0, 0.28), 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  overflow: hidden;
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.khalo-chat-popup.is-open {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Rainbow accent border on top of popup */
+.khalo-chat-popup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #ff6b35 0%, #fdc656 45%, #51ab74 80%, #ff8f63 100%);
+  z-index: 3;
+}
+
+/* Header */
+.khalo-chat-popup-header {
+  padding: 1rem 1.15rem 0.9rem;
+  background: #fffcf9;
+  border-bottom: 1px solid #f3eae3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.khalo-chat-header-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.khalo-chat-mini-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8f63 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.khalo-chat-header-title {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #231f20;
+  line-height: 1.2;
+}
+
+.khalo-chat-header-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 11px;
+  color: #166534;
+  font-weight: 700;
+}
+
+.khalo-chat-header-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.khalo-chat-header-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.khalo-chat-tool-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #f3eae3;
+  color: #71717a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.khalo-chat-tool-btn:hover {
+  background: #fff8f5;
+  color: #ff6b35;
+  border-color: #ff6b35;
+}
+
+/* Chat History Body */
+.khalo-chat-popup-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background: #fdfcfb;
+  scrollbar-width: thin;
+}
+
+.khalo-chat-msg {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  max-width: 88%;
+  animation: khaloFadeIn 0.2s ease-out;
+}
+
+@keyframes khaloFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.khalo-chat-msg.bot {
+  align-self: flex-start;
+}
+
+.khalo-chat-msg.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.khalo-chat-bubble {
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.khalo-chat-msg.bot .khalo-chat-bubble {
+  background: #ffffff;
+  color: #231f20;
+  border: 1px solid #f3eae3;
+  border-top-left-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.khalo-chat-msg.user .khalo-chat-bubble {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8f63 100%);
+  color: #ffffff;
+  border-top-right-radius: 4px;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+/* Quick Inquiry Chips in Popup */
+.khalo-chat-popup-chips {
+  padding: 0.65rem 0.85rem;
+  background: #ffffff;
+  border-top: 1px solid #f3eae3;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.khalo-chat-popup-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.khalo-chip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #fffcf9;
+  border: 1px solid #f3eae3;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #3f3f46;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.khalo-chip-item:hover {
+  background: #fff8f5;
+  color: #ff6b35;
+  border-color: #ff6b35;
+}
+
+/* Input Bar */
+.khalo-chat-popup-inputbar {
+  padding: 0.75rem 1rem;
+  background: #fffcf9;
+  border-top: 1px solid #f3eae3;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.khalo-chat-field {
+  flex: 1;
+  padding: 0.55rem 0.95rem;
+  background: #ffffff;
+  border: 1px solid #f3eae3;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  outline: none;
+  font-family: inherit;
+}
+
+.khalo-chat-field:focus {
+  border-color: #ff6b35;
+}
+
+.khalo-chat-submit-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8f63 100%);
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 107, 53, 0.35);
+  transition: transform 0.2s;
+}
+
+.khalo-chat-submit-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Mobile Screen Tuning */
+@media (max-width: 640px) {
+  .khalo-floating-chat-btn {
+    right: 1rem;
+    bottom: 4.85rem;
+    padding: 0.6rem;
+    border-radius: 50%;
+  }
+
+  .khalo-floating-chat-label {
+    display: none;
+  }
+
+  .khalo-chat-popup {
+    right: 0.75rem;
+    left: 0.75rem;
+    bottom: 5rem;
+    width: auto;
+    max-width: none;
+    height: 480px;
+    max-height: calc(100vh - 6.5rem);
+  }
+}

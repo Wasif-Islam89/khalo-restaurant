@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KhaLo — Live Support</title>
+  <meta name="description" content="Instant 24/7 AI chat support and rider tracking for KhaLo Restaurant Karachi." />
+  <meta name="keywords" content="KhaLo support, live chat assistant, customer care Karachi, rider delay, food complaint hotline" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/fav.icon.png" />
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/location-dropdown.css" />
+  <link rel="stylesheet" href="../css/floating-chat.css" />
+
+  <style>
+    .support-hero {
+      padding: 5rem 1.5rem 3.5rem;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, rgba(255, 107, 53, 0.08) 0%, rgba(255, 252, 249, 0) 70%);
+    }
+    .support-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #fff3ed;
+      color: #ff6b35;
+      padding: 0.35rem 0.95rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(255, 107, 53, 0.2);
+    }
+    .support-hero-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #231f20;
+      letter-spacing: -0.03em;
+      margin: 0 0 1rem;
+    }
+    .support-hero-title span {
+      background: linear-gradient(135deg, #ff6b35 0%, #fa5a1e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .support-hero-desc {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: #71717a;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .support-cards-grid {
+      max-width: 1100px;
+      margin: 0 auto 4rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .support-card {
+      background: #ffffff;
+      border: 1.5px solid #f3eae3;
+      border-radius: 20px;
+      padding: 1.75rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      cursor: pointer;
+    }
+    .support-card:hover {
+      transform: translateY(-4px);
+      border-color: #ff6b35;
+      box-shadow: 0 16px 32px -8px rgba(255, 107, 53, 0.18);
+    }
+    .support-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #fff3ed;
+      color: #ff6b35;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .support-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #231f20;
+      margin: 0 0 0.5rem;
+    }
+    .support-card p {
+      font-size: 0.9rem;
+      color: #71717a;
+      line-height: 1.5;
+      margin: 0 0 1.25rem;
+    }
+    .support-card-action {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ff6b35;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .chat-launch-banner {
+      max-width: 1100px;
+      margin: 0 auto 5rem;
+      padding: 2.5rem;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #231f20 0%, #181516 100%);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
+    }
+    .chat-launch-btn {
+      background: linear-gradient(135deg, #ff6b35 0%, #fa5a1e 100%);
+      color: #ffffff;
+      border: none;
+      padding: 0.85rem 1.75rem;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 8px 24px -4px rgba(255, 107, 53, 0.5);
+      transition: all 0.2s;
+    }
+    .chat-launch-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px -4px rgba(255, 107, 53, 0.7);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========= NAVBAR ========= -->
+  <header class="navbar-header" id="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+
+        <!-- Brand Logo -->
+        <div class="brand">
+          <a href="./home.html" class="brand-link" title="KhaLo Home">
+            <div class="brand-icon">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" />
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <a href="./home.html" class="nav-link">Home</a>
+          <a href="./find-my-meal.html" class="nav-link">Find My Meal</a>
+          <a href="./menu.html" class="nav-link">Menu</a>
+          <a href="./deals.html" class="nav-link nav-link-badge">
+            Deals
+            <span class="badge-hot">Hot</span>
+          </a>
+          <a href="./khalo-specials.html" class="nav-link">KhaLo Specials</a>
+        </nav>
+
+        <!-- Utility Controls -->
+        <div class="utility-controls">
+          <!-- Location Dropdown Trigger -->
+          <div class="location-wrapper">
+            <button class="location-btn" id="location-dropdown-btn" type="button" aria-expanded="false"
+              aria-haspopup="dialog" aria-label="Select Delivery Location">
+              <span class="material-symbols-outlined location-icon">location_on</span>
+              <span class="location-text-group">
+                <span class="location-label">Deliver to</span>
+                <span class="location-current" id="current-location-text">Clifton, Karachi</span>
+              </span>
+              <span class="material-symbols-outlined dropdown-arrow">expand_more</span>
+            </button>
+          </div>
+
+          <!-- Favorites Icon -->
+          <a href="./favorites.html" class="icon-btn-wrapper" aria-label="View Favorites" title="Your Favorites">
+            <button class="icon-btn" type="button">
+              <span class="material-symbols-outlined">favorite</span>
+              <span class="badge" id="fav-badge">0</span>
+            </button>
+          </a>
+
+          <!-- Cart Icon -->
+          <a href="./cart.html" class="icon-btn-wrapper" aria-label="View Cart" title="Your Cart">
+            <button class="icon-btn" type="button">
+              <span class="material-symbols-outlined">shopping_cart</span>
+              <span class="badge" id="cart-badge">0</span>
+            </button>
+          </a>
+
+          <!-- Profile Icon -->
+          <a href="./profile.html" class="icon-btn-wrapper" aria-label="View Profile" title="Account & Orders">
+            <button class="icon-btn" type="button">
+              <span class="material-symbols-outlined">person</span>
+            </button>
+          </a>
+
+          <!-- Mobile Hamburger -->
+          <button class="mobile-toggle" id="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu"
+            aria-expanded="false">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ========= HERO SECTION ========= -->
+  <main>
+    <section class="support-hero">
+      <div class="support-hero-badge">
+        <span class="material-symbols-outlined" style="font-size: 16px;">support_agent</span>
+        <span>24/7 KhaLo Live Support</span>
+      </div>
+      <h1 class="support-hero-title">How can we <span>help you</span> today?</h1>
+      <p class="support-hero-desc">
+        Fastest assistance for active Karachi deliveries, rider updates, coupon codes, and kitchen cancellations.
+      </p>
+    </section>
+
+    <!-- Support Quick Topic Cards -->
+    <div class="support-cards-grid">
+      <div class="support-card" onclick="window.openKhaloChat?.()">
+        <div>
+          <div class="support-card-icon">
+            <span class="material-symbols-outlined">radar</span>
+          </div>
+          <h3>Where is my order?</h3>
+          <p>Real-time ETA and status updates for ongoing handi, biryani, or fast-food deliveries.</p>
+        </div>
+        <span class="support-card-action">Track in Chat &rarr;</span>
+      </div>
+
+      <div class="support-card" onclick="window.openKhaloChat?.()">
+        <div>
+          <div class="support-card-icon">
+            <span class="material-symbols-outlined">cancel</span>
+          </div>
+          <h3>Cancel Order</h3>
+          <p>Free instant cancellation within 5 minutes of order placement before cooking begins.</p>
+        </div>
+        <span class="support-card-action">Ask Cancellation &rarr;</span>
+      </div>
+
+      <div class="support-card" onclick="window.openKhaloChat?.()">
+        <div>
+          <div class="support-card-icon">
+            <span class="material-symbols-outlined">local_offer</span>
+          </div>
+          <h3>KHALO50 Promo</h3>
+          <p>Use code KHALO50 on cart checkout for up to 50% discount on authentic desi meals.</p>
+        </div>
+        <span class="support-card-action">View Offers &rarr;</span>
+      </div>
+
+      <div class="support-card" onclick="window.open('https://wa.me/923000000000', '_blank')">
+        <div>
+          <div class="support-card-icon" style="background: #eef8f1; color: #16a34a;">
+            <span class="material-symbols-outlined">phone_in_talk</span>
+          </div>
+          <h3>WhatsApp Hotline</h3>
+          <p>Talk directly with our Karachi dispatch team for urgent modifications or delays.</p>
+        </div>
+        <span class="support-card-action" style="color: #16a34a;">+92-300-000-0000 &rarr;</span>
+      </div>
+    </div>
+
+    <!-- Live Chat Banner Callout -->
+    <div style="padding: 0 1.5rem;">
+      <div class="chat-launch-banner">
+        <div>
+          <h2 style="font-size: 1.5rem; font-weight: 800; margin: 0 0 0.5rem; color: #ffffff;">Need Instant Support?</h2>
+          <p style="margin: 0; color: #a1a1aa; font-size: 0.95rem;">Our AI Chatbot Assistant is live on the bottom-right corner of your screen.</p>
+        </div>
+        <button type="button" class="chat-launch-btn" onclick="window.openKhaloChat?.()">
+          <span class="material-symbols-outlined">chat</span>
+          <span>Open Chat Assistant</span>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========= FOOTER ========= -->
+  <footer class="footer-root">
+    <div class="footer-container">
+      <div class="footer-grid">
+
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <a href="./home.html" class="footer-logo">
+            <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" />
+          </a>
+          <p class="footer-tagline">
+            Karachi’s most authentic desi flavors, handis, biryanis & fast food delivered piping hot to your doorstep.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <nav class="footer-links" aria-label="Explore Menu">
+          <span class="footer-links-title">Explore</span>
+          <a href="./home.html" class="footer-link">Home</a>
+          <a href="./menu.html" class="footer-link">Full Menu</a>
+          <a href="./deals.html" class="footer-link">Deals & Offers</a>
+          <a href="./khalo-specials.html" class="footer-link">KhaLo Specials</a>
+          <a href="./find-my-meal.html" class="footer-link">Find My Meal</a>
+        </nav>
+
+        <!-- Col 3: Support -->
+        <nav class="footer-links" aria-label="Support">
+          <span class="footer-links-title">Support</span>
+          <a href="./floating-chat.html" class="footer-link active" style="color: #ff6b35; font-weight: 700;">Live Chat & Support</a>
+          <a href="./privacy-policy.html" class="footer-link">Privacy Policy</a>
+          <a href="./terms-of-service.html" class="footer-link">Terms of Service</a>
+        </nav>
+
+        <!-- Col 4: Contact -->
+        <div class="footer-links footer-contact">
+          <span class="footer-links-title">Contact Us</span>
+          <a href="tel:+923000000000" class="footer-contact-item">
+            <span class="material-symbols-outlined">call</span>
+            <span>+92-300-000-0000</span>
+          </a>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">pin_drop</span>
+            <span>Karachi, Pakistan</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="footer-year">2026</span> KhaLo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/location-dropdown.js"></script>
+  <script src="../js/floating-chat.js"></script>
+</body>
+
+</html>
