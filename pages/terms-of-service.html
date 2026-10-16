@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="KhaLo Terms of Service — Ordering guidelines, Cash on Delivery policies, food quality standards, and rider safety terms in Karachi, Pakistan." />
+  <meta name="keywords" content="KhaLo terms of service, delivery terms, order cancellation policy, Karachi food guidelines" />
+  <title>KhaLo — Terms of Service</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/fav.icon.png" />
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/location-dropdown.css" />
+  <link rel="stylesheet" href="../css/terms-of-service.css" />
+</head>
+
+<body>
+
+  <!-- ========= NAVBAR ========= -->
+  <header class="navbar-header" id="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+
+        <!-- Brand Logo -->
+        <div class="brand">
+          <a href="./home.html" class="brand-link" title="KhaLo Home">
+            <div class="brand-icon">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" />
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <a href="./home.html" class="nav-link">Home</a>
+          <a href="./find-my-meal.html" class="nav-link">Find My Meal</a>
+          <a href="./menu.html" class="nav-link">Menu</a>
+          <a href="./deals.html" class="nav-link nav-link-badge">
+            Deals
+            <span class="badge-hot">Hot</span>
+          </a>
+          <a href="./khalo-specials.html" class="nav-link">KhaLo Specials</a>
+        </nav>
+
+        <!-- Utility Controls -->
+        <div class="utility-controls">
+
+          <div class="location-selector" id="location-selector-wrap">
+            <button type="button" class="location-btn" id="location-dropdown-btn" aria-label="Delivery location" aria-haspopup="true" aria-expanded="false">
+              <svg class="icon-location" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span id="current-location-text">Select Area</span>
+              <svg class="icon-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Favorites Trigger -->
+          <a href="./favorites.html" class="icon-btn" title="Favorites" aria-label="Favorites" id="fav-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <span class="badge" id="fav-badge">0</span>
+          </a>
+
+          <!-- Cart Trigger -->
+          <a href="./cart.html" class="icon-btn" title="Cart" aria-label="Shopping Cart" id="cart-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="badge" id="cart-badge">0</span>
+          </a>
+
+          <!-- Profile -->
+          <a href="./profile.html" class="icon-btn icon-btn-profile" title="My Profile" aria-label="Profile">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </a>
+
+          <!-- Hamburger Button -->
+          <button id="hamburger-btn" type="button" class="hamburger-btn" aria-label="Toggle navigation menu"
+            aria-expanded="false">
+            <svg class="icon-hamburger" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg class="icon-close" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="mobile-menu hidden-state">
+      <div class="mobile-location-bar">
+        <div class="mobile-location-info">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Delivering to: <span class="location-name">Karachi</span>
+        </div>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="./home.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">home</span>
+          <span class="mobile-nav-text">Home</span>
+        </a>
+        <a href="./find-my-meal.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">auto_awesome</span>
+          <span class="mobile-nav-text">Find My Meal</span>
+        </a>
+        <a href="./menu.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">restaurant_menu</span>
+          <span class="mobile-nav-text">Menu</span>
+        </a>
+        <a href="./deals.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">local_offer</span>
+          <span class="mobile-nav-text">Deals</span>
+          <span class="badge-hot">Hot</span>
+        </a>
+        <a href="./khalo-specials.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">stars</span>
+          <span class="mobile-nav-text">KhaLo Specials</span>
+        </a>
+        <a href="./cart.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">shopping_cart</span>
+          <span class="mobile-nav-text">My Cart</span>
+        </a>
+        <a href="./favorites.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">favorite</span>
+          <span class="mobile-nav-text">Favorites</span>
+          <span class="badge" id="mobile-fav-badge">0</span>
+        </a>
+        <button type="button" class="mobile-nav-link mobile-location-trigger" id="mobile-location-btn" style="background: none; border: none; width: 100%; text-align: left; cursor: pointer; font-family: inherit;">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">near_me</span>
+          <span class="mobile-nav-text">Delivery Area (<strong id="mobile-current-location-text">Select Area</strong>)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========= MAIN CONTENT SECTION ========= -->
+  <main class="policy-page-main">
+    <div class="container">
+
+      <!-- Header -->
+      <div class="policy-header">
+        <div class="policy-eyebrow">
+          <span class="material-symbols-outlined" style="font-size: 1rem;">gavel</span>
+          <span>Official User Agreement</span>
+        </div>
+        <h1 class="policy-title">Terms of Service</h1>
+        <p class="policy-sub">
+          Please read these terms carefully before ordering food or using delivery services from KhaLo across Karachi. By ordering, you agree to these transparent standards.
+        </p>
+        <span class="policy-meta-pill">
+          <span class="material-symbols-outlined" style="font-size: 14px;">verified</span>
+          <span>Effective Date: October 2026 • Karachi, Pakistan</span>
+        </span>
+      </div>
+
+      <!-- Quick TOC Pills -->
+      <div class="policy-toc-bar" aria-label="Table of Contents">
+        <a href="#acceptance" class="policy-toc-btn">1. Acceptance &amp; Eligibility</a>
+        <a href="#ordering" class="policy-toc-btn">2. Orders &amp; Preparation</a>
+        <a href="#pricing" class="policy-toc-btn">3. Pricing &amp; COD</a>
+        <a href="#cancellation" class="policy-toc-btn">4. Cancellations &amp; Refunds</a>
+        <a href="#quality" class="policy-toc-btn">5. Seal &amp; Quality Guarantee</a>
+        <a href="#rider-safety" class="policy-toc-btn">6. Rider Conduct &amp; Safety</a>
+        <a href="#disputes" class="policy-toc-btn">7. Dispute Resolution</a>
+      </div>
+
+      <!-- Signature Rainbow Bordered Card Box -->
+      <article class="policy-box-card">
+
+        <!-- Top Document Status Strip -->
+        <div class="policy-summary-strip">
+          <div class="policy-summary-left">
+            <div class="policy-summary-icon">
+              <span class="material-symbols-outlined">receipt_long</span>
+            </div>
+            <div>
+              <strong>KhaLo Food Services Ordering Agreement</strong>
+              <span>Applies to all online orders, rider dispatches, and culinary services in Karachi.</span>
+            </div>
+          </div>
+          <button type="button" class="policy-download-btn" onclick="window.print()">
+            <span class="material-symbols-outlined">print</span>
+            <span>Print Terms</span>
+          </button>
+        </div>
+
+        <!-- Section 1 -->
+        <section class="policy-section" id="acceptance">
+          <h2 class="policy-section-heading">
+            <span class="policy-section-num">01</span>
+            <span>Acceptance of Terms &amp; Account Eligibility</span>
+          </h2>
+          <p class="policy-p">
+            By accessing the KhaLo web platform, ordering online, or utilizing our direct rider dispatch services in Karachi, you enter into a legally binding contract with KhaLo Restaurant Services (Private) Limited.
+          </p>
+          <p class="policy-p">
+            To place orders through KhaLo, you must be at least 16 years of age or supervised by an adult. You agree to provide genuine contact information (active Pakistani mobile phone number and accurate street address with landmark).
+          </p>
+          <div class="policy-callout">
+            <strong>Verified Phone Number Requirement</strong>
+            <p>
+              To prevent fraudulent dispatch and food wastage, every first-time Cash on Delivery (COD) order may receive a rapid verification SMS or confirmation call before the handi is put on the flame.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="policy-section" id="ordering">
+          <h2 class="policy-section-heading">
+            <span class="policy-section-num">02</span>
+            <span>Food Ordering, Fresh Preparation &amp; Availability</span>
+          </h2>
+          <p class="policy-p">
+            At KhaLo, we do not reheat pre-packed commercial containers. Every Handi, Biryani, BBQ Skewer, and Karahi is cooked fresh to order by our master chefs.
+          </p>
+          <ul class="policy-list">
+            <li>
+              <span class="material-symbols-outlined policy-bullet-icon">check_circle</span>
+              <span><strong>Order Confirmation:</strong> An order is confirmed when you see the active order tracking state and receive an order tracking ID (e.g., <code>KHL-9204</code>).</span>
+            </li>
+            <li>
+              <span class="material-symbols-outlined policy-bullet-icon">check_circle</span>
+              <span><strong>Preparation Window:</strong> Fresh cooking takes between 15 to 25 minutes depending on dish complexity (e.g., slow-dum mutton handi vs. flame-grilled seekh kabab).</span>
+            </li>
+            <li>
+              <span class="material-symbols-outlined policy-bullet-icon">check_circle</span>
+              <span><strong>Item Substitutions:</strong> If a specific seasonal dessert or fresh cut of meat is sold out, our manager will call you immediately to suggest a complimentary substitute or cancel without penalty.</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="policy-section" id="pricing">
+          <h2 class="policy-section-heading">
+            <span class="policy-section-num">03</span>
+            <span>Pricing, GST &amp; Cash on Delivery (COD) Obligations</span>
+          </h2>
+          <p class="policy-p">
+            All prices shown on the menu are in Pakistani Rupees (PKR) and are inclusive of standard local taxes unless clearly specified otherwise in your cart summary.
+          </p>
+
+          <div class="policy-table-wrapper">
+            <table class="policy-table">
+              <thead>
+                <tr>
+                  <th>Payment Method</th>
+                  <th>Processing Fee</th>
+                  <th>Terms &amp; Verification</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Cash on Delivery (COD)</strong></td>
+                  <td>PKR 0</td>
+                  <td>Exact cash preferred. Rider carries change up to PKR 1,000.</td>
+                </tr>
+                <tr>
+                  <td><strong>Visa &amp; Mastercard (Online &amp; Card)</strong></td>
+                  <td>PKR 0</td>
+                  <td>Secure online checkout via Visa or Mastercard.</td>
+                </tr>
+                <tr>
+                  <td><strong>Credit / Debit Card (Doorstep POS)</strong></td>
+                  <td>PKR 0</td>
+                  <td>Subject to portable card terminal availability in your sector.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="policy-callout">
+            <strong>COD Honesty Commitment</strong>
+            <p>
+              Placing a Cash on Delivery order creates a commitment to accept and pay for the order upon arrival. Wilful refusal of delivery after food has been prepared causes direct food wastage and will result in permanent blacklisting of the phone number and address across our Karachi network.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="policy-section" id="cancellation">
+          <h2 class="policy-section-heading">
+            <span class="policy-section-num">04</span>
+            <span>Cancellation Window &amp; Refund Policy</span>
+          </h2>
+          <p class="policy-p">
+            Because our food is made fresh to order, cancellations are governed by strict operational milestones:
+          </p>
+          <ul class="policy-list">
+            <li>
+              <span class="material-symbols-outlined policy-bullet-icon">timer</span>
+              <span><strong>Within 5 minutes of placing:</strong> Free instant cancellation via our live chat assistant. Full cancellation permitted before cooking commences.</span>
+            </li>
+            <li>
+              <span class="material-symbols-outlined policy-bullet-icon">block</span>
+              <span><strong>After Kitchen Preparation Starts (Step 2 - Food Prep):</strong> Orders cannot be cancelled once the tandoor and karahi are in active preparation, as fresh food cannot be returned to raw stock.</span>
+            </li>
+            <li>
+              <span class="material-symbols-outlined policy-bullet-icon">schedule</span>
+              <span><strong>Delivery Delay Grace:</strong> If delivery is delayed beyond 60 minutes due to our kitchen or rider delay (excluding natural heavy Karachi rainstorms or road closures), you are entitled to a full voucher or complete refund.</span>
+            </li>
+          </ul>
+
+          <div class="policy-callout">
+            <strong>Direct Refund Processing</strong>
+            <p>
+              Any pre-paid payments for cancelled eligible orders will be reversed to your account within 24–48 business hours, or issued immediately as a 100% KhaLo Wallet credit upon your choice.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="policy-section" id="quality">
+          <h2 class="policy-section-heading">
+            <span class="policy-section-num">05</span>
+            <span>Tamper-Proof Seal &amp; Quality Guarantee</span>
+          </h2>
+          <p class="policy-p">
+            Every hot meal dispatched from KhaLo kitchens is packaged in thermal-grade food containers sealed with our signature <strong>KhaLo Tamper-Proof Security Tape</strong>.
+          </p>
+          <ul class="policy-list">
+            <li>
+              <span class="material-symbols-outlined policy-bullet-icon">verified</span>
+              <span><strong>Inspect Before You Pay:</strong> Check that the safety seal is unbroken. If the tape is torn or damaged, do not accept the package and notify us immediately via live chat.</span>
+            </li>
+            <li>
+              <span class="material-symbols-outlined policy-bullet-icon">verified</span>
+              <span><strong>100% Halal Assurance:</strong> All ingredients, meats, and oils are certified 100% Halal by accredited Pakistani culinary councils.</span>
+            </li>
+            <li>
+              <span class="material-symbols-outlined policy-bullet-icon">verified</span>
+              <span><strong>Temperature Assurance:</strong> Thermal delivery bags ensure food reaches you piping hot (above 65°C) anywhere from Clifton to Gulshan-e-Iqbal.</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="policy-section" id="rider-safety">
+          <h2 class="policy-section-heading">
+            <span class="policy-section-num">06</span>
+            <span>Rider Conduct, Respect &amp; Zero Tolerance Policy</span>
+          </h2>
+          <p class="policy-p">
+            Our delivery riders are the backbone of KhaLo. They brave Karachi traffic, weather, and peak hours to bring you fresh food.
+          </p>
+          <ul class="policy-list">
+            <li>
+              <span class="material-symbols-outlined policy-bullet-icon">moped</span>
+              <span><strong>Safe Handover:</strong> For apartment buildings and gated societies (e.g., DHA Phase 8, Askari), riders may meet you at the designated security lobby or building reception in compliance with building security regulations.</span>
+            </li>
+            <li>
+              <span class="material-symbols-outlined policy-bullet-icon">shield</span>
+              <span><strong>Mutual Respect:</strong> KhaLo maintains strict zero-tolerance towards verbal abuse, harassment, or intimidation of delivery partners. Any such occurrence will terminate services immediately.</span>
+            </li>
+            <li>
+              <span class="material-symbols-outlined policy-bullet-icon">cloud</span>
+              <span><strong>Severe Weather Contingency:</strong> During urban monsoon downpours or road inundation, delivery times will be reasonably extended to prioritize rider safety.</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Section 7 -->
+        <section class="policy-section" id="disputes">
+          <h2 class="policy-section-heading">
+            <span class="policy-section-num">07</span>
+            <span>Dispute Resolution &amp; Governing Law</span>
+          </h2>
+          <p class="policy-p">
+            These Terms of Service are governed by and construed in accordance with the laws of the Islamic Republic of Pakistan and the Sindh Consumer Protection Act.
+          </p>
+          <p class="policy-p">
+            Any disputes arising from delivery or food quality will first be resolved via amicable discussion through our dedicated Karachi customer support manager within 48 hours.
+          </p>
+
+          <div class="policy-callout">
+            <strong>Need assistance with an active order?</strong>
+            <p>
+              Our Karachi-based resolution team is available daily from 11:00 AM to 2:00 AM. Click <a href="./home.html?openChat=1" style="color: var(--primary); font-weight: 700; text-decoration: underline;">Live Support Chat</a> for instant chatbot assistance or direct WhatsApp resolution.
+            </p>
+          </div>
+        </section>
+
+        <!-- Policy Card Actions Footer -->
+        <div class="policy-card-footer">
+          <div>
+            <strong style="color: var(--text-title); display: block; font-size: 0.95rem;">Questions regarding these Terms?</strong>
+            <span style="font-size: 0.85rem; color: var(--text-muted);">Reach out to legal@khalo.pk or chat with our live support team.</span>
+          </div>
+          <div class="policy-card-footer-btns">
+            <a href="./privacy-policy.html" class="action-btn-secondary">
+              <span class="material-symbols-outlined" style="font-size: 1.1rem;">shield</span>
+              <span>Privacy Policy</span>
+            </a>
+            <a href="./home.html?openChat=1" class="action-btn-primary">
+              <span class="material-symbols-outlined" style="font-size: 1.1rem;">support_agent</span>
+              <span>Get Support</span>
+            </a>
+          </div>
+        </div>
+
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ========= FOOTER ========= -->
+  <footer class="home-footer">
+    <div class="footer-wave" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="./home.html" class="footer-brand-row" aria-label="KhaLo Home">
+            <span class="footer-logo-wrap">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" class="footer-logo" />
+            </span>
+          </a>
+          <p class="footer-about">Helping you decide what to eat. Resolving everyday meal dilemmas with appetizing
+            clarity and smart budget picks across Pakistan.</p>
+
+          <div class="footer-socials" aria-label="Social media">
+            <a href="#" class="social-btn" aria-label="Facebook" id="social-facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram" id="social-instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok" id="social-tiktok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links: Explore -->
+        <nav class="footer-links" aria-label="Explore">
+          <span class="footer-links-title">Explore</span>
+          <a href="./home.html" class="footer-link">Home</a>
+          <a href="./find-my-meal.html" class="footer-link">Find My Meal</a>
+          <a href="./menu.html" class="footer-link">Our Menu</a>
+          <a href="./deals.html" class="footer-link">Deals <span class="footer-pill">Hot</span></a>
+          <a href="./khalo-specials.html" class="footer-link">KhaLo Specials</a>
+          <a href="./cart.html" class="footer-link">My Cart</a>
+        </nav>
+
+        <!-- Links: Account -->
+        <nav class="footer-links" aria-label="Account">
+          <span class="footer-links-title">Account</span>
+          <a href="./profile.html#tab-profile" class="footer-link">My Profile</a>
+          <a href="./profile.html#tab-orders" class="footer-link">Live Order Tracking</a>
+          <a href="./profile.html#tab-favorites" class="footer-link">Saved Dishes</a>
+          <a href="./profile.html#tab-addresses" class="footer-link">Delivery Addresses</a>
+        </nav>
+
+        <!-- Links: Support -->
+        <nav class="footer-links" aria-label="Support">
+          <span class="footer-links-title">Support</span>
+          <a href="./privacy-policy.html" class="footer-link">Privacy Policy</a>
+          <a href="./terms-of-service.html" class="footer-link active"
+            style="color: var(--primary); font-weight: 700;">Terms of Service</a>
+        </nav>
+
+        <!-- Contact -->
+        <div class="footer-links footer-contact">
+          <span class="footer-links-title">Contact Us</span>
+          <a href="tel:+922111542556" class="footer-contact-item">
+            <span class="material-symbols-outlined">call</span>
+            <span>+92-300-000-0000</span>
+          </a>
+          <a href="mailto:hello@khalo.pk" class="footer-contact-item">
+            <span class="material-symbols-outlined">mail</span>
+            <span>hello@khalo</span>
+          </a>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">pin_drop</span>
+            <span>Karachi</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">schedule</span>
+            <span>Open daily, 10 AM – 4 AM</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Payment strip -->
+      <div class="footer-pay">
+        <span class="footer-pay-label">We accept</span>
+        <ul class="footer-pay-list">
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#15803D"/>
+              <rect x="2" y="2" width="28" height="16" rx="2" stroke="#86EFAC" stroke-width="0.8" stroke-dasharray="2 1.5" fill="none"/>
+              <circle cx="16" cy="10" r="4.2" fill="#FFFFFF"/>
+              <text x="16" y="12.5" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="7" fill="#15803D" text-anchor="middle">₨</text>
+            </svg>
+            <span>COD</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+              <path d="M13.2 14.5l1.6-9.5h2.5l-1.6 9.5h-2.5zm7.3-9.3c-.5-.2-1.3-.4-2.3-.4-2.5 0-4.3 1.3-4.3 3.2 0 1.4 1.3 2.2 2.2 2.7.9.5 1.3.8 1.3 1.2 0 .6-.8.9-1.5.9-1 0-1.5-.1-2.3-.5l-.3-.2-.3 1.9c.5.2 1.5.4 2.5.4 2.7 0 4.4-1.3 4.4-3.3 0-1.1-.7-2-2.2-2.7-.9-.5-1.5-.8-1.5-1.3 0-.4.5-.9 1.5-.9.8 0 1.4.2 1.9.4l.2.1.4-1.6zm5.8 4.6l1.2-3.3.7 3.3h-1.9zm2.8 4.7l-1.8-8.5c-.1-.4-.4-.6-.8-.6h-3.1c-.3 0-.5.1-.6.4l-3.5 8.7h2.6l.5-1.4h3.2l.3 1.4h2.3zm-16.7-9.5l-2.4 6.5-.3-1.3c-.4-1.5-1.8-3.1-3.3-3.9l2.2 8.2h2.7l4-9.5h-2.9z" fill="#1434CB"/>
+              <path d="M7.7 5h-4.2l-.1.4c3.3.8 5.4 2.8 6.3 5.2l-.9-4.7c-.2-.7-.6-.9-1.1-.9z" fill="#F7B600"/>
+            </svg>
+            <span>Visa</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+              <circle cx="12" cy="10" r="6" fill="#EB001B"/>
+              <circle cx="20" cy="10" r="6" fill="#F79E1B"/>
+              <path d="M16 5.86a6 6 0 0 0 0 8.28 6 6 0 0 0 0-8.28z" fill="#FF5F00"/>
+            </svg>
+            <span>Mastercard</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="footer-year">2026</span> KhaLo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/location-dropdown.js"></script>
+</body>
+
+</html>
