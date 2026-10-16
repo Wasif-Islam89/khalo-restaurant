@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="KhaLo Specials — Curated artisanal dining without fake claims. Explore signature dum handis, Peshawari desi ghee karahis, charcoal platters, and authentic kitchen craft in Karachi." />
+  <meta name="keywords"
+    content="KhaLo Specials, Chef Special Karachi, authentic Pakistani food, dum biryani, desi ghee karahi, charcoal BBQ" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="KhaLo Specials — Kitchen Pride &amp; Signature Curations" />
+  <meta property="og:description"
+    content="Selected meals and authentic brand highlights crafted fresh to order. No fake discounts, just pure Karachi flavor." />
+  <meta property="og:image" content="../assets/Special Shahi Dum Biryani.jpg" />
+  <meta property="og:type" content="restaurant.menu" />
+
+  <title>KhaLo — Specials</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Material Symbols for Nav and Utility Icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/location-dropdown.css" />
+  <link rel="stylesheet" href="../css/khalo-specials.css" />
+</head>
+
+<body>
+
+  <!-- ========= NAVBAR (Identical to Home Page) ========= -->
+  <header class="navbar-header" id="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+        <!-- Brand Logo -->
+        <div class="brand">
+          <a href="./home.html" class="brand-link" title="KhaLo Home">
+            <div class="brand-icon">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" />
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation: 5 Tabs Order -->
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <a href="./home.html" class="nav-link">Home</a>
+          <a href="./find-my-meal.html" class="nav-link">Find My Meal</a>
+          <a href="./menu.html" class="nav-link">Menu</a>
+          <a href="./deals.html" class="nav-link nav-link-badge">
+            Deals
+            <span class="badge-hot">Hot</span>
+          </a>
+          <a href="./khalo-specials.html" class="nav-link active">KhaLo Specials</a>
+        </nav>
+
+        <!-- Utility Controls -->
+        <div class="utility-controls">
+          <!-- Location Selector -->
+          <div class="location-selector" id="location-selector-wrap">
+            <button type="button" class="location-btn" id="location-dropdown-btn" aria-label="Select delivery area" aria-haspopup="true" aria-expanded="false">
+              <svg class="icon-location" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span id="current-location-text">Select Area</span>
+              <svg class="icon-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+
+
+          <!-- Favorites Trigger -->
+          <a href="./favorites.html" class="icon-btn" title="Favorites" aria-label="Favorites" id="fav-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <span class="badge" id="fav-badge">0</span>
+          </a>
+
+          <!-- Cart Trigger -->
+          <a href="./cart.html" class="icon-btn" title="Cart" aria-label="Shopping Cart" id="cart-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="badge" id="cart-badge">0</span>
+          </a>
+
+          <!-- Profile -->
+          <a href="./profile.html" class="icon-btn icon-btn-profile" title="My Profile" aria-label="Profile">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </a>
+
+          <!-- Hamburger Button -->
+          <button id="hamburger-btn" type="button" class="hamburger-btn" aria-label="Toggle navigation menu"
+            aria-expanded="false">
+            <svg class="icon-hamburger" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg class="icon-close" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="mobile-menu hidden-state">
+      <div class="mobile-location-bar">
+        <div class="mobile-location-info">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Delivering to: <span class="location-name">Karachi Hub</span>
+        </div>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="./home.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">home</span>
+          <span class="mobile-nav-text">Home</span>
+        </a>
+        <a href="./find-my-meal.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">auto_awesome</span>
+          <span class="mobile-nav-text">Find My Meal</span>
+        </a>
+        <a href="./menu.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">restaurant_menu</span>
+          <span class="mobile-nav-text">Menu</span>
+        </a>
+        <a href="./deals.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">local_offer</span>
+          <span class="mobile-nav-text">Deals</span>
+          <span class="badge-hot">Hot</span>
+        </a>
+        <a href="./khalo-specials.html" class="mobile-nav-link active">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">stars</span>
+          <span class="mobile-nav-text">KhaLo Specials</span>
+        </a>
+        <a href="./favorites.html" class="mobile-nav-link" id="mobile-fav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">favorite</span>
+          <span class="mobile-nav-text">Favorites</span>
+          <span class="badge" id="mobile-fav-badge">0</span>
+        </a>
+        <a href="./cart.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">shopping_cart</span>
+          <span class="mobile-nav-text">My Cart</span>
+        </a>
+        <button type="button" class="mobile-nav-link mobile-location-trigger" id="mobile-location-btn" style="background: none; border: none; width: 100%; text-align: left; cursor: pointer; font-family: inherit;">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">near_me</span>
+          <span class="mobile-nav-text">Delivery Area (<strong id="mobile-current-location-text">Select Area</strong>)</span>
+        </button>
+        <a href="./profile.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">person</span>
+          <span class="mobile-nav-text">Profile &amp; Account</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========= MAIN CONTENT ========= -->
+  <main class="specials-main">
+
+
+    <!-- 1. SPECIALS HERO SECTION -->
+    <section class="specials-hero-section">
+      <div class="hero-backdrop" aria-hidden="true"></div>
+      <div class="container">
+        <div class="specials-hero-grid">
+
+          <!-- Left: Editorial Story & Kitchen Manifesto -->
+          <div class="specials-hero-editorial">
+            <div class="specials-hero-eyebrow">
+              <span class="specials-hero-eyebrow-rule" aria-hidden="true"></span>
+              <span>KhaLo Specials • Artisanal Kitchen Showcase</span>
+            </div>
+
+            <h1 class="specials-hero-heading">
+              Authentic Craft, <span class="specials-heading-accent">Zero Compromises.</span>
+            </h1>
+
+            <p class="specials-hero-subtext">
+              Handpicked recipes perfected over generations. Real slow dum handis, 100% hand-cut fresh meats, pure country desi ghee,
+              and live charcoal embers cooked fresh to order across Karachi.
+            </p>
+
+            <!-- Honest Kitchen Manifesto Pills -->
+            <div class="specials-manifesto-strip">
+              <span class="manifesto-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                100% Hand-Cut Halal
+              </span>
+              <span class="manifesto-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Pure Desi Makhan &amp; Ghee
+              </span>
+              <span class="manifesto-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Live Wood Charcoal
+              </span>
+              <span class="manifesto-pill">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Slow Dough-Sealed Dum
+              </span>
+            </div>
+
+            <!-- Action Buttons (Consistent with Home, Menu & Deals) -->
+            <div class="specials-hero-actions">
+              <a href="#specials-catalog" class="specials-hero-btn-primary" id="hero-scroll-specials-btn">
+                <span>Explore Specials</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" style="width: 17px; height: 17px;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </a>
+              <a href="./find-my-meal.html" class="specials-hero-btn-secondary">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width: 17px; height: 17px;">
+                  <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4zM19 16l1.2 2.8L23 20l-2.8 1.2L19 24l-1.2-2.8L15 20l2.8-1.2z" />
+                </svg>
+                <span>Find My Meal</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Hero Spotlight Card (Exact same size & frame as Home Page) -->
+          <div class="specials-spotlight-wrap">
+            <div class="specials-spotlight-frame">
+              <div class="specials-spotlight-backdrop" aria-hidden="true"></div>
+
+              <div class="specials-spotlight-card">
+                <div class="specials-spotlight-img-wrap">
+                  <img src="../assets/Special Shahi Dum Biryani.jpg" alt="KhaLo Grand Shahi Dum Mutton Biryani"
+                    class="specials-spotlight-img" fetchpriority="high" />
+                  <div class="specials-spotlight-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                    <span>CROWN JEWEL RECIPE</span>
+                  </div>
+                </div>
+
+                <div class="specials-spotlight-body">
+                  <div class="specials-spotlight-tag">Chef's Signature Dum Handi</div>
+                  <h2 class="specials-spotlight-title">Royal Shahi Mutton Dum Biryani</h2>
+                  <p class="specials-spotlight-desc">
+                    Aged fragrant saffron basmati rice slow-sealed on marinated tender mutton cuts, natural kewra water, and pure country ghee. Cooked over smoldering embers.
+                  </p>
+
+                  <div class="specials-spotlight-footer">
+                    <div class="specials-spotlight-price">
+                      <div class="specials-spotlight-price-row">
+                        <span class="specials-spotlight-now">Rs. 1,590</span>
+                        <span class="specials-spotlight-was">Rs. 1,890</span>
+                      </div>
+                      <span class="specials-spotlight-save">Fresh Clay Handi Included</span>
+                    </div>
+
+                    <button type="button" class="btn-add btn-add-special specials-spotlight-btn" data-dish-id="special-royal-biryani"
+                      data-dish-title="Royal Shahi Mutton Dum Biryani" data-dish-price="1590"
+                      data-dish-image="../assets/Special Shahi Dum Biryani.jpg" aria-label="Add Royal Shahi Mutton Dum Biryani to cart">
+                      <span>Add to Cart</span>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. CATEGORY FILTER TOOLBAR (Static In-Page) -->
+    <nav class="specials-filter-wrapper" id="specials-catalog" aria-label="Filter Specials Categories">
+      <div class="container">
+        <div class="specials-filter-inner">
+          <div class="specials-filter-pills">
+            <button type="button" class="special-filter-pill active" data-category="all">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+              <span>All Specials (8)</span>
+            </button>
+            <button type="button" class="special-filter-pill" data-category="signature">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              <span>Signature Meals (3)</span>
+            </button>
+            <button type="button" class="special-filter-pill" data-category="popular">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+              <span>Popular Picks (2)</span>
+            </button>
+            <button type="button" class="special-filter-pill" data-category="combos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+              <span>Special Combos (2)</span>
+            </button>
+            <button type="button" class="special-filter-pill" data-category="seasonal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+              <span>Seasonal Specials (1)</span>
+            </button>
+          </div>
+
+          <div class="specials-counter-tag">
+            Showing <strong id="specials-counter-count">8</strong> Masterpiece Curations
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 3. SPECIALS CATALOG -->
+    <section class="specials-catalog-section">
+      <div class="container">
+        <div class="specials-grid" id="specials-grid">
+
+          <!-- Special 1: KhaLo Grand Shahi Dum Biryani (Signature) -->
+          <article class="special-card" data-category="signature">
+            <div class="special-card-img-wrap">
+              <img src="../assets/Shahi Dum Biryani.jpg" alt="KhaLo Grand Shahi Dum Biryani" class="special-card-img" />
+              <span class="special-card-badge badge-saffron">SIGNATURE DUM</span>
+              <button type="button" class="special-card-fav-btn" data-dish-id="spec-shahi-biryani" aria-label="Save to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="special-card-body">
+              <div class="special-card-meta-row">
+                <span>Slow Dum Handi</span>
+                <span class="special-card-serves">Serves 1-2</span>
+              </div>
+              <h3 class="special-card-title">KhaLo Grand Shahi Dum Biryani</h3>
+              <p class="special-card-desc">
+                Aged whole-grain saffron basmati cooked in its own juices with marinated bone-in chicken, fragrant Kewra essence, and pure desi ghee.
+              </p>
+
+              <!-- WHAT'S INCLUDED / BULLETS -->
+              <div class="special-items-box">
+                <div class="special-items-header">
+                  <span class="special-items-tag">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    What's Included:
+                  </span>
+                  <span class="special-items-meta">Fresh Handi</span>
+                </div>
+                <ul class="special-items-list">
+                  <li>1x Clay Pot Slow-Cooked Chicken Biryani Handi</li>
+                  <li>Aged Saffron Basmati &amp; Desi Ghee Infusion</li>
+                  <li>Chilled Zeera Raita &amp; Fresh Kachumber Salad</li>
+                </ul>
+              </div>
+
+              <div class="special-card-footer">
+                <div class="special-price">
+                  Rs. 1,290
+                  <small>Fresh Handi Included</small>
+                </div>
+                <button type="button" class="btn-add-special" data-dish-id="spec-shahi-biryani"
+                  data-dish-title="KhaLo Grand Shahi Dum Biryani" data-dish-price="1290"
+                  data-dish-image="../assets/Shahi Dum Biryani.jpg" aria-label="Add KhaLo Grand Shahi Dum Biryani to order">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Special 2: Peshawari Desi Ghee Lamb Karahi (Signature) -->
+          <article class="special-card" data-category="signature">
+            <div class="special-card-img-wrap">
+              <img src="../assets/Chicken Karahi.jpg" alt="Peshawari Desi Ghee Lamb Karahi" class="special-card-img" />
+              <span class="special-card-badge badge-ruby">PURE DESI MAKHAN</span>
+              <button type="button" class="special-card-fav-btn" data-dish-id="spec-desi-karahi" aria-label="Save to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="special-card-body">
+              <div class="special-card-meta-row">
+                <span>Iron Wok Fired</span>
+                <span class="special-card-serves">Serves 2-3</span>
+              </div>
+              <h3 class="special-card-title">Peshawari Desi Ghee Lamb Karahi</h3>
+              <p class="special-card-desc">
+                Tender cuts simmered in pure country butter and fresh ripe tomatoes, seasoned only with coarse black pepper, sea salt, and ginger juliennes. Zero onions.
+              </p>
+
+              <!-- WHAT'S INCLUDED / BULLETS -->
+              <div class="special-items-box">
+                <div class="special-items-header">
+                  <span class="special-items-tag">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    What's Included:
+                  </span>
+                  <span class="special-items-meta">Iron Wok</span>
+                </div>
+                <ul class="special-items-list">
+                  <li>1x Full Iron Wok Fresh Lamb Karahi</li>
+                  <li>Simmered in 100% Pure Country Desi Makhan</li>
+                  <li>2x Piping Hot Tandoori Roghni Naans</li>
+                </ul>
+              </div>
+
+              <div class="special-card-footer">
+                <div class="special-price">
+                  Rs. 1,890
+                  <small>Full Iron Wok</small>
+                </div>
+                <button type="button" class="btn-add-special" data-dish-id="spec-desi-karahi"
+                  data-dish-title="Peshawari Desi Ghee Lamb Karahi" data-dish-price="1890"
+                  data-dish-image="../assets/Chicken Karahi.jpg" aria-label="Add Peshawari Desi Ghee Lamb Karahi to order">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Special 3: Charcoal Seekh & Reshmi Malai Boti Platter (Signature) -->
+          <article class="special-card" data-category="signature">
+            <div class="special-card-img-wrap">
+              <img src="../assets/Seekh & Malai Platter.jpg" alt="Charcoal Seekh & Reshmi Malai Boti Platter" class="special-card-img" />
+              <span class="special-card-badge badge-saffron">WOODFIRE SMOKED</span>
+              <button type="button" class="special-card-fav-btn" data-dish-id="spec-seekh-platter" aria-label="Save to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="special-card-body">
+              <div class="special-card-meta-row">
+                <span>Charcoal BBQ</span>
+                <span class="special-card-serves">Serves 2</span>
+              </div>
+              <h3 class="special-card-title">Charcoal Seekh &amp; Malai Platter</h3>
+              <p class="special-card-desc">
+                4 hand-pressed spiced beef seekh kababs paired with 6 melt-in-mouth cashew cream chicken malai botis, hot paratha, and mint raita.
+              </p>
+
+              <!-- WHAT'S INCLUDED / BULLETS -->
+              <div class="special-items-box">
+                <div class="special-items-header">
+                  <span class="special-items-tag">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    What's Included:
+                  </span>
+                  <span class="special-items-meta">Complete Platter</span>
+                </div>
+                <ul class="special-items-list">
+                  <li>4x Hand-Pressed Spiced Beef Seekh Kababs</li>
+                  <li>6x Cashew-Cream Chicken Malai Botis</li>
+                  <li>2x Crisp Hot Puri Parathas &amp; Mint Raita</li>
+                </ul>
+              </div>
+
+              <div class="special-card-footer">
+                <div class="special-price">
+                  Rs. 1,450
+                  <small>Complete Platter</small>
+                </div>
+                <button type="button" class="btn-add-special" data-dish-id="spec-seekh-platter"
+                  data-dish-title="Charcoal Seekh & Malai Platter" data-dish-price="1450"
+                  data-dish-image="../assets/Seekh & Malai Platter.jpg" aria-label="Add Charcoal Seekh & Malai Platter to order">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Special 4: The KhaLo Master Smash Burger Double (Popular) -->
+          <article class="special-card" data-category="popular">
+            <div class="special-card-img-wrap">
+              <img src="../assets/Smashed Double Burger.jpg" alt="The KhaLo Master Smash Burger Double" class="special-card-img" />
+              <span class="special-card-badge badge-teal">FRESH GRILLED CRAVE</span>
+              <button type="button" class="special-card-fav-btn" data-dish-id="spec-master-smash" aria-label="Save to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="special-card-body">
+              <div class="special-card-meta-row">
+                <span>Cast-Iron Smashed</span>
+                <span class="special-card-serves">Serves 1</span>
+              </div>
+              <h3 class="special-card-title">KhaLo Master Smash Burger Double</h3>
+              <p class="special-card-desc">
+                Two 100g fresh prime beef patties smashed hard on cast iron for crispy lacy edges, doubled cheddar, caramelized onions, house burger sauce.
+              </p>
+
+              <!-- WHAT'S INCLUDED / BULLETS -->
+              <div class="special-items-box">
+                <div class="special-items-header">
+                  <span class="special-items-tag">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    What's Included:
+                  </span>
+                  <span class="special-items-meta">Burger Meal</span>
+                </div>
+                <ul class="special-items-list">
+                  <li>2x 100g Cast-Iron Smashed Beef Patties</li>
+                  <li>Double Melted Cheddar &amp; Caramelized Onions</li>
+                  <li>1x Portion Crispy Salted Fries + Secret Dip</li>
+                </ul>
+              </div>
+
+              <div class="special-card-footer">
+                <div class="special-price">
+                  Rs. 980
+                  <small>Freshly Smashed</small>
+                </div>
+                <button type="button" class="btn-add-special" data-dish-id="spec-master-smash"
+                  data-dish-title="KhaLo Master Smash Burger Double" data-dish-price="980"
+                  data-dish-image="../assets/Smashed Double Burger.jpg" aria-label="Add KhaLo Master Smash Burger Double to order">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Special 5: Animal Mess Loaded Gourmet Fries (Popular) -->
+          <article class="special-card" data-category="popular">
+            <div class="special-card-img-wrap">
+              <img src="../assets/Animal Fries Mess.jpg" alt="Animal Mess Loaded Gourmet Fries" class="special-card-img" />
+              <span class="special-card-badge badge-ruby">MIDNIGHT HIT</span>
+              <button type="button" class="special-card-fav-btn" data-dish-id="spec-animal-fries" aria-label="Save to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="special-card-body">
+              <div class="special-card-meta-row">
+                <span>Loaded Appetizer</span>
+                <span class="special-card-serves">Serves 2</span>
+              </div>
+              <h3 class="special-card-title">Animal Mess Loaded Gourmet Fries</h3>
+              <p class="special-card-desc">
+                Crispy golden skin-on fries smothered in grilled chopped beef, melted smoked cheddar, secret caramelized sauce, and pickled jalapeños.
+              </p>
+
+              <!-- WHAT'S INCLUDED / BULLETS -->
+              <div class="special-items-box">
+                <div class="special-items-header">
+                  <span class="special-items-tag">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    What's Included:
+                  </span>
+                  <span class="special-items-meta">Share Box</span>
+                </div>
+                <ul class="special-items-list">
+                  <li>1x Large Box Skin-On Golden French Fries</li>
+                  <li>Grilled Smashed Beef Mince &amp; Smoked Cheddar</li>
+                  <li>Secret Animal Sauce &amp; Pickled Jalapeño Rings</li>
+                </ul>
+              </div>
+
+              <div class="special-card-footer">
+                <div class="special-price">
+                  Rs. 650
+                  <small>Large Share Box</small>
+                </div>
+                <button type="button" class="btn-add-special" data-dish-id="spec-animal-fries"
+                  data-dish-title="Animal Mess Loaded Gourmet Fries" data-dish-price="650"
+                  data-dish-image="../assets/Animal Fries Mess.jpg" aria-label="Add Animal Mess Loaded Gourmet Fries to order">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Special 6: Dawat-e-KhaLo Grand Feast Table (Combo) -->
+          <article class="special-card" data-category="combos">
+            <div class="special-card-img-wrap">
+              <img src="../assets/Shahi Dum Biryani.jpg" alt="Dawat-e-KhaLo Grand Feast Table" class="special-card-img" />
+              <span class="special-card-badge badge-saffron">FAMILY GATHERING</span>
+              <button type="button" class="special-card-fav-btn" data-dish-id="spec-dawat-table" aria-label="Save to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="special-card-body">
+              <div class="special-card-meta-row">
+                <span>Curated Feast</span>
+                <span class="special-card-serves">Serves 3-4</span>
+              </div>
+              <h3 class="special-card-title">Dawat-e-KhaLo Grand Table Pairing</h3>
+              <p class="special-card-desc">
+                1x Full Dum Biryani Handi, 1x Half Desi Makhan Karahi, 4x Tandoori Roghni Naans, Fresh Mint Zeera Raita, and 1.5L Chilled Drink.
+              </p>
+
+              <!-- WHAT'S INCLUDED / BULLETS -->
+              <div class="special-items-box">
+                <div class="special-items-header">
+                  <span class="special-items-tag">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    What's Included:
+                  </span>
+                  <span class="special-items-meta">Feast Table</span>
+                </div>
+                <ul class="special-items-list">
+                  <li>1x Full Handi Chicken Shahi Dum Biryani</li>
+                  <li>1x Half Desi Makhan Chicken Karahi</li>
+                  <li>4x Tandoori Roghni Naans + Zeera Raita</li>
+                  <li>1x 1.5L Chilled Soft Drink Included</li>
+                </ul>
+              </div>
+
+              <div class="special-card-footer">
+                <div class="special-price">
+                  Rs. 2,650
+                  <small>Complete Set Table</small>
+                </div>
+                <button type="button" class="btn-add-special" data-dish-id="spec-dawat-table"
+                  data-dish-title="Dawat-e-KhaLo Grand Table Pairing" data-dish-price="2650"
+                  data-dish-image="../assets/Shahi Dum Biryani.jpg" aria-label="Add Dawat-e-KhaLo Grand Table Pairing to order">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Special 7: Old Karachi Midnight Crave Combo (Combo) -->
+          <article class="special-card" data-category="combos">
+            <div class="special-card-img-wrap">
+              <img src="../assets/Loaded Beef Burger.jpg" alt="Old Karachi Midnight Crave Combo" class="special-card-img" />
+              <span class="special-card-badge badge-teal">DUAL CRAVING</span>
+              <button type="button" class="special-card-fav-btn" data-dish-id="spec-midnight-crave" aria-label="Save to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="special-card-body">
+              <div class="special-card-meta-row">
+                <span>Burger &amp; Fries</span>
+                <span class="special-card-serves">Serves 1-2</span>
+              </div>
+              <h3 class="special-card-title">Old Karachi Midnight Crave Box</h3>
+              <p class="special-card-desc">
+                1x Loaded Double Smash Burger, 1x Box of Animal Style Fries, and 1x Molten Lava Cake slice for a sweet late-night finish.
+              </p>
+
+              <!-- WHAT'S INCLUDED / BULLETS -->
+              <div class="special-items-box">
+                <div class="special-items-header">
+                  <span class="special-items-tag">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    What's Included:
+                  </span>
+                  <span class="special-items-meta">Midnight Box</span>
+                </div>
+                <ul class="special-items-list">
+                  <li>1x Loaded Double Beef Smash Burger</li>
+                  <li>1x Full Box Animal Mess Gourmet Fries</li>
+                  <li>1x Warm Belgian Molten Lava Cake Slice</li>
+                  <li>1x Chilled 345ml Soft Drink Included</li>
+                </ul>
+              </div>
+
+              <div class="special-card-footer">
+                <div class="special-price">
+                  Rs. 1,620
+                  <small>Burger + Fries + Dessert</small>
+                </div>
+                <button type="button" class="btn-add-special" data-dish-id="spec-midnight-crave"
+                  data-dish-title="Old Karachi Midnight Crave Box" data-dish-price="1620"
+                  data-dish-image="../assets/Loaded Beef Burger.jpg" aria-label="Add Old Karachi Midnight Crave Box to order">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Special 8: Matka Kheer & Warm Belgian Lava Duo (Seasonal) -->
+          <article class="special-card" data-category="seasonal">
+            <div class="special-card-img-wrap">
+              <img src="../assets/Molten Lava Cake.jpg" alt="Matka Kheer & Warm Belgian Lava Duo" class="special-card-img" />
+              <span class="special-card-badge badge-saffron">SEASONAL PAIRING</span>
+              <button type="button" class="special-card-fav-btn" data-dish-id="spec-dessert-duo" aria-label="Save to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="special-card-body">
+              <div class="special-card-meta-row">
+                <span>Handmade Dessert</span>
+                <span class="special-card-serves">Serves 2</span>
+              </div>
+              <h3 class="special-card-title">Matka Kheer &amp; Belgian Lava Duo</h3>
+              <p class="special-card-desc">
+                Earthen clay pot zafrani rice kheer slow-simmered in whole milk paired with a warm dark Belgian chocolate molten cake with flowing center.
+              </p>
+
+              <!-- WHAT'S INCLUDED / BULLETS -->
+              <div class="special-items-box">
+                <div class="special-items-header">
+                  <span class="special-items-tag">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    What's Included:
+                  </span>
+                  <span class="special-items-meta">Duo Treat</span>
+                </div>
+                <ul class="special-items-list">
+                  <li>1x Traditional Clay Matka Zafrani Rice Kheer</li>
+                  <li>1x Warm Belgian Dark Chocolate Lava Cake</li>
+                  <li>Infused with Cardamom &amp; Pistachio Dust</li>
+                </ul>
+              </div>
+
+              <div class="special-card-footer">
+                <div class="special-price">
+                  Rs. 720
+                  <small>Two Signature Desserts</small>
+                </div>
+                <button type="button" class="btn-add-special" data-dish-id="spec-dessert-duo"
+                  data-dish-title="Matka Kheer & Belgian Lava Duo" data-dish-price="720"
+                  data-dish-image="../assets/Molten Lava Cake.jpg" aria-label="Add Matka Kheer & Belgian Lava Duo to order">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. KITCHEN MANIFESTO & BRAND HONESTY STRIP -->
+    <section class="specials-heritage-section">
+      <div class="container">
+        <div class="specials-heritage-header">
+          <h2 class="specials-heritage-title">The 4 Honest Truths of KhaLo</h2>
+          <p class="specials-heritage-sub">
+            Why our specials don't rely on synthetic sauces, food coloring, or misleading promotional claims.
+          </p>
+        </div>
+
+        <div class="specials-heritage-grid">
+          <div class="heritage-card">
+            <div class="heritage-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h4>100% Hand-Cut Meats Daily</h4>
+            <p>We source prime, certified fresh livestock every dawn. Never frozen, never preserved in tenderizing chemicals.</p>
+          </div>
+
+          <div class="heritage-card">
+            <div class="heritage-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.61 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z" />
+              </svg>
+            </div>
+            <h4>Wood Charcoal &amp; Dum Embers</h4>
+            <p>Our handis are sealed with kneaded dough and cooked slowly on dying embers. No industrial microwave shortcuts.</p>
+          </div>
+
+          <div class="heritage-card">
+            <div class="heritage-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+              </svg>
+            </div>
+            <h4>Zero Synthetic Essences</h4>
+            <p>Pure country butter, whole saffron threads, and stone-ground spices. Real culinary warmth that respects your body.</p>
+          </div>
+
+          <div class="heritage-card">
+            <div class="heritage-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="1" y="3" width="15" height="13" stroke-width="2" rx="2" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16" stroke-width="2" />
+                <circle cx="5.5" cy="18.5" r="2.5" stroke-width="2" />
+                <circle cx="18.5" cy="18.5" r="2.5" stroke-width="2" />
+              </svg>
+            </div>
+            <h4>Thermal Foil Dispatch</h4>
+            <p>Dispatched in tamper-proof thermal insulation bags so the fragrant steam stays locked until it reaches your dining table.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+    <span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+  </button>
+
+  <!-- ========= FOOTER ========= -->
+  <footer class="home-footer">
+    <div class="footer-wave" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="./home.html" class="footer-brand-row" aria-label="KhaLo Home">
+            <span class="footer-logo-wrap">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" class="footer-logo" />
+            </span>
+          </a>
+          <p class="footer-about">Helping you decide what to eat. Resolving everyday meal dilemmas with appetizing
+            clarity and smart budget picks across Pakistan.</p>
+
+          <div class="footer-socials" aria-label="Social media">
+            <a href="#" class="social-btn" aria-label="Facebook" id="social-facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram" id="social-instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok" id="social-tiktok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links: Explore -->
+        <nav class="footer-links" aria-label="Explore">
+          <span class="footer-links-title">Explore</span>
+          <a href="./home.html" class="footer-link">Home</a>
+          <a href="./find-my-meal.html" class="footer-link">Find My Meal</a>
+          <a href="./menu.html" class="footer-link">Our Menu</a>
+          <a href="./deals.html" class="footer-link">Deals <span class="footer-pill">Hot</span></a>
+          <a href="./khalo-specials.html" class="footer-link">KhaLo Specials</a>
+          <a href="./cart.html" class="footer-link">My Cart</a>
+        </nav>
+
+        <!-- Links: Account -->
+        <nav class="footer-links" aria-label="Account">
+          <span class="footer-links-title">Account</span>
+          <a href="./profile.html#tab-profile" class="footer-link">My Profile</a>
+          <a href="./profile.html#tab-orders" class="footer-link">Live Order Tracking</a>
+          <a href="./profile.html#tab-favorites" class="footer-link">Saved Dishes</a>
+          <a href="./profile.html#tab-addresses" class="footer-link">Delivery Addresses</a>
+        </nav>
+
+        <!-- Links: Support -->
+        <nav class="footer-links" aria-label="Support">
+          <span class="footer-links-title">Support</span>
+          <a href="./privacy-policy.html" class="footer-link">Privacy Policy</a>
+          <a href="./terms-of-service.html" class="footer-link">Terms of Service</a>
+        </nav>
+
+        <!-- Contact -->
+        <div class="footer-links footer-contact">
+          <span class="footer-links-title">Contact Us</span>
+          <a href="tel:+922111542556" class="footer-contact-item">
+            <span class="material-symbols-outlined">call</span>
+            <span>+92-300-000-0000</span>
+          </a>
+          <a href="mailto:hello@khalo.pk" class="footer-contact-item">
+            <span class="material-symbols-outlined">mail</span>
+            <span>hello@khalo</span>
+          </a>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">pin_drop</span>
+            <span>Karachi</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">schedule</span>
+            <span>Open daily, 10 AM – 4 AM</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Payment strip -->
+      <div class="footer-pay">
+        <span class="footer-pay-label">We accept</span>
+        <ul class="footer-pay-list">
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#15803D"/>
+              <rect x="2" y="2" width="28" height="16" rx="2" stroke="#86EFAC" stroke-width="0.8" stroke-dasharray="2 1.5" fill="none"/>
+              <circle cx="16" cy="10" r="4.2" fill="#FFFFFF"/>
+              <text x="16" y="12.5" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="7" fill="#15803D" text-anchor="middle">₨</text>
+            </svg>
+            <span>COD</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+              <path d="M13.2 14.5l1.6-9.5h2.5l-1.6 9.5h-2.5zm7.3-9.3c-.5-.2-1.3-.4-2.3-.4-2.5 0-4.3 1.3-4.3 3.2 0 1.4 1.3 2.2 2.2 2.7.9.5 1.3.8 1.3 1.2 0 .6-.8.9-1.5.9-1 0-1.5-.1-2.3-.5l-.3-.2-.3 1.9c.5.2 1.5.4 2.5.4 2.7 0 4.4-1.3 4.4-3.3 0-1.1-.7-2-2.2-2.7-.9-.5-1.5-.8-1.5-1.3 0-.4.5-.9 1.5-.9.8 0 1.4.2 1.9.4l.2.1.4-1.6zm5.8 4.6l1.2-3.3.7 3.3h-1.9zm2.8 4.7l-1.8-8.5c-.1-.4-.4-.6-.8-.6h-3.1c-.3 0-.5.1-.6.4l-3.5 8.7h2.6l.5-1.4h3.2l.3 1.4h2.3zm-16.7-9.5l-2.4 6.5-.3-1.3c-.4-1.5-1.8-3.1-3.3-3.9l2.2 8.2h2.7l4-9.5h-2.9z" fill="#1434CB"/>
+              <path d="M7.7 5h-4.2l-.1.4c3.3.8 5.4 2.8 6.3 5.2l-.9-4.7c-.2-.7-.6-.9-1.1-.9z" fill="#F7B600"/>
+            </svg>
+            <span>Visa</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+              <circle cx="12" cy="10" r="6" fill="#EB001B"/>
+              <circle cx="20" cy="10" r="6" fill="#F79E1B"/>
+              <path d="M16 5.86a6 6 0 0 0 0 8.28 6 6 0 0 0 0-8.28z" fill="#FF5F00"/>
+            </svg>
+            <span>Mastercard</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="footer-year">2026</span> KhaLo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="material-symbols-outlined toast-icon" id="toast-icon">check_circle</span>
+    <span class="toast-text" id="toast-text">Added to cart</span>
+  </div>
+
+  <!-- Floating Quick Cart Bar (Appears when items are in cart) -->
+  <aside class="floating-cart-bar" id="floating-cart-bar" aria-label="Cart Overview">
+    <div class="floating-cart-info">
+      <span class="floating-cart-badge" id="floating-cart-badge">1 item</span>
+      <span class="floating-cart-text">Total:</span>
+      <span class="floating-cart-price" id="floating-cart-price">Rs. 0</span>
+    </div>
+    <a href="./cart.html" class="floating-cart-btn">
+      <span>View Items</span>
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+    </a>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="../js/location-dropdown.js"></script>
+  <script src="../js/khalo-specials.js"></script>
+  <script src="../js/quick-view-modal.js"></script>
+</body>
+
+</html>
