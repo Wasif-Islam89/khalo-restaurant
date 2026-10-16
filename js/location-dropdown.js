@@ -423,7 +423,7 @@
     initUniversalMobileMenu();
   }
 
-  // Universal Navbar Header Badges (Cart & Favorites)
+  // Universal Navbar Header Badges (Cart & Favorites) & Profile Avatar Sync
   function syncUniversalNavBadges() {
     try {
       const cart = JSON.parse(localStorage.getItem('khalo_cart') || '[]');
@@ -437,6 +437,38 @@
       const mobileFavBadge = document.getElementById('mobile-fav-badge');
       if (favBadge) favBadge.textContent = favs.length;
       if (mobileFavBadge) mobileFavBadge.textContent = favs.length;
+
+      // Safe Universal Profile Avatar Sync
+      const rawUser = localStorage.getItem('currentUser');
+      if (rawUser) {
+        const u = JSON.parse(rawUser);
+        const profileBtns = document.querySelectorAll('.icon-btn-profile');
+        profileBtns.forEach(btn => {
+          let avatarImg = btn.querySelector('.nav-profile-avatar');
+          const hasValidPhoto = u && u.avatar && u.avatar.trim() !== '' && !u.avatar.includes('photo-1507003211169-0a1dd7228f2d') && !u.avatar.includes('photo-1534528741775');
+          if (hasValidPhoto) {
+            if (!avatarImg) {
+              avatarImg = document.createElement('img');
+              avatarImg.className = 'nav-profile-avatar';
+              avatarImg.alt = 'Profile';
+              avatarImg.onerror = function () {
+                this.style.display = 'none';
+                if (svgIcon) svgIcon.style.display = 'block';
+                btn.classList.remove('has-avatar');
+              };
+              btn.appendChild(avatarImg);
+            }
+            avatarImg.src = u.avatar;
+            avatarImg.style.display = 'block';
+            if (svgIcon) svgIcon.style.display = 'none';
+            btn.classList.add('has-avatar');
+          } else {
+            if (avatarImg) avatarImg.style.display = 'none';
+            if (svgIcon) svgIcon.style.display = 'block';
+            btn.classList.remove('has-avatar');
+          }
+        });
+      }
     } catch (e) {}
   }
 
@@ -522,7 +554,7 @@
     if (e.key === STORAGE_KEY) {
       updateAllLabels();
     }
-    if (e.key === 'khalo_cart' || e.key === 'khalo_favorites') {
+    if (e.key === 'khalo_cart' || e.key === 'khalo_favorites' || e.key === 'currentUser') {
       syncUniversalNavBadges();
     }
   });
