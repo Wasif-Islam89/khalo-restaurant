@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Manage your KhaLo account profile, live food orders, saved delivery addresses, and favorite dishes." />
+  <meta name="keywords" content="user profile, KhaLo account, order history, delivery addresses, Karachi customer profile" />
+  <title>KhaLo — My Profile</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/fav.icon.png" />
+
+  <!-- Google Fonts: Inter & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  <!-- Core KhaLo Stylesheets -->
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/location-dropdown.css" />
+  
+  <!-- Dedicated Profile Stylesheet -->
+  <link rel="stylesheet" href="../css/profile.css" />
+  <link rel="stylesheet" href="../css/floating-chat.css" />
+</head>
+
+<body>
+
+  <!-- ========= 1. STANDARD KHALO NAVBAR ========= -->
+  <header class="navbar-header" id="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+
+        <!-- Brand Logo -->
+        <div class="brand">
+          <a href="./home.html" class="brand-link" title="KhaLo Home">
+            <div class="brand-icon">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" />
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <a href="./home.html" class="nav-link">Home</a>
+          <a href="./find-my-meal.html" class="nav-link">Find My Meal</a>
+          <a href="./menu.html" class="nav-link">Menu</a>
+          <a href="./deals.html" class="nav-link nav-link-badge">
+            Deals
+            <span class="badge-hot">Hot</span>
+          </a>
+          <a href="./khalo-specials.html" class="nav-link">KhaLo Specials</a>
+        </nav>
+
+        <!-- Utility Controls -->
+        <div class="utility-controls">
+
+          <!-- Location Selector -->
+          <div class="location-selector" id="location-selector-wrap">
+            <button type="button" class="location-btn" id="location-dropdown-btn" aria-label="Change delivery location" aria-haspopup="true" aria-expanded="false">
+              <svg class="icon-location" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span id="current-location-text">Select Area</span>
+              <svg class="icon-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Favorites Trigger -->
+          <a href="./favorites.html" class="icon-btn" title="Favorites" aria-label="Favorites" id="fav-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <span class="badge" id="fav-badge">0</span>
+          </a>
+
+          <!-- Cart Trigger -->
+          <a href="./cart.html" class="icon-btn" title="Cart" aria-label="Shopping Cart" id="cart-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="badge" id="cart-badge">0</span>
+          </a>
+
+          <!-- Profile Trigger (Active highlighted with user avatar circle) -->
+          <a href="./profile.html" class="icon-btn icon-btn-profile active" title="My Profile" aria-label="Profile" id="navProfileBtn">
+            <img src="" alt="Profile" class="nav-profile-avatar" id="navProfileAvatar" style="display: none;" />
+            <svg class="nav-profile-icon" id="navProfileIcon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </a>
+
+          <!-- Hamburger Button for Mobile -->
+          <button id="hamburger-btn" type="button" class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+            <svg class="icon-hamburger" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg class="icon-close" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="mobile-menu hidden-state">
+      <div class="mobile-location-bar">
+        <div class="mobile-location-info">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Delivering to: <span class="location-name">Karachi Hub</span>
+        </div>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="./home.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">home</span>
+          <span class="mobile-nav-text">Home</span>
+        </a>
+        <a href="./find-my-meal.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">auto_awesome</span>
+          <span class="mobile-nav-text">Find My Meal</span>
+        </a>
+        <a href="./menu.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">restaurant_menu</span>
+          <span class="mobile-nav-text">Menu</span>
+        </a>
+        <a href="./deals.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">local_offer</span>
+          <span class="mobile-nav-text">Deals</span>
+          <span class="badge-hot">Hot</span>
+        </a>
+        <a href="./khalo-specials.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">stars</span>
+          <span class="mobile-nav-text">KhaLo Specials</span>
+        </a>
+        <a href="./favorites.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">favorite</span>
+          <span class="mobile-nav-text">Favorites</span>
+        </a>
+        <a href="./cart.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">shopping_cart</span>
+          <span class="mobile-nav-text">My Cart</span>
+        </a>
+        <a href="./profile.html" class="mobile-nav-link active">
+          <img src="" alt="Profile" class="mobile-nav-profile-avatar" id="mobileNavProfileAvatar" style="display: none; width: 24px; height: 24px; border-radius: 50%; object-fit: cover; margin-right: 8px;" />
+          <span class="material-symbols-outlined mobile-nav-icon" id="mobileNavProfileIcon" aria-hidden="true">person</span>
+          <span class="mobile-nav-text">Profile &amp; Account</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ========= 2. MAIN PROFILE CONTAINER ========= -->
+  <main class="account-portal-main">
+    <div class="portal-container">
+
+      <!-- Breadcrumbs -->
+      <nav class="portal-breadcrumb" aria-label="Breadcrumb">
+        <a href="./home.html">Home</a>
+        <span class="bc-sep">/</span>
+        <span class="bc-active">My Account</span>
+      </nav>
+
+      <!-- Account Hero Header Banner -->
+      <section class="account-hero-banner">
+        <div class="hero-banner-inner">
+          
+          <!-- Avatar -->
+          <div class="user-avatar-area">
+            <div class="user-avatar-circle">
+              <div class="user-avatar-svg" id="profileAvatarSvg">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <img src="" 
+                   alt="User Profile" 
+                   id="profileAvatarImage"
+                   style="display: none;" />
+            </div>
+          </div>
+
+          <!-- User Information -->
+          <div class="user-hero-info">
+            <div class="user-name-row">
+              <h1 class="user-display-title" id="userDisplayTitle">Wasif</h1>
+              <span class="badge-tier"><i class="fa-solid fa-star"></i> Foodie Tier</span>
+            </div>
+            
+            <div class="user-contact-pills">
+              <span class="contact-pill"><i class="fa-regular fa-envelope"></i> <span id="userPillEmail">wasif@example.com</span></span>
+              <span class="contact-pill"><i class="fa-solid fa-phone"></i> <span id="userPillPhone">+92 300 1234567</span></span>
+              <span class="contact-pill"><i class="fa-solid fa-location-dot"></i> <span id="userPillArea">Karachi (Clifton Block 4)</span></span>
+            </div>
+          </div>
+
+          <!-- Right Action CTA -->
+          <div class="user-hero-stats">
+            <div class="stat-bubble" id="heroFavBubble" role="button" tabindex="0" title="Click to view Favorites">
+              <span class="stat-bubble-val" id="heroFavCount">0</span>
+              <span class="stat-bubble-lbl">Favorites</span>
+            </div>
+            <div class="stat-bubble" id="heroOrderBubble" role="button" tabindex="0" title="Click to view Past Orders">
+              <span class="stat-bubble-val" id="heroActiveOrderCount">3</span>
+              <span class="stat-bubble-lbl">Past Orders</span>
+            </div>
+            <button type="button" class="btn-hero-logout" id="heroLogoutBtn" title="Sign out of account">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <span>Logout</span>
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Account Navigation Tabs (Clean Horizontal Tabs) -->
+      <div class="account-nav-bar">
+        <button type="button" class="account-tab-btn active" data-tab="tab-profile">
+          <i class="fa-regular fa-user"></i>
+          <span>Personal Details</span>
+        </button>
+        <button type="button" class="account-tab-btn" data-tab="tab-favorites">
+          <i class="fa-solid fa-heart"></i>
+          <span>My Favorite Dishes</span>
+          <span class="tab-badge-fav" id="tabFavBadge">0</span>
+        </button>
+        <button type="button" class="account-tab-btn" data-tab="tab-orders">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <span>Past Order History</span>
+        </button>
+        <button type="button" class="account-tab-btn" data-tab="tab-addresses">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>Saved Addresses</span>
+        </button>
+        <button type="button" class="account-tab-btn" data-tab="tab-security">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Security &amp; Password</span>
+        </button>
+      </div>
+
+
+      <!-- ========= TAB CONTENT PANES ========= -->
+      <div class="tab-content-wrapper">
+
+        <!-- ===================================================================
+             TAB 1: PERSONAL DETAILS & PROFILE
+             =================================================================== -->
+        <section class="portal-pane active" id="tab-profile">
+          <div class="pane-card">
+            
+            <div class="pane-card-header">
+              <div>
+                <h2 class="pane-card-title">Personal Information</h2>
+                <p class="pane-card-subtitle">Manage your personal identification, phone number, and delivery profile.</p>
+              </div>
+            </div>
+
+            <form id="profileDetailsForm" class="portal-form">
+              
+              <!-- Profile Photo Upload Field -->
+              <div class="photo-upload-container">
+                <div class="photo-preview-wrap">
+                  <div class="form-avatar-svg" id="formAvatarSvg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <img src="" 
+                       alt="Avatar Preview" 
+                       id="formAvatarPreview" 
+                       class="form-avatar-thumb"
+                       style="display: none;" />
+                </div>
+                <div class="photo-upload-actions">
+                  <span class="photo-upload-title">Profile Photo</span>
+                  <div class="upload-btn-group">
+                    <label for="avatarUploadInput" class="btn-upload-file">
+                      <i class="fa-solid fa-cloud-arrow-up"></i>
+                      <span>Choose New Photo</span>
+                    </label>
+                    <input type="file" id="avatarUploadInput" accept="image/*" class="sr-only" />
+                    <button type="button" class="btn-avatar-remove" id="btnRemoveAvatar" title="Reset to default avatar">
+                      <i class="fa-regular fa-trash-can"></i>
+                      <span>Remove</span>
+                    </button>
+                  </div>
+                  <p class="photo-upload-hint">Upload a JPG, PNG or WebP image. It will appear on your profile and in the navbar icon.</p>
+                </div>
+              </div>
+
+              <div class="portal-grid">
+                
+                <div class="form-field">
+                  <label for="profName" class="field-label">Full Name</label>
+                  <div class="field-input-wrap">
+                    <i class="fa-regular fa-user field-icon"></i>
+                    <input type="text" id="profName" class="portal-input" value="Wasif" required />
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="profEmail" class="field-label">Email Address</label>
+                  <div class="field-input-wrap">
+                    <i class="fa-regular fa-envelope field-icon"></i>
+                    <input type="email" id="profEmail" class="portal-input" value="wasif@example.com" required />
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="profPhone" class="field-label">Mobile Number</label>
+                  <div class="field-input-wrap">
+                    <i class="fa-solid fa-phone field-icon"></i>
+                    <input type="tel" id="profPhone" class="portal-input" value="+92 300 1234567" required />
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="profArea" class="field-label">Primary Karachi Delivery Area</label>
+                  <div class="field-input-wrap select-arrow">
+                    <i class="fa-solid fa-location-dot field-icon"></i>
+                    <select id="profArea" class="portal-input portal-select">
+                      <option value="Clifton Block 4" selected>Clifton (Block 4)</option>
+                      <option value="Clifton Block 2">Clifton (Block 2)</option>
+                      <option value="DHA Phase 5">DHA (Phase 5 / Khayaban-e-Shahbaz)</option>
+                      <option value="DHA Phase 6">DHA (Phase 6 / Bukhari Commercial)</option>
+                      <option value="Gulshan-e-Iqbal Block 13D">Gulshan-e-Iqbal (Block 13D)</option>
+                      <option value="Gulshan-e-Iqbal Block 7">Gulshan-e-Iqbal (Block 7)</option>
+                      <option value="PECHS Block 2">PECHS (Block 2 / Tariq Road)</option>
+                      <option value="North Nazimabad">North Nazimabad</option>
+                      <option value="Bahadurabad">Bahadurabad</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-field full-row">
+                  <label for="profStreet" class="field-label">Complete Street Address / Apartment</label>
+                  <div class="field-input-wrap">
+                    <i class="fa-solid fa-house field-icon"></i>
+                    <input type="text" id="profStreet" class="portal-input" value="Apartment 4B, Ocean Heights, Block 4, Clifton, Karachi" />
+                  </div>
+                </div>
+
+                <div class="form-field full-row">
+                  <label for="profBio" class="field-label">Foodie Notes &amp; Rider Delivery Instructions</label>
+                  <div class="field-input-wrap">
+                    <textarea id="profBio" class="portal-textarea" rows="3" placeholder="Add specific instructions for delivery rider...">Karachi foodie craving genuine spicy Biryani &amp; charcoal BBQ. Ring doorbell twice upon arrival.</textarea>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn-portal-primary" id="saveProfileBtn">
+                  <i class="fa-solid fa-circle-check"></i>
+                  <span>Save Changes</span>
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </section>
+
+
+        <!-- ===================================================================
+             TAB 2: MY FAVORITE DISHES (LIVE RENDER FROM LOCALSTORAGE)
+             =================================================================== -->
+        <section class="portal-pane" id="tab-favorites">
+          <div class="pane-card">
+            
+            <div class="pane-card-header">
+              <div>
+                <h2 class="pane-card-title">Saved Favorite Dishes</h2>
+                <p class="pane-card-subtitle">Your personally liked Karachi meals for instant 1-click reordering.</p>
+              </div>
+              <a href="./favorites.html" class="btn-portal-secondary">
+                <span>Open Full Favorites Page</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+
+            <!-- Dynamic Favorites Grid -->
+            <div class="portal-fav-grid" id="portalFavDishesGrid">
+              <!-- Dynamically populated by js/profile.js -->
+            </div>
+
+            <!-- Empty State (Shown if 0 favorites) -->
+            <div class="portal-empty-state" id="portalFavEmptyState" style="display: none;">
+              <div class="empty-icon-circle">
+                <i class="fa-regular fa-heart"></i>
+              </div>
+              <h3 class="empty-title">No Saved Dishes Yet</h3>
+              <p class="empty-desc">Explore our delicious Karachi menu and click the heart icon on any dish to save it here.</p>
+              <a href="./menu.html" class="btn-portal-primary" style="margin-top: 1rem;">
+                <i class="fa-solid fa-utensils"></i> Explore KhaLo Menu
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ===================================================================
+             TAB 3: PAST ORDER HISTORY
+             =================================================================== -->
+        <section class="portal-pane" id="tab-orders">
+          
+          <!-- Past Order History -->
+          <div class="pane-card">
+            <div class="pane-card-header">
+              <div>
+                <h2 class="pane-card-title">Past Order History</h2>
+                <p class="pane-card-subtitle">Quickly reorder your previous favorite Karachi meals.</p>
+              </div>
+            </div>
+
+            <div class="past-orders-list">
+              
+              <div class="past-order-item">
+                <div class="past-order-meta">
+                  <span class="badge-status-delivered">Delivered</span>
+                  <h4 class="past-item-name">Loaded Beef Burger &amp; Animal Fries Mess</h4>
+                  <span class="past-item-date">October 11, 2026 • ₨ 1,840 • Cash on Delivery</span>
+                </div>
+                <a href="./cart.html" class="btn-reorder-link">
+                  <i class="fa-solid fa-rotate-right"></i> Reorder
+                </a>
+              </div>
+
+              <div class="past-order-item">
+                <div class="past-order-meta">
+                  <span class="badge-status-delivered">Delivered</span>
+                  <h4 class="past-item-name">Chicken Karahi Desi Ghee &amp; Roghani Naan (x4)</h4>
+                  <span class="past-item-date">October 06, 2026 • ₨ 2,750 • Card Paid</span>
+                </div>
+                <a href="./cart.html" class="btn-reorder-link">
+                  <i class="fa-solid fa-rotate-right"></i> Reorder
+                </a>
+              </div>
+
+              <div class="past-order-item">
+                <div class="past-order-meta">
+                  <span class="badge-status-delivered">Delivered</span>
+                  <h4 class="past-item-name">Seekh &amp; Malai Platter with Puri Paratha</h4>
+                  <span class="past-item-date">September 28, 2026 • ₨ 2,100 • Card Paid</span>
+                </div>
+                <a href="./cart.html" class="btn-reorder-link">
+                  <i class="fa-solid fa-rotate-right"></i> Reorder
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- ===================================================================
+             TAB 4: SAVED ADDRESSES
+             =================================================================== -->
+        <section class="portal-pane" id="tab-addresses">
+          <div class="pane-card">
+            
+            <div class="pane-card-header">
+              <div>
+                <h2 class="pane-card-title">Saved Delivery Addresses</h2>
+                <p class="pane-card-subtitle">Manage where your KhaLo food boxes get dispatched.</p>
+              </div>
+              <button type="button" class="btn-portal-primary" id="openAddAddressBtn">
+                <i class="fa-solid fa-plus"></i> Add Address
+              </button>
+            </div>
+
+            <div class="address-cards-grid" id="addressCardsGrid">
+              <!-- Dynamically rendered / updated by profile.js -->
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ===================================================================
+             TAB 5: SECURITY & PASSWORD
+             =================================================================== -->
+        <section class="portal-pane" id="tab-security">
+          <div class="pane-card">
+            
+            <div class="pane-card-header">
+              <div>
+                <h2 class="pane-card-title">Security &amp; Account Access</h2>
+                <p class="pane-card-subtitle">Keep your account safe, change password, and view active sessions.</p>
+              </div>
+            </div>
+
+            <form id="securityForm" class="portal-form">
+              <div class="portal-grid">
+                
+                <div class="form-field full-row">
+                  <label for="secCurrentPass" class="field-label">Current Password</label>
+                  <div class="field-input-wrap">
+                    <i class="fa-solid fa-lock field-icon"></i>
+                    <input type="password" id="secCurrentPass" class="portal-input" placeholder="Enter current password (default: KhaLo123)" required />
+                    <button type="button" class="btn-toggle-eye" data-target="secCurrentPass" aria-label="Toggle password visibility">
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="secNewPass" class="field-label">New Password</label>
+                  <div class="field-input-wrap">
+                    <i class="fa-solid fa-key field-icon"></i>
+                    <input type="password" id="secNewPass" class="portal-input" placeholder="e.g. khalo$$$1" required />
+                    <button type="button" class="btn-toggle-eye" data-target="secNewPass" aria-label="Toggle password visibility">
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                  <label for="secConfirmPass" class="field-label">Confirm New Password</label>
+                  <div class="field-input-wrap">
+                    <i class="fa-solid fa-key field-icon"></i>
+                    <input type="password" id="secConfirmPass" class="portal-input" placeholder="Repeat new password" required />
+                    <button type="button" class="btn-toggle-eye" data-target="secConfirmPass" aria-label="Toggle password visibility">
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn-portal-primary">
+                  <i class="fa-solid fa-shield-check"></i>
+                  <span>Update Password</span>
+                </button>
+              </div>
+            </form>
+
+            <div class="pref-separator"></div>
+
+            <div class="pref-block">
+              <h3 class="pref-title"><i class="fa-solid fa-shield-halved"></i> Active Karachi Device Sessions</h3>
+              <p class="pane-card-subtitle" style="margin-bottom: 1rem;">Live authorized device connected to your KhaLo food delivery account.</p>
+              
+              <div class="sessions-card-list" id="activeSessionsList">
+                <!-- Dynamically populated by js/profile.js based on current user device -->
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ========= 3. ADD ADDRESS MODAL ========= -->
+  <div class="portal-modal-backdrop" id="addAddressModal" role="dialog" aria-modal="true">
+    <div class="portal-modal-box address-modal-box">
+      <div class="modal-top">
+        <div class="modal-address-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div>
+          <h3 class="modal-head">Add New Delivery Address</h3>
+          <p class="modal-subhead">Save a new dispatch location for Karachi food delivery.</p>
+        </div>
+      </div>
+      <form id="newAddressForm" class="portal-form">
+        <div class="form-field">
+          <label for="addrLabel" class="field-label">Address Tag / Label</label>
+          <div class="field-input-wrap select-arrow">
+            <select id="addrLabel" class="portal-input portal-select">
+              <option value="Home">Home</option>
+              <option value="Work">Office / Work</option>
+              <option value="Family">Family / Relative</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="addrRecipient" class="field-label">Recipient Name &amp; Phone</label>
+          <input type="text" id="addrRecipient" class="portal-input" placeholder="e.g. Wasif — 0300 1234567" required />
+        </div>
+
+        <div class="form-field">
+          <label for="addrArea" class="field-label">Karachi Area / District</label>
+          <div class="field-input-wrap select-arrow">
+            <select id="addrArea" class="portal-input portal-select">
+              <option value="Clifton Block 4">Clifton (Block 4)</option>
+              <option value="Clifton Block 2">Clifton (Block 2)</option>
+              <option value="DHA Phase 5">DHA (Phase 5 / Khayaban-e-Shahbaz)</option>
+              <option value="DHA Phase 6">DHA (Phase 6 / Bukhari Commercial)</option>
+              <option value="Gulshan-e-Iqbal Block 13D">Gulshan-e-Iqbal (Block 13D)</option>
+              <option value="Gulshan-e-Iqbal Block 7">Gulshan-e-Iqbal (Block 7)</option>
+              <option value="PECHS Block 2">PECHS (Block 2 / Tariq Road)</option>
+              <option value="North Nazimabad">North Nazimabad</option>
+              <option value="Bahadurabad">Bahadurabad</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="addrStreet" class="field-label">Complete Street Address / Apartment</label>
+          <input type="text" id="addrStreet" class="portal-input" placeholder="e.g. Flat 302, Building A, Street 5" required />
+        </div>
+
+        <div class="modal-actions-row" style="margin-top: 1rem;">
+          <button type="button" class="btn-cancel" id="cancelAddAddressBtn">Cancel</button>
+          <button type="submit" class="btn-portal-primary">Save Address</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ========= 4. LOGOUT MODAL ========= -->
+  <div class="portal-modal-backdrop" id="portalLogoutModal" role="dialog" aria-modal="true">
+    <div class="portal-modal-box">
+      <div class="modal-top">
+        <div class="modal-danger-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
+        <div>
+          <h3 class="modal-head">Sign Out of KhaLo?</h3>
+          <p class="modal-subhead">You can log back in anytime with your email and password.</p>
+        </div>
+      </div>
+      <div class="modal-actions-row">
+        <button type="button" class="btn-cancel" id="cancelLogoutAction">Stay Logged In</button>
+        <button type="button" class="btn-danger-signout" id="confirmLogoutAction">Sign Out</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========= 4. TOAST NOTIFICATION ========= -->
+  <div class="portal-toast" id="portalToast" role="alert" aria-live="assertive">
+    <i class="fa-solid fa-circle-check toast-ico"></i>
+    <div class="toast-content">
+      <h4 class="toast-title" id="toastHeading">Success</h4>
+      <p class="toast-message" id="toastBody">Profile updated successfully.</p>
+    </div>
+  </div>
+
+
+  <!-- ========= 5. OFFICIAL KHALO FOOTER (Exact match to home.html) ========= -->
+  <footer class="home-footer">
+    <div class="footer-wave" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="./home.html" class="footer-brand-row" aria-label="KhaLo Home">
+            <span class="footer-logo-wrap">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" class="footer-logo" />
+            </span>
+          </a>
+          <p class="footer-about">Helping you decide what to eat. Resolving everyday meal dilemmas with appetizing clarity and smart budget picks across Pakistan.</p>
+
+          <div class="footer-socials" aria-label="Social media">
+            <a href="#" class="social-btn" aria-label="Facebook" id="social-facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram" id="social-instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok" id="social-tiktok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links: Explore -->
+        <nav class="footer-links" aria-label="Explore">
+          <span class="footer-links-title">Explore</span>
+          <a href="./home.html" class="footer-link">Home</a>
+          <a href="./find-my-meal.html" class="footer-link">Find My Meal</a>
+          <a href="./menu.html" class="footer-link">Our Menu</a>
+          <a href="./deals.html" class="footer-link">Deals <span class="footer-pill">Hot</span></a>
+          <a href="./khalo-specials.html" class="footer-link">KhaLo Specials</a>
+          <a href="./cart.html" class="footer-link">My Cart</a>
+        </nav>
+
+        <!-- Links: Account -->
+        <nav class="footer-links" aria-label="Account">
+          <span class="footer-links-title">Account</span>
+          <a href="./profile.html#tab-profile" class="footer-link">My Profile</a>
+          <a href="./profile.html#tab-orders" class="footer-link">Live Order Tracking</a>
+          <a href="./profile.html#tab-favorites" class="footer-link">Saved Dishes</a>
+          <a href="./profile.html#tab-addresses" class="footer-link">Delivery Addresses</a>
+        </nav>
+
+        <!-- Links: Support -->
+        <nav class="footer-links" aria-label="Support">
+          <span class="footer-links-title">Support</span>
+          <a href="./privacy-policy.html" class="footer-link">Privacy Policy</a>
+          <a href="./terms-of-service.html" class="footer-link">Terms of Service</a>
+        </nav>
+
+        <!-- Contact -->
+        <div class="footer-links footer-contact">
+          <span class="footer-links-title">Contact Us</span>
+          <a href="tel:+922111542556" class="footer-contact-item">
+            <span class="material-symbols-outlined">call</span>
+            <span>+92-300-000-0000</span>
+          </a>
+          <a href="mailto:hello@khalo.pk" class="footer-contact-item">
+            <span class="material-symbols-outlined">mail</span>
+            <span>hello@khalo.pk</span>
+          </a>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">pin_drop</span>
+            <span>Karachi</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">schedule</span>
+            <span>Open daily, 10 AM – 4 AM</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Payment strip -->
+      <div class="footer-pay">
+        <span class="footer-pay-label">We accept</span>
+        <ul class="footer-pay-list">
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#15803D"/>
+              <rect x="2" y="2" width="28" height="16" rx="2" stroke="#86EFAC" stroke-width="0.8" stroke-dasharray="2 1.5" fill="none"/>
+              <circle cx="16" cy="10" r="4.2" fill="#FFFFFF"/>
+              <text x="16" y="12.5" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="7" fill="#15803D" text-anchor="middle">₨</text>
+            </svg>
+            <span>COD</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+              <path d="M13.2 14.5l1.6-9.5h2.5l-1.6 9.5h-2.5zm7.3-9.3c-.5-.2-1.3-.4-2.3-.4-2.5 0-4.3 1.3-4.3 3.2 0 1.4 1.3 2.2 2.2 2.7.9.5 1.3.8 1.3 1.2 0 .6-.8.9-1.5.9-1 0-1.5-.1-2.3-.5l-.3-.2-.3 1.9c.5.2 1.5.4 2.5.4 2.7 0 4.4-1.3 4.4-3.3 0-1.1-.7-2-2.2-2.7-.9-.5-1.5-.8-1.5-1.3 0-.4.5-.9 1.5-.9.8 0 1.4.2 1.9.4l.2.1.4-1.6zm5.8 4.6l1.2-3.3.7 3.3h-1.9zm2.8 4.7l-1.8-8.5c-.1-.4-.4-.6-.8-.6h-3.1c-.3 0-.5.1-.6.4l-3.5 8.7h2.6l.5-1.4h3.2l.3 1.4h2.3zm-16.7-9.5l-2.4 6.5-.3-1.3c-.4-1.5-1.8-3.1-3.3-3.9l2.2 8.2h2.7l4-9.5h-2.9z" fill="#1434CB"/>
+              <path d="M7.7 5h-4.2l-.1.4c3.3.8 5.4 2.8 6.3 5.2l-.9-4.7c-.2-.7-.6-.9-1.1-.9z" fill="#F7B600"/>
+            </svg>
+            <span>Visa</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+              <circle cx="12" cy="10" r="6" fill="#EB001B"/>
+              <circle cx="20" cy="10" r="6" fill="#F79E1B"/>
+              <path d="M16 5.86a6 6 0 0 0 0 8.28 6 6 0 0 0 0-8.28z" fill="#FF5F00"/>
+            </svg>
+            <span>Mastercard</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="footer-year">2026</span> KhaLo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/location-dropdown.js"></script>
+  <script src="../js/profile.js"></script>
+  <script src="../js/floating-chat.js"></script>
+</body>
+
+</html>
