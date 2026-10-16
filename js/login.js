@@ -95,12 +95,39 @@
         users = [];
       }
 
-      let matchedUser = null;
-      for (let i = 0; i < users.length; i++) {
-        if (users[i].email && users[i].email.toLowerCase() === email.toLowerCase()) {
-          matchedUser = users[i];
-          break;
-        }
+      // Ensure Wasif account is seeded in users list with default or existing password
+      const wasifIndex = users.findIndex(u => u.email && (
+        u.email.toLowerCase() === 'wasif@example.com' ||
+        u.email.toLowerCase() === 'wasifdev4@gmail.com'
+      ));
+
+      if (wasifIndex === -1) {
+        let initialPass = 'KhaLo123';
+        try {
+          const cUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+          if (cUser && cUser.password) initialPass = cUser.password;
+        } catch (e) {}
+
+        const defaultWasif = {
+          fullName: 'Wasif',
+          email: 'wasif@example.com',
+          phone: '+92 300 1234567',
+          area: 'Clifton Block 4',
+          street: 'Apartment 4B, Ocean Heights, Block 4, Clifton, Karachi',
+          bio: 'Karachi foodie craving genuine spicy Biryani & charcoal BBQ. Ring doorbell twice upon arrival.',
+          avatar: '',
+          password: initialPass
+        };
+        users.push(defaultWasif);
+        localStorage.setItem('users', JSON.stringify(users));
+      }
+
+      let matchedUser = users.find(u => u.email && u.email.toLowerCase() === email.toLowerCase());
+      if (!matchedUser && (email.toLowerCase() === 'wasif' || email.toLowerCase() === 'wasifdev4@gmail.com' || email.toLowerCase() === 'wasif@example.com')) {
+        matchedUser = users.find(u => u.email && (
+          u.email.toLowerCase() === 'wasif@example.com' ||
+          u.email.toLowerCase() === 'wasifdev4@gmail.com'
+        ));
       }
 
       if (!matchedUser) {
@@ -111,6 +138,12 @@
       if (matchedUser.password !== password) {
         showToast('Incorrect password. Please try again.', 'Login Failed');
         return;
+      }
+
+      // Sanitize legacy hardcoded Unsplash photo if present
+      if (matchedUser.avatar && (matchedUser.avatar.includes('photo-1507003211169-0a1dd7228f2d') || matchedUser.avatar.includes('photo-1534528741775'))) {
+        matchedUser.avatar = '';
+        localStorage.setItem('users', JSON.stringify(users));
       }
 
       // Save current logged in user session
@@ -133,8 +166,8 @@
 
 })();
 
-// Smooth page transitions //
-document.querySelectorAll('a[href="signup.html"], a[href="login.html"], a[href="./forgot-password.html"], a[href="forgot-password.html"]').forEach(link => {
+// Smooth page transitions
+document.querySelectorAll('a[href="signup.html"], a[href="./signup.html"], a[href="login.html"], a[href="./login.html"], a[href="forgot.html"], a[href="./forgot.html"]').forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault();
     const target = this.href;

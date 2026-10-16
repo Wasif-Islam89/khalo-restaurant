@@ -1033,3 +1033,43 @@ button {
     transform: translateY(0) rotate(0deg);
   }
 }
+
+/* =========================================================
+   RESPONSIVE LAYOUT & MOBILE TUNING
+   ========================================================= */
+@media (min-width: 900px) {
+  .auth-shell {
+    max-width: 960px;
+    flex-direction: row;
+    min-height: 580px;
+  }
+
+  .auth-brand-panel {
+    display: flex;
+    width: 46%;
+    padding: 3rem 2.5rem;
+  }
+
+  .auth-form-panel {
+    width: 54%;
+    padding: 3rem 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-main {
+    padding: 1rem 0.75rem;
+  }
+
+  .auth-shell {
+    border-radius: 1.25rem;
+  }
+
+  .auth-form-panel {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .auth-form-heading h2 {
+    font-size: 1.5rem;
+  }
+}
