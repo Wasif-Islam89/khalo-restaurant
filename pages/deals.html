@@ -1,0 +1,1092 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Exclusive food deals, family feast combos, and voucher discount codes at KhaLo Restaurant Karachi. Save big on authentic Dum Biryanis, sizzling Karahis, and charcoal BBQ." />
+  <meta name="keywords" content="KhaLo deals, food discounts, Karachi food offers, discount promo codes, family platters, student deals Karachi" />
+  <title>KhaLo — Deals &amp; Offers</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../assets/fav.icon.png" />
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/location-dropdown.css" />
+  <link rel="stylesheet" href="../css/deals.css" />
+</head>
+
+<body>
+
+  <!-- ========= NAVBAR (Identical to Home Page) ========= -->
+  <header class="navbar-header" id="navbar">
+    <div class="navbar-container">
+      <div class="navbar-inner">
+        <!-- Brand Logo -->
+        <div class="brand">
+          <a href="./home.html" class="brand-link" title="KhaLo Home">
+            <div class="brand-icon">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" />
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <a href="./home.html" class="nav-link">Home</a>
+          <a href="./find-my-meal.html" class="nav-link">Find My Meal</a>
+          <a href="./menu.html" class="nav-link">Menu</a>
+          <a href="./deals.html" class="nav-link nav-link-badge active">
+            Deals
+            <span class="badge-hot">Hot</span>
+          </a>
+          <a href="./khalo-specials.html" class="nav-link">KhaLo Specials</a>
+        </nav>
+
+        <!-- Utility Controls -->
+        <div class="utility-controls">
+          <div class="location-selector" id="location-selector-wrap">
+            <button type="button" class="location-btn" id="location-dropdown-btn" aria-label="Select delivery area" aria-haspopup="true" aria-expanded="false">
+              <svg class="icon-location" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span id="current-location-text">Select Area</span>
+              <svg class="icon-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+
+
+
+          <!-- Favorites Button -->
+          <a href="./favorites.html" class="icon-btn" title="Favorites" aria-label="Favorites" id="fav-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            <span class="badge" id="fav-badge">0</span>
+          </a>
+
+          <!-- Cart Button -->
+          <a href="./cart.html" class="icon-btn" title="Cart" aria-label="Shopping Cart" id="cart-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <span class="badge" id="cart-badge">0</span>
+          </a>
+
+          <!-- Profile -->
+          <a href="./profile.html" class="icon-btn icon-btn-profile" title="My Profile" aria-label="Profile">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </a>
+
+          <!-- Hamburger Toggle -->
+          <button id="hamburger-btn" type="button" class="hamburger-btn" aria-label="Toggle navigation menu"
+            aria-expanded="false">
+            <svg class="icon-hamburger" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg class="icon-close" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="mobile-menu hidden-state">
+      <div class="mobile-location-bar">
+        <div class="mobile-location-info">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Delivering to: <span class="location-name">Karachi Hub</span>
+        </div>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="./home.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">home</span>
+          <span class="mobile-nav-text">Home</span>
+        </a>
+        <a href="./find-my-meal.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">auto_awesome</span>
+          <span class="mobile-nav-text">Find My Meal</span>
+        </a>
+        <a href="./menu.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">restaurant_menu</span>
+          <span class="mobile-nav-text">Menu</span>
+        </a>
+        <a href="./deals.html" class="mobile-nav-link active">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">local_offer</span>
+          <span class="mobile-nav-text">Deals</span>
+          <span class="badge-hot">Hot</span>
+        </a>
+        <a href="./khalo-specials.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">stars</span>
+          <span class="mobile-nav-text">KhaLo Specials</span>
+        </a>
+        <a href="./favorites.html" class="mobile-nav-link" id="mobile-fav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">favorite</span>
+          <span class="mobile-nav-text">Favorites</span>
+          <span class="badge" id="mobile-fav-badge">0</span>
+        </a>
+        <a href="./cart.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">shopping_cart</span>
+          <span class="mobile-nav-text">My Cart</span>
+        </a>
+        <button type="button" class="mobile-nav-link mobile-location-trigger" id="mobile-location-btn" style="background: none; border: none; width: 100%; text-align: left; cursor: pointer; font-family: inherit;">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">near_me</span>
+          <span class="mobile-nav-text">Delivery Area (<strong id="mobile-current-location-text">Select Area</strong>)</span>
+        </button>
+        <a href="./profile.html" class="mobile-nav-link">
+          <span class="material-symbols-outlined mobile-nav-icon" aria-hidden="true">person</span>
+          <span class="mobile-nav-text">Profile &amp; Account</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========= MAIN CONTENT ========= -->
+  <main class="deals-main">
+
+
+    <!-- 1. DEALS HERO & FLASH SALE SPOTLIGHT -->
+    <section class="deals-hero-section">
+      <div class="hero-backdrop" aria-hidden="true"></div>
+      <div class="container">
+        <div class="deals-hero-grid">
+
+          <!-- Left: Editorial Story & Live Flash Timer -->
+          <div class="deals-hero-editorial">
+            <div class="deals-hero-eyebrow">
+              <span class="deals-hero-eyebrow-rule" aria-hidden="true"></span>
+              <span>KhaLo Hot Deals • Karachi Daily Combos</span>
+            </div>
+
+            <h1 class="deals-hero-heading">
+              Feast Big, <span class="deals-heading-accent">Spend Less.</span>
+            </h1>
+
+            <p class="deals-hero-subtext">
+              Handcrafted family feast bundles, flash discounts, and midnight specials straight from our slow dum handis
+              and charcoal grills. Cooked fresh to order, delivered steaming hot across Karachi.
+            </p>
+
+            <!-- Live Daily Flash Countdown Timer -->
+            <div class="deals-countdown-box">
+              <div class="deals-countdown-tag">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.61 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z" />
+                </svg>
+                <span>Today's Flash Deals End In:</span>
+              </div>
+              <div class="deals-countdown-timer">
+                <span class="timer-block">
+                  <strong id="deal-hours">05</strong>
+                  <small>Hrs</small>
+                </span>
+                <span class="timer-sep">:</span>
+                <span class="timer-block">
+                  <strong id="deal-mins">24</strong>
+                  <small>Min</small>
+                </span>
+                <span class="timer-sep">:</span>
+                <span class="timer-block">
+                  <strong id="deal-secs">38</strong>
+                  <small>Sec</small>
+                </span>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="deals-hero-actions">
+              <a href="#deals-catalog" class="deals-hero-btn-primary">
+                <span>Explore All Deals</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </a>
+              <a href="#vouchers" class="deals-hero-btn-secondary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 7h.01M7 3h5a1.99 1.99 0 011.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.99 1.99 0 013 12V7a4 4 0 014-4z" />
+                </svg>
+                <span>Coupon Vault</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Hero Spotlight Deal Card -->
+          <div class="deals-spotlight-wrap">
+            <div class="deals-spotlight-frame">
+              <div class="deals-spotlight-backdrop" aria-hidden="true"></div>
+
+              <div class="deals-spotlight-card">
+                <div class="deals-spotlight-img-wrap">
+                  <img src="../assets/Seekh & Malai Platter.jpg" alt="Grand Karachi BBQ Weekend Feast"
+                    class="deals-spotlight-img" fetchpriority="high" />
+                  <div class="deals-spotlight-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-6 10.49z" />
+                    </svg>
+                    <span>SAVE 30% TODAY</span>
+                  </div>
+                </div>
+
+                <div class="deals-spotlight-body">
+                  <div class="deals-spotlight-tag">Featured Weekend Feast</div>
+                  <h2 class="deals-spotlight-title">Grand Karachi BBQ Night Platter</h2>
+                  <p class="deals-spotlight-desc">
+                    4 Beef Seekh Kababs, 8 Malai Boti skewers, 2 Crispy Parathas, spiced mint raita, and 2 chilled drinks.
+                  </p>
+
+                  <div class="deals-spotlight-footer">
+                    <div class="deals-spotlight-price">
+                      <div class="deals-spotlight-price-row">
+                        <span class="deals-spotlight-now">Rs. 1,490</span>
+                        <span class="deals-spotlight-was">Rs. 2,150</span>
+                      </div>
+                      <span class="deals-spotlight-save">You Save Rs. 660 (30% OFF)</span>
+                    </div>
+
+                    <button type="button" class="deals-spotlight-btn" data-deal-id="deal-bbq-night"
+                      data-deal-title="Grand Karachi BBQ Night Platter" data-deal-price="1490"
+                      data-deal-image="../assets/Seekh & Malai Platter.jpg" aria-label="Add Grand Karachi BBQ Night Platter deal to cart">
+                      <span>Add to Cart</span>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PROMO VOUCHER VAULT (Click-to-Copy Coupons) -->
+    <section class="vouchers-section" id="vouchers">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <h2 class="section-header-title">Exclusive Promo Vouchers</h2>
+            <p class="section-header-sub">Click any coupon code below to copy and apply directly at checkout.</p>
+          </div>
+        </div>
+
+        <div class="vouchers-grid">
+          <!-- Voucher 1 -->
+          <div class="voucher-ticket">
+            <div class="voucher-ticket-top">
+              <div>
+                <div class="voucher-discount-badge">20% OFF</div>
+                <div class="voucher-discount-tag">Orders above Rs. 1,500</div>
+              </div>
+              <div class="voucher-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+            <div class="voucher-details">
+              <h4>Flat 20% on Handi &amp; Karahi</h4>
+              <p>Valid on all slow-cooked desi ghee karahis, handis, and family platters.</p>
+            </div>
+            <div class="voucher-footer-box">
+              <div class="voucher-copy-box">
+                <span class="voucher-code-text">KHALO20</span>
+                <button type="button" class="voucher-copy-btn" data-code="KHALO20" aria-label="Copy voucher code KHALO20">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                  </svg>
+                  <span>Copy</span>
+                </button>
+              </div>
+              <a href="./cart.html?promo=KHALO20" class="voucher-apply-btn" data-code="KHALO20" title="Apply KHALO20 at checkout">
+                <span>Use in Cart</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Voucher 2 -->
+          <div class="voucher-ticket">
+            <div class="voucher-ticket-top">
+              <div>
+                <div class="voucher-discount-badge">FREE RIDER</div>
+                <div class="voucher-discount-tag">Orders above Rs. 800</div>
+              </div>
+              <div class="voucher-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <rect x="1" y="3" width="15" height="13" stroke-width="2" rx="2" />
+                  <polygon points="16 8 20 8 23 11 23 16 16 16" stroke-width="2" />
+                  <circle cx="5.5" cy="18.5" r="2.5" stroke-width="2" />
+                  <circle cx="18.5" cy="18.5" r="2.5" stroke-width="2" />
+                </svg>
+              </div>
+            </div>
+            <div class="voucher-details">
+              <h4>Zero Delivery Fee</h4>
+              <p>Get completely free express doorstep delivery across all Karachi delivery zones.</p>
+            </div>
+            <div class="voucher-footer-box">
+              <div class="voucher-copy-box">
+                <span class="voucher-code-text">FREEDEL</span>
+                <button type="button" class="voucher-copy-btn" data-code="FREEDEL" aria-label="Copy voucher code FREEDEL">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                  </svg>
+                  <span>Copy</span>
+                </button>
+              </div>
+              <a href="./cart.html?promo=FREEDEL" class="voucher-apply-btn" data-code="FREEDEL" title="Apply FREEDEL at checkout">
+                <span>Use in Cart</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Voucher 3 -->
+          <div class="voucher-ticket">
+            <div class="voucher-ticket-top">
+              <div>
+                <div class="voucher-discount-badge">RS. 500 OFF</div>
+                <div class="voucher-discount-tag">Feasts above Rs. 2,500</div>
+              </div>
+              <div class="voucher-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+            </div>
+            <div class="voucher-details">
+              <h4>Family Feast Big Saver</h4>
+              <p>Instant flat Rs. 500 discount on big gatherings and jumbo handi combos.</p>
+            </div>
+            <div class="voucher-footer-box">
+              <div class="voucher-copy-box">
+                <span class="voucher-code-text">FEAST500</span>
+                <button type="button" class="voucher-copy-btn" data-code="FEAST500" aria-label="Copy voucher code FEAST500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                  </svg>
+                  <span>Copy</span>
+                </button>
+              </div>
+              <a href="./cart.html?promo=FEAST500" class="voucher-apply-btn" data-code="FEAST500" title="Apply FEAST500 at checkout">
+                <span>Use in Cart</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Voucher 4 -->
+          <div class="voucher-ticket">
+            <div class="voucher-ticket-top">
+              <div>
+                <div class="voucher-discount-badge">MIDNIGHT 40%</div>
+                <div class="voucher-discount-tag">11:00 PM – 4:00 AM</div>
+              </div>
+              <div class="voucher-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.3 2a10 10 0 00-1.9 19.8 10 10 0 009.6-9.6A10 10 0 0112.3 2z" />
+                </svg>
+              </div>
+            </div>
+            <div class="voucher-details">
+              <h4>Late Night Munchies Deal</h4>
+              <p>40% discount on all double smash burgers, loaded animal fries, and desserts.</p>
+            </div>
+            <div class="voucher-footer-box">
+              <div class="voucher-copy-box">
+                <span class="voucher-code-text">MIDNIGHT40</span>
+                <button type="button" class="voucher-copy-btn" data-code="MIDNIGHT40" aria-label="Copy voucher code MIDNIGHT40">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                  </svg>
+                  <span>Copy</span>
+                </button>
+              </div>
+              <a href="./cart.html?promo=MIDNIGHT40" class="voucher-apply-btn" data-code="MIDNIGHT40" title="Apply MIDNIGHT40 at checkout">
+                <span>Use in Cart</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. STICKY CATEGORY FILTER TOOLBAR -->
+    <nav class="deals-filter-wrapper" id="deals-catalog" aria-label="Filter Deal Categories">
+      <div class="container">
+        <div class="deals-filter-inner">
+          <div class="deals-filter-pills">
+            <button type="button" class="deal-filter-pill active" data-category="all">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-6 10.49z" />
+              </svg>
+              <span>All Deals (6)</span>
+            </button>
+            <button type="button" class="deal-filter-pill" data-category="family">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <span>Family Feasts (2)</span>
+            </button>
+            <button type="button" class="deal-filter-pill" data-category="bbq">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 11a8 8 0 0016 0H4zm4 4v5m8-5v5m-4-5v3M8 6a2 2 0 012-2m4 0a2 2 0 012 2" />
+              </svg>
+              <span>Karahi &amp; BBQ (2)</span>
+            </button>
+            <button type="button" class="deal-filter-pill" data-category="combos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10a8 8 0 0116 0H4zm0 4h16M5 18h14a2 2 0 002-2v-2H3v2a2 2 0 002 2z" />
+              </svg>
+              <span>Burger Boxes (1)</span>
+            </button>
+            <button type="button" class="deal-filter-pill" data-category="midnight">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.3 2a10 10 0 00-1.9 19.8 10 10 0 009.6-9.6A10 10 0 0112.3 2z" />
+              </svg>
+              <span>Midnight Specials (1)</span>
+            </button>
+          </div>
+
+          <div class="deals-counter-tag">
+            Showing <strong id="deals-counter-count">6</strong> Handcrafted Combos
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 4. DEALS CATALOG (Curated Feast Bundles) -->
+    <section class="deals-catalog-section">
+      <div class="container">
+        <div class="deals-grid" id="deals-grid">
+
+          <!-- Deal Card 1: Royal Shahi Feast for 4 -->
+          <article class="deal-card" data-category="family">
+            <div class="deal-card-img-wrap">
+              <img src="../assets/Shahi Dum Biryani.jpg" alt="Royal Shahi Feast for 4" class="deal-card-img" />
+              <span class="deal-card-badge">SAVE RS. 650</span>
+              <button type="button" class="deal-card-fav-btn" data-deal-id="deal-royal-feast" aria-label="Save deal to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="deal-card-body">
+              <span class="deal-card-category">Family Feast • Serves 3-4</span>
+              <h3 class="deal-card-title">Royal Shahi Family Handi Feast</h3>
+              <p class="deal-card-desc">
+                Rich aromatic saffron dum basmati with succulent chicken, accompanied by butter naan, fresh raita, and chilled drinks.
+              </p>
+              <div class="deal-items-list">
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>1x Family Handi Shahi Dum Biryani</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>1x Half Desi Chicken Karahi</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>2x Roghni Naan + Zeera Raita</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>1x 1.5 Litre Chilled Cold Drink</span>
+                </div>
+              </div>
+              <div class="deal-card-footer">
+                <div class="deal-price-col">
+                  <div class="deal-price-current-row">
+                    <span class="deal-price-current">Rs. 2,550</span>
+                    <span class="deal-price-original">Rs. 3,200</span>
+                  </div>
+                  <span class="deal-save-chip">Save 20% Today</span>
+                </div>
+                <button type="button" class="btn-add-deal" data-deal-id="deal-royal-feast"
+                  data-deal-title="Royal Shahi Family Handi Feast" data-deal-price="2550"
+                  data-deal-image="../assets/Shahi Dum Biryani.jpg" aria-label="Add Royal Shahi Family Handi Feast to cart">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Deal Card 2: Desi Makhan Karahi Deal -->
+          <article class="deal-card" data-category="bbq">
+            <div class="deal-card-img-wrap">
+              <img src="../assets/Chicken Karahi.jpg" alt="Desi Makhan Karahi Feast" class="deal-card-img" />
+              <span class="deal-card-badge">HOT DEAL</span>
+              <button type="button" class="deal-card-fav-btn" data-deal-id="deal-makhan-karahi" aria-label="Save deal to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="deal-card-body">
+              <span class="deal-card-category">Desi Karahi • Serves 2-3</span>
+              <h3 class="deal-card-title">Desi Makhan Karahi &amp; Naan Feast</h3>
+              <p class="deal-card-desc">
+                Full wok cooked in pure country butter (makhan), black pepper, fresh ginger julienne, and tender chicken.
+              </p>
+              <div class="deal-items-list">
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>1x Full Desi Makhan Chicken Karahi</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>4x Tandoori Garlic Butter Naan</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>Fresh Mint Raita + Kachumber Salad</span>
+                </div>
+              </div>
+              <div class="deal-card-footer">
+                <div class="deal-price-col">
+                  <div class="deal-price-current-row">
+                    <span class="deal-price-current">Rs. 1,790</span>
+                    <span class="deal-price-original">Rs. 2,200</span>
+                  </div>
+                  <span class="deal-save-chip">Save Rs. 410</span>
+                </div>
+                <button type="button" class="btn-add-deal" data-deal-id="deal-makhan-karahi"
+                  data-deal-title="Desi Makhan Karahi & Naan Feast" data-deal-price="1790"
+                  data-deal-image="../assets/Chicken Karahi.jpg" aria-label="Add Desi Makhan Karahi & Naan Feast to cart">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Deal Card 3: BBQ Night Platter Combo -->
+          <article class="deal-card" data-category="bbq">
+            <div class="deal-card-img-wrap">
+              <img src="../assets/Seekh & Malai Platter.jpg" alt="Charcoal BBQ Lovers Box" class="deal-card-img" />
+              <span class="deal-card-badge">BESTSELLER</span>
+              <button type="button" class="deal-card-fav-btn" data-deal-id="deal-bbq-lovers" aria-label="Save deal to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="deal-card-body">
+              <span class="deal-card-category">Charcoal BBQ • Serves 2</span>
+              <h3 class="deal-card-title">Charcoal BBQ Smoke Lovers Box</h3>
+              <p class="deal-card-desc">
+                Flame-grilled beef seekh kababs &amp; cream-marinated malai boti pieces served with piping hot parathas.
+              </p>
+              <div class="deal-items-list">
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>4x Spiced Beef Seekh Kababs</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>6x Smoked Reshmi Malai Boti</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>2x Crispy Puri Parathas + Dips</span>
+                </div>
+              </div>
+              <div class="deal-card-footer">
+                <div class="deal-price-col">
+                  <div class="deal-price-current-row">
+                    <span class="deal-price-current">Rs. 1,490</span>
+                    <span class="deal-price-original">Rs. 1,850</span>
+                  </div>
+                  <span class="deal-save-chip">Save Rs. 360</span>
+                </div>
+                <button type="button" class="btn-add-deal" data-deal-id="deal-bbq-lovers"
+                  data-deal-title="Charcoal BBQ Smoke Lovers Box" data-deal-price="1490"
+                  data-deal-image="../assets/Seekh & Malai Platter.jpg" aria-label="Add Charcoal BBQ Smoke Lovers Box to cart">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Deal Card 4: Smashed Burger Duo Crave Box -->
+          <article class="deal-card" data-category="combos">
+            <div class="deal-card-img-wrap">
+              <img src="../assets/Smashed Double Burger.jpg" alt="Smashed Double Burger Duo" class="deal-card-img" />
+              <span class="deal-card-badge badge-green">FREE FRIES</span>
+              <button type="button" class="deal-card-fav-btn" data-deal-id="deal-burger-duo" aria-label="Save deal to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="deal-card-body">
+              <span class="deal-card-category">Burger Box • Serves 2</span>
+              <h3 class="deal-card-title">Smashed Double Burger Duo Box</h3>
+              <p class="deal-card-desc">
+                Two juicy prime smashed double beef burgers with cheddar cheese slices, large fries, and 2 chilled drinks.
+              </p>
+              <div class="deal-items-list">
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>2x Smashed Double Beef Burgers</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>1x Loaded Animal Style Fries Box</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>2x Chilled Cold Drink Cans (250ml)</span>
+                </div>
+              </div>
+              <div class="deal-card-footer">
+                <div class="deal-price-col">
+                  <div class="deal-price-current-row">
+                    <span class="deal-price-current">Rs. 1,650</span>
+                    <span class="deal-price-original">Rs. 2,100</span>
+                  </div>
+                  <span class="deal-save-chip">Save Rs. 450</span>
+                </div>
+                <button type="button" class="btn-add-deal" data-deal-id="deal-burger-duo"
+                  data-deal-title="Smashed Double Burger Duo Box" data-deal-price="1650"
+                  data-deal-image="../assets/Smashed Double Burger.jpg" aria-label="Add Smashed Double Burger Duo Box to cart">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Deal Card 5: Mutton Dum Biryani Mega Feast -->
+          <article class="deal-card" data-category="family">
+            <div class="deal-card-img-wrap">
+              <img src="../assets/Special Shahi Dum Biryani.jpg" alt="Special Mutton Dum Biryani Mega Feast" class="deal-card-img" />
+              <span class="deal-card-badge">CHEF SPECIAL</span>
+              <button type="button" class="deal-card-fav-btn" data-deal-id="deal-mutton-mega" aria-label="Save deal to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="deal-card-body">
+              <span class="deal-card-category">Royal Dum • Serves 3-4</span>
+              <h3 class="deal-card-title">Mutton Dum Biryani Royal Mega Box</h3>
+              <p class="deal-card-desc">
+                Overnight marinated fresh mutton cuts slow-sealed on fragrant saffron basmati rice with Kewra essence.
+              </p>
+              <div class="deal-items-list">
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>2x Full Mutton Dum Biryani Handis</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>2x Spiced Zeera Raita + Salad</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>2x Fresh Mint Margaritas</span>
+                </div>
+              </div>
+              <div class="deal-card-footer">
+                <div class="deal-price-col">
+                  <div class="deal-price-current-row">
+                    <span class="deal-price-current">Rs. 2,190</span>
+                    <span class="deal-price-original">Rs. 2,680</span>
+                  </div>
+                  <span class="deal-save-chip">Save Rs. 490</span>
+                </div>
+                <button type="button" class="btn-add-deal" data-deal-id="deal-mutton-mega"
+                  data-deal-title="Mutton Dum Biryani Royal Mega Box" data-deal-price="2190"
+                  data-deal-image="../assets/Special Shahi Dum Biryani.jpg" aria-label="Add Mutton Dum Biryani Royal Mega Box to cart">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Deal Card 6: Midnight Sweet Tooth Crave Box -->
+          <article class="deal-card" data-category="midnight">
+            <div class="deal-card-img-wrap">
+              <img src="../assets/Molten Lava Cake.jpg" alt="Midnight Dessert Crave Box" class="deal-card-img" />
+              <span class="deal-card-badge badge-purple">LATE NIGHT HIT</span>
+              <button type="button" class="deal-card-fav-btn" data-deal-id="deal-dessert-crave" aria-label="Save deal to favorites">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+            </div>
+            <div class="deal-card-body">
+              <span class="deal-card-category">Dessert Bundle • Serves 2</span>
+              <h3 class="deal-card-title">Midnight Sweet Tooth Crave Bundle</h3>
+              <p class="deal-card-desc">
+                Warm dark chocolate molten lava cake with flowing center, paired with traditional cardamom saffron kheer.
+              </p>
+              <div class="deal-items-list">
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>1x Warm Belgian Molten Lava Cake</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>1x Zafrani Matka Kheer (Clay Pot)</span>
+                </div>
+                <div class="deal-item-row">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                  <span>1x Vanilla Bean Ice Cream Cup</span>
+                </div>
+              </div>
+              <div class="deal-card-footer">
+                <div class="deal-price-col">
+                  <div class="deal-price-current-row">
+                    <span class="deal-price-current">Rs. 680</span>
+                    <span class="deal-price-original">Rs. 890</span>
+                  </div>
+                  <span class="deal-save-chip">Save Rs. 210</span>
+                </div>
+                <button type="button" class="btn-add-deal" data-deal-id="deal-dessert-crave"
+                  data-deal-title="Midnight Sweet Tooth Crave Bundle" data-deal-price="680"
+                  data-deal-image="../assets/Molten Lava Cake.jpg" aria-label="Add Midnight Sweet Tooth Crave Bundle to cart">
+                  <span>Add to Cart</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. KITCHEN TRUST & QUALITY PROMISE STRIP -->
+    <section class="deals-trust-section">
+      <div class="container">
+        <div class="deals-trust-grid">
+          <div class="deals-trust-card">
+            <div class="deals-trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div class="deals-trust-text">
+              <strong>100% Halal Hand-Cut</strong>
+              <small>Certified fresh meats &amp; desi ghee</small>
+            </div>
+          </div>
+
+          <div class="deals-trust-card">
+            <div class="deals-trust-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.61 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z" />
+              </svg>
+            </div>
+            <div class="deals-trust-text">
+              <strong>Fresh To Order</strong>
+              <small>Never pre-cooked or stored</small>
+            </div>
+          </div>
+
+          <div class="deals-trust-card">
+            <div class="deals-trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <rect x="1" y="3" width="15" height="13" stroke-width="2" rx="2" />
+                <polygon points="16 8 20 8 23 11 23 16 16 16" stroke-width="2" />
+                <circle cx="5.5" cy="18.5" r="2.5" stroke-width="2" />
+                <circle cx="18.5" cy="18.5" r="2.5" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="deals-trust-text">
+              <strong>Express Dispatch</strong>
+              <small>25–35 mins avg. delivery time</small>
+            </div>
+          </div>
+
+          <div class="deals-trust-card">
+            <div class="deals-trust-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <div class="deals-trust-text">
+              <strong>Thermal Foil Sealed</strong>
+              <small>100% tamper-proof packaging</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: APP / NEWSLETTER CTA (Identical to Home Page) -->
+    <section class="cta-section" id="get-app">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <div class="cta-content">
+            <h2 class="cta-title">Hungry for deals? Stay in the loop.</h2>
+            <p class="cta-desc">Get exclusive Weekend Deals, new kitchen launches and midnight specials straight to your
+              inbox. No spam. sirf khaana.</p>
+            <form class="cta-form" id="newsletter-form" novalidate>
+              <label for="newsletter-email" class="sr-only">Email address</label>
+              <input type="email" id="newsletter-email" class="cta-input" placeholder="you@example.com"
+                autocomplete="email" required />
+              <button type="submit" class="cta-btn" id="newsletter-submit">
+                Subscribe
+                <span class="material-symbols-outlined btn-icon">send</span>
+              </button>
+            </form>
+            <p class="cta-form-msg" id="newsletter-msg" role="status" aria-live="polite"></p>
+          </div>
+          <div class="cta-badges">
+            <a href="#" class="store-btn" id="cta-appstore" aria-label="Download on the App Store">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M16.37 12.6c-.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.7-3.18-1.73-1.35-.14-2.64.8-3.33.8-.69 0-1.74-.78-2.87-.76-1.47.02-2.83.86-3.59 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.24 2.73 2.2 1.1-.04 1.51-.71 2.84-.71 1.32 0 1.7.71 2.86.69 1.18-.02 1.93-1.07 2.65-2.13.84-1.22 1.18-2.41 1.2-2.47-.03-.01-2.3-.88-2.32-3.5zM14.2 6.14c.6-.73 1.01-1.75.9-2.76-.87.04-1.92.58-2.55 1.31-.56.65-1.05 1.68-.92 2.67.97.08 1.96-.49 2.57-1.22z" />
+              </svg>
+              <span><small>Download on the</small><strong>App Store</strong></span>
+            </a>
+            <a href="#" class="store-btn" id="cta-playstore" aria-label="Get it on Google Play">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M3.6 2.3c-.2.2-.3.6-.3 1v17.4c0 .4.1.8.3 1l9.7-9.7L3.6 2.3zm10.8 10.8 2.7 2.7-11.4 6.5 8.7-9.2zm0-2.2L5.7 1.7l11.4 6.5-2.7 2.7zm3.9 3.9-3-3 3-3 3.4 1.9c1 .6 1 1.6 0 2.2l-3.4 1.9z" />
+              </svg>
+              <span><small>Get it on</small><strong>Google Play</strong></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========= FOOTER (Identical to Home Page) ========= -->
+  <footer class="home-footer">
+    <div class="footer-wave" aria-hidden="true"></div>
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="./home.html" class="footer-brand-row" aria-label="KhaLo Home">
+            <span class="footer-logo-wrap">
+              <img src="../assets/khalo_logo_clean.png" alt="KhaLo Logo" class="footer-logo" />
+            </span>
+          </a>
+          <p class="footer-about">Helping you decide what to eat. Resolving everyday meal dilemmas with appetizing
+            clarity and smart budget picks across Pakistan.</p>
+
+          <div class="footer-socials" aria-label="Social media">
+            <a href="#" class="social-btn" aria-label="Facebook" id="social-facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram" id="social-instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok" id="social-tiktok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links: Explore -->
+        <nav class="footer-links" aria-label="Explore">
+          <span class="footer-links-title">Explore</span>
+          <a href="./home.html" class="footer-link">Home</a>
+          <a href="./find-my-meal.html" class="footer-link">Find My Meal</a>
+          <a href="./menu.html" class="footer-link">Our Menu</a>
+          <a href="./deals.html" class="footer-link">Deals <span class="footer-pill">Hot</span></a>
+          <a href="./khalo-specials.html" class="footer-link">KhaLo Specials</a>
+          <a href="./cart.html" class="footer-link">My Cart</a>
+        </nav>
+
+        <!-- Links: Account -->
+        <nav class="footer-links" aria-label="Account">
+          <span class="footer-links-title">Account</span>
+          <a href="./profile.html#tab-profile" class="footer-link">My Profile</a>
+          <a href="./profile.html#tab-orders" class="footer-link">Live Order Tracking</a>
+          <a href="./profile.html#tab-favorites" class="footer-link">Saved Dishes</a>
+          <a href="./profile.html#tab-addresses" class="footer-link">Delivery Addresses</a>
+        </nav>
+
+        <!-- Links: Support -->
+        <nav class="footer-links" aria-label="Support">
+          <span class="footer-links-title">Support</span>
+          <a href="./privacy-policy.html" class="footer-link">Privacy Policy</a>
+          <a href="./terms-of-service.html" class="footer-link">Terms of Service</a>
+        </nav>
+
+        <!-- Contact -->
+        <div class="footer-links footer-contact">
+          <span class="footer-links-title">Contact Us</span>
+          <a href="tel:+922111542556" class="footer-contact-item">
+            <span class="material-symbols-outlined">call</span>
+            <span>+92-300-000-0000</span>
+          </a>
+          <a href="mailto:hello@khalo.pk" class="footer-contact-item">
+            <span class="material-symbols-outlined">mail</span>
+            <span>hello@khalo</span>
+          </a>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">pin_drop</span>
+            <span>Karachi</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="material-symbols-outlined">schedule</span>
+            <span>Open daily, 10 AM – 4 AM</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Payment strip -->
+      <div class="footer-pay">
+        <span class="footer-pay-label">We accept</span>
+        <ul class="footer-pay-list">
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#15803D"/>
+              <rect x="2" y="2" width="28" height="16" rx="2" stroke="#86EFAC" stroke-width="0.8" stroke-dasharray="2 1.5" fill="none"/>
+              <circle cx="16" cy="10" r="4.2" fill="#FFFFFF"/>
+              <text x="16" y="12.5" font-family="'Inter', -apple-system, sans-serif" font-weight="900" font-size="7" fill="#15803D" text-anchor="middle">₨</text>
+            </svg>
+            <span>COD</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+              <path d="M13.2 14.5l1.6-9.5h2.5l-1.6 9.5h-2.5zm7.3-9.3c-.5-.2-1.3-.4-2.3-.4-2.5 0-4.3 1.3-4.3 3.2 0 1.4 1.3 2.2 2.2 2.7.9.5 1.3.8 1.3 1.2 0 .6-.8.9-1.5.9-1 0-1.5-.1-2.3-.5l-.3-.2-.3 1.9c.5.2 1.5.4 2.5.4 2.7 0 4.4-1.3 4.4-3.3 0-1.1-.7-2-2.2-2.7-.9-.5-1.5-.8-1.5-1.3 0-.4.5-.9 1.5-.9.8 0 1.4.2 1.9.4l.2.1.4-1.6zm5.8 4.6l1.2-3.3.7 3.3h-1.9zm2.8 4.7l-1.8-8.5c-.1-.4-.4-.6-.8-.6h-3.1c-.3 0-.5.1-.6.4l-3.5 8.7h2.6l.5-1.4h3.2l.3 1.4h2.3zm-16.7-9.5l-2.4 6.5-.3-1.3c-.4-1.5-1.8-3.1-3.3-3.9l2.2 8.2h2.7l4-9.5h-2.9z" fill="#1434CB"/>
+              <path d="M7.7 5h-4.2l-.1.4c3.3.8 5.4 2.8 6.3 5.2l-.9-4.7c-.2-.7-.6-.9-1.1-.9z" fill="#F7B600"/>
+            </svg>
+            <span>Visa</span>
+          </li>
+          <li class="pay-chip">
+            <svg class="pay-icon" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="32" height="20" rx="3.5" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="0.8"/>
+              <circle cx="12" cy="10" r="6" fill="#EB001B"/>
+              <circle cx="20" cy="10" r="6" fill="#F79E1B"/>
+              <path d="M16 5.86a6 6 0 0 0 0 8.28 6 6 0 0 0 0-8.28z" fill="#FF5F00"/>
+            </svg>
+            <span>Mastercard</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="footer-year">2025</span> KhaLo. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </button>
+
+  <!-- Floating Quick Cart Bar (Appears when items are in cart) -->
+  <aside class="floating-cart-bar" id="floating-cart-bar" aria-label="Cart Overview">
+    <div class="floating-cart-info">
+      <span class="floating-cart-badge" id="floating-cart-badge">0 items</span>
+      <span class="floating-cart-text">Total:</span>
+      <span class="floating-cart-price" id="floating-cart-price">Rs. 0</span>
+    </div>
+    <a href="./cart.html" class="floating-cart-btn">
+      <span>View Items</span>
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+    </a>
+  </aside>
+
+  <!-- Scripts -->
+  <script src="../js/location-dropdown.js"></script>
+  <script src="../js/deals.js"></script>
+  <script src="../js/quick-view-modal.js"></script>
+</body>
+
+</html>
